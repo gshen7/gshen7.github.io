@@ -14,13 +14,25 @@
 		<!-- Header -->
 			<section id="header">
 				<header>
+					<script type="text/javascript">
+    					function changeText(text){
+							var display = document.getElementById('text-display');
+							display.innerHTML = "";
+							display.innerHTML = text;
+        				}
+          				function changeback(text){
+            				var display = document.getElementById('text-display');
+            				display.innerHTML = "";
+            				display.innerHTML = text;
+        				}
+    				</script>
 					<span class="image avatar"><img src="images/avatar.jpg" alt="" /></span>
 					<h1 id="logo">Gary Shen</h1>
-					<p style="font-size:80%;">Business and Computer Engineering Student</p>
-					<a href="email:garyshen09@gmail.com" class="icon fa-envelope"></a>
-					<a href="https://www.linkedin.com/in/gshen7" class="icon fa-linkedin" target="_blank"></a>
-					<a href="https://github.com/gshen7" class="icon fa-github" target="_blank"></a>
-					<a href="tel:+12267003927" class="icon fa-phone"></a>
+					<p style="font-size:80%;" id="text-display">Business and Computer Engineering Student</p>
+					<a href="email:garyshen09@gmail.com" class="icon fa-envelope" onmouseover="changeText('garyshen09@gmail.com')" onmouseout="changeback('Business and Computer Engineering Student')"></a>
+					<a href="https://www.linkedin.com/in/gshen7" class="icon fa-linkedin" target="_blank" onmouseover="changeText('linkedin.com/in/gshen7')" onmouseout="changeback('Business and Computer Engineering Student')"></a>
+					<a href="https://github.com/gshen7" class="icon fa-github" target="_blank" onmouseover="changeText('github.com/gshen7')" onmouseout="changeback('Business and Computer Engineering Student')"></a>
+					<a href="tel:+12267003927" class="icon fa-phone" onmouseover="changeText('226-700-3927')" onmouseout="changeback('Business and Computer Engineering Student')"></a>
 					<br>
 					<a href="documents/GS_Resume.pdf" class="button small" target="_blank">View My Resume</a>
 					

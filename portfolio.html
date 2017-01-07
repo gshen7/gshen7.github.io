@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title> Gary Shen </title>
+        <link rel="shortcut icon" type="image/x-icon" href="images/pageico.png" />
+
+        <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+        <link rel="stylesheet" type="text/css" href="css/responsive.css"></link>
+        <link rel="stylesheet" type="text/css" href="css/animate.css"></link>
+
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+        
+        <script src="https://use.fontawesome.com/056c94c98c.js"></script>
+        <script type="text/javascript">
+            function toggleDrop() {
+                document.getElementById("myDropdown").classList.toggle("show");
+            }
+
+            function itemClick(ntext, dtext) {
+                var titleD = document.getElementById('title-display');
+                var descriptionD = document.getElementById('description-display');
+                titleD.innerHTML = ntext;
+                descriptionD.innerHTML = dtext;
+                toggleDrop();
+            }
+
+            function filterFunction() {
+                var input, filter, ul, li, a, i;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                div = document.getElementById("myDropdown");
+                a = div.getElementsByTagName("a");
+                for (i = 0; i < a.length; i++) {
+                    if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        a[i].style.display = "";
+                    } else {
+                        a[i].style.display = "none";
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+           <nav class="navbar navbar-fixed-top bg-dark">
+                <div class="container">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html"><i class="fa fa-home"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link-active" href="portfolio.html">Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"href="documents/resume.pdf" target="_blank">Resume <i class="fa fa-download"></i></a>
+                            </li>
+                        </ul>
+                </div>
+            </nav>
+        </header>
+
+        <section class="portfolio-banner">
+            <div class="container">
+                <br><br><br><br>
+                <div class="row animated fadeIn">
+                    <center>
+                        <div class="dropdown">
+                            <button onclick="toggleDrop()" class="dropbtn"><b>Select a project to view</b></button>
+                            <div id="myDropdown" class="dropdown-content">
+                                <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                                <a onclick="itemClick('Bike to Vehicle Communication Protocol (Android, Java, Pebble API) <br> Hack the North 2016', 'Designed a system to allow integration of bikers with potential vehicle-to-vehicle communication systems of the future. Used Pebble API to detect arm signals of bikers, and communicate with surrounding cars. This project simulated the communication between the biker\'s Pebble watch and on-board vehicle communication modules by using an Android application to represent the car\'s relevant status, and implementing a communication protocol via a python backend web service (which would be replaced with a direct communication protocol between the Pebble watch and on-board vehicle communication systems).')">Bike to Vehicle Communication Protocol (Android, Java, Pebble API)</a>
+                                <a onclick="itemClick('Indoor Locationing Technique (Android, Java, ReST) <br> Summer 2016', 'Awarded an NSERC Undergraduate Student Research Award and published \'A Novel Wifi-Based Indoor Localization Technique\' at IEEE CSCWD 2017. <br> Designed and implemented indoor locationing technique that uses a WiFi signal propagation based model to detect the location of a smartphone to a room-level accuracy.')">Indoor Locationing Technique (Android, Java, ReST)</a>
+                                <a onclick="itemClick('Human Activity Recognition App (Android, Weka, MATLAB) <br> 2015', 'Published \'Mitigating Sensor Differences for Phone-Based Human Activity Recognition\' at IEEE SMC 2016. <br> Developed app to distinguish between five basic human activities (running, walking, climbing up stairs, going down stairs, and sitting) based on phone accelerometer, gyroscope, azimuth and other sensor data. Inputted supervised trial data into the Weka Machine Learning tool for generation of decision making algorithms')">Human Activity Recognition App (Android, Weka, MATLAB)</a>
+                                <a onclick="itemClick('Smart Bed Monitoring System (Java, Zigbee) <br> 2014-2016', 'Awarded top 10/150 project at first year engineering design showcase. <br> Designed and constructed a machine-learning based smart bed monitoring system by integrating piezoelectric force sensors, ZigBee and machine learning to recognize and track bed-related activities. ')">Smart Bed Monitoring System (Java, Zigbee)</a>
+                                <a onclick="itemClick('Controllable Robot Vehicle (C) <br> 2013-2014', 'Built and programmed a car that could be controlled with a wired controller made of 4 buttons. ')">Controllable Robot Vehicle (C)</a>
+                                <a onclick="itemClick('Fall Detection App (Android, Weka, Twilio API) <br> 2012', 'Awarded Bronze Excellence Award at the Canada Wide Science Fair. <br> Designed fall detector smartphone app, implementing a fall detection algorithm generated using data from various smartphone sensors. ')">Fall Detection App (Android, Weka, Twilio API)</a>
+                                <a onclick="itemClick('Object Locator (Java, RFID) <br> 2010-2011', 'Awarded Bronze Excellence Award at the Canada Wide Science Fair. <br> Developed an object locator using passive RFID technology. ')">Object Locator (Java, RFID)</a>
+                            </div>
+                        </div>
+                    </center>
+                </div>
+                <center><h2 id="title-display"></h2></center>
+                <p align="justify" id="description-display"></p>
+            </div>    
+        </section>
+
+        <footer>
+            
+        </footer>
+    </body>    
+</html>

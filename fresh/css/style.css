@@ -77,8 +77,20 @@ li {
     -o-background-size: cover !important;
 }
 
+.opening-banner {
+    background-image:  url(../images/landingbackground.png);
+    background-position: center center no-repeat fixed;
+    height: 100vh;
+    position: relative;
+    text-align: center;
+    background-size: cover !important;
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    -o-background-size: cover !important;
+}
+
 .opening-banner > div {
-    padding-top: 30vh;
+    padding-top: 40vh;
 }
 
 .opening-header {
@@ -118,6 +130,8 @@ hr {
 }
 
 h1 {
+    text-align: right;
+    color: white !important;
     border-bottom: 1.5px solid #eee;
 }
 
@@ -135,6 +149,7 @@ h1 {
 }
 
 p {
+    color: white;
     margin-top: 0;
     margin-bottom: 1rem;
 }
@@ -220,4 +235,16 @@ a > #mail-icon:hover, a > #in-icon:hover, a > #resume-icon:hover, a > #git-icon:
     border-radius: 100%;
     overflow: hidden;
     display: block;
+    width: 100%;
+}
+
+.about-banner {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/aboutbackground.png);
+    background-position: center center no-repeat fixed;
+    height: 100vh;
+    position: relative;
+    background-size: cover !important;
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    -o-background-size: cover !important;
 }

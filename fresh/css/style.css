@@ -13,6 +13,7 @@ body {
 /* Header */
 nav {
     display: block;
+    text-align: center;
 }
 
 a {
@@ -30,13 +31,15 @@ a {
     background-color: #1B1C1D !important;
 }
 
-.icon-bar {
-    background-color: white;
-}
-
 .nav-link {
     background-color: #1B1C1D !important;
     color: #fffff4 !important;
+}
+
+.nav-link-active {
+    background-color: #1B1C1D !important;
+    color: lightblue !important;
+    text-shadow: 0 0 10px white, 0 5px 10px lightblue;
 }
 
 .nav-link:hover {
@@ -51,18 +54,10 @@ a {
 
 ul {
     margin-top: 0;
-    display: block;
-}
-
-/*
-.nav.navbar-nav > .nav-item {
-    position: absolute;
-    width: 100%;
-    left: 0;
+    display: inline-block;
     text-align: center;
-    margin:0 auto;
-} */
-
+    position: relative;
+}
 
 li {
     display: list-item;
@@ -92,6 +87,23 @@ li {
     text-shadow: 1px 1px 1px black, 0 0 25px blue, 0 0 5px darkblue;
     color: whitesmoke !important;
     border-bottom: none !important;
+}
+
+.opening-sub {
+    text-align: center;
+    font-size: 35px;
+    color: lightgrey !important;
+    border-bottom: none !important;
+}
+
+.opening-icon {
+    text-align: center;
+    font-size: 56px;
+    text-shadow: 1px 1px 1px black, 0 0 25px blue, 0 0 5px darkblue;
+    color: whitesmoke !important;
+    border-bottom: none !important;
+    padding-left: 2vh;
+    padding-right: 2vh;
 }
 
 /* Section 2 - Main content */
@@ -196,30 +208,26 @@ footer > .icons i:hover {
 }
 
 /* Icon css */
-#in-icon {
-    color: cornflowerblue
-}
-
-#fb-icon {
-    color: darkblue
-}
-
-#phone-icon {
-    color: green;
-}
-
 #mail-icon {
+    color: lightgrey
+}
+
+#in-icon {
+    color: lightgrey
+}
+
+#resume-icon {
     color: lightgrey;
 }
 
-a > #in-icon:hover, a > #fb-icon:hover {
-    text-decoration: none !important;
+#git-icon {
+    color: lightgrey
 }
 
-#about, #education, #experience, #contact {
-	padding-top: 40px;
+#phone-icon {
+    color: lightgrey;
 }
 
-#achievements {
-    padding-top: 50px;
+a > #mail-icon:hover, a > #in-icon:hover, a > #resume-icon:hover, a > #git-icon:hover, a > #phone-icon:hover  {
+    color: darkgrey;
 }

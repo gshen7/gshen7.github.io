@@ -9,16 +9,38 @@
 
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
         
+        <script src="https://use.fontawesome.com/056c94c98c.js"></script>
 
     </head>
     <body>
         <header>
-           
+           <nav class="navbar navbar-fixed-top bg-dark">
+                <div class="container">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Projects and Achievements</a>
+                            </li>
+                            <li class="nav-active">
+                                <a class="nav-link" href="#"><i class="fa fa-home"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Skills</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Experience</a>
+                            </li>
+                        </ul>
+                </div>
+            </nav>
         </header>
+
         <section class="opening-banner">
             <div class="container animated bounceIn">
                 <h1 class="opening-header">Welcome! I'm Gary!</h1>
-                <h1 class="opening-header" id="text-display">I'm glad you're here!</h1> 
+                <h2 class="opening-sub" id="text-display">I'm glad you're here!</h2> 
 
                 <script type="text/javascript">
                     function changeText(text){
@@ -28,13 +50,13 @@
                     }
                 </script>
                 <br>
-                <i class="mail icon"  onmouseover="changeText('garyshen09@gmail.com')"></i>
-                <a href="https://www.linkedin.com/in/gshen7" target="_blank"><i class="linkedin icon"  onmouseover="changeText('linkedin.com/in/gshen7')" ></i></a>
-                <a href="https://github.com/gshen7"  target="_blank"  ><i class="github icon"  onmouseover="changeText('github.com/gshen7')" ></i></a>
-                <i class="phone icon"  onmouseover="changeText('226-700-3927')"></i>
-                <br><br>
-                <a href="documents/GS_Resume.pdf"class="opening-header" target="_blank">View My Resume</a>
-
+                
+                <a href="mailto:garyshen09@gmail.com" class="opening-icon" target="_blank"><i id="mail-icon" class="fa fa-envelope" onmouseover="changeText('garyshen09@gmail.com')"></i></a>
+                <a href="https://www.linkedin.com/in/gshen7" class="opening-icon" target="_blank"><i id="in-icon" class="fa fa-linkedin" onmouseover="changeText('linkedin.com/in/gshen7')"></i></a>
+                <a href="documents/GS_Resume.pdf" class="opening-icon" target="_blank"><i id="resume-icon" class="fa fa-file-text" onmouseover="changeText('My Resume')"></i></a>
+                <a href="https://github.com/gshen7" class="opening-icon" target="_blank"  ><i id="git-icon" class="fa fa-github" onmouseover="changeText('github.com/gshen7')"></i></a>
+                <a href="phone:226-700-3927" class="opening-icon" target="_blank"><i id="phone-icon" class="fa fa-phone" onmouseover="changeText('226-700-3927')"></i></a>
+                
             </div>
         </section>
     </body>    

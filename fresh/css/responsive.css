@@ -1,0 +1,22 @@
+@media screen and (max-width: 800px) {
+	#about, #achievements, #education {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	#experience, #contact {
+		padding-left: 25px;
+		padding-right: 25px;
+	}
+
+	.resp-nv {
+		display:none;
+	}
+}
+
+@media screen and (max-width: 451px) {
+	.special-img2 {
+		height: 100%;
+		width: 100%;
+	}
+}

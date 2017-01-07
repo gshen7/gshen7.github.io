@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title> Gary Shen </title>
+        
+        <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+        <link rel="stylesheet" type="text/css" href="css/responsive.css"></link>
+        <link rel="stylesheet" type="text/css" href="css/animate.css"></link>
+
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+        
+
+    </head>
+    <body>
+        <header>
+           
+        </header>
+        <section class="opening-banner">
+            <div class="container animated bounceIn">
+                <h1 class="opening-header">Welcome! I'm Gary!</h1>
+                <h1 class="opening-header" id="text-display">I'm glad you're here!</h1> 
+
+                <script type="text/javascript">
+                    function changeText(text){
+                        var display = document.getElementById('text-display');
+                        display.innerHTML = "";
+                        display.innerHTML = text;
+                    }
+                </script>
+                <br>
+                <i class="mail icon"  onmouseover="changeText('garyshen09@gmail.com')"></i>
+                <a href="https://www.linkedin.com/in/gshen7" target="_blank"><i class="linkedin icon"  onmouseover="changeText('linkedin.com/in/gshen7')" ></i></a>
+                <a href="https://github.com/gshen7"  target="_blank"  ><i class="github icon"  onmouseover="changeText('github.com/gshen7')" ></i></a>
+                <i class="phone icon"  onmouseover="changeText('226-700-3927')"></i>
+                <br><br>
+                <a href="documents/GS_Resume.pdf"class="opening-header" target="_blank">View My Resume</a>
+
+            </div>
+        </section>
+    </body>    
+</html>

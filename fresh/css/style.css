@@ -100,7 +100,6 @@ li {
     text-align: center;
     font-size: 56px;
     text-shadow: 1px 1px 1px black, 0 0 25px blue, 0 0 5px darkblue;
-    color: whitesmoke !important;
     border-bottom: none !important;
     padding-left: 2vh;
     padding-right: 2vh;
@@ -208,26 +207,17 @@ footer > .icons i:hover {
 }
 
 /* Icon css */
-#mail-icon {
-    color: lightgrey
-}
-
-#in-icon {
-    color: lightgrey
-}
-
-#resume-icon {
-    color: lightgrey;
-}
-
-#git-icon {
-    color: lightgrey
-}
-
-#phone-icon {
+a > #mail-icon, a > #in-icon, a > #resume-icon, a > #git-icon, a > #phone-icon  {
     color: lightgrey;
 }
 
 a > #mail-icon:hover, a > #in-icon:hover, a > #resume-icon:hover, a > #git-icon:hover, a > #phone-icon:hover  {
     color: darkgrey;
+}
+
+/*image css*/
+.portrait {
+    border-radius: 100%;
+    overflow: hidden;
+    display: block;
 }

@@ -68,7 +68,6 @@ li {
 .opening-header {
     text-align: center;
     font-size: 56px;
-    text-shadow: 1px 1px 1px black, 0 0 25px blue, 0 0 5px darkblue;
     color: whitesmoke !important;
     border-bottom: none !important;
 }
@@ -83,7 +82,6 @@ li {
 .opening-icon {
     text-align: center;
     font-size: 56px;
-    text-shadow: 1px 1px 1px black, 0 0 25px blue, 0 0 5px darkblue;
     border-bottom: none !important;
     padding-left: 2vh;
     padding-right: 2vh;
@@ -166,7 +164,7 @@ b:hover {
 }
 
 .dropbtn:hover, .dropbtn:focus {
-    text-shadow: 1px 1px 1px black, 0 0 25px blue, 0 0 5px darkblue;
+    color: darkgrey;
 }
 
 #myInput {

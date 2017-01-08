@@ -118,19 +118,20 @@ p {
     color: white;
     margin-top: 0;
     margin-bottom: 1rem;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 p > a {
     color: darkgrey;
     margin-top: 0;
     margin-bottom: 1rem;
-    font-size: 18px;
+    font-size: 25px;
 }
 
 p > a:hover {
     color: deepskyblue;
     text-decoration: none;
+    cursor: pointer;
 }
 
 /* portfolio */

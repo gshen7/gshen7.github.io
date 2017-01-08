@@ -50,7 +50,7 @@ li {
 
 /* Opening */
 .opening-banner {
-    background-image:  url(../images/landingbackground.png);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),  url(../images/landingbackground.png);
     background-position: center center no-repeat fixed;
     height: 100vh;
     position: relative;

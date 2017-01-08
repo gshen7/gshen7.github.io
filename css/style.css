@@ -87,9 +87,18 @@ li {
     padding-right: 2vh;
 }
 
+h1 > a {
+    color: white;
+}
+
+h1 > a:hover {
+    color: darkgrey;
+    text-decoration: none;
+}
+
 /* About */
 .about-banner {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/aboutbackground.png);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../images/aboutbackground.png);
     background-position: center center no-repeat fixed;
     height: 100vh;
     position: relative;
@@ -109,6 +118,19 @@ p {
     color: white;
     margin-top: 0;
     margin-bottom: 1rem;
+    font-size: 15px;
+}
+
+p > a {
+    color: darkgrey;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 18px;
+}
+
+p > a:hover {
+    color: deepskyblue;
+    text-decoration: none;
 }
 
 /* portfolio */

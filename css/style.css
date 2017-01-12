@@ -213,9 +213,10 @@ b:hover {
     display: none;
     position: absolute;
     background-color: white;
-    min-width: 230px;
+    min-width: 200px;
     overflow: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    max-height: 400px;
 }
 
 .dropdown-content a {

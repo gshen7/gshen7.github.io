@@ -178,7 +178,7 @@ b:hover {
     border-radius: 100%;
     overflow: hidden;
     display: block;
-    max-width: 100%;
+    width: 100%;
 }
 
 /* Dropdown Button */

@@ -1,0 +1,7 @@
+/* nothing really important in the css */
+/* just setting some parameters for the canvas */
+canvas { 
+    background: #eee; 
+    display: block; 
+    margin: 0 auto; 
+}

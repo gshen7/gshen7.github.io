@@ -54,3 +54,26 @@ span.badge.pull-left {
 b {
     color: black;
 }
+
+.img-small {
+    width: 50px !important;
+}
+
+table {
+    border: 0px;
+    width: 100%;
+}
+
+a:hover{
+    color: lightgrey !important;
+    text-decoration: none;    
+}
+
+a:visited{
+    opacity: 0.5;
+    text-decoration: none;    
+}
+
+a>.img-thumbnail:hover{
+    opacity: 0.5;
+}

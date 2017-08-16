@@ -1,8 +1,4 @@
 CONTENT
--about
---school
---interests
---volunteer
 -projects
 --unfollowers
 --payments
@@ -18,4 +14,5 @@ CONTENT
 --magnet
 --cbs
 --western
-responsive
+CLOSING middle
+RESPONSIVE - mobile version

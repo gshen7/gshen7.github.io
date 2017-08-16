@@ -1,4 +1,4 @@
-var _currentActive = "landing";
+var _currentActive = "home";
 
 function navTo(newActive){
     var oldPill = document.getElementById(_currentActive+"-pill");

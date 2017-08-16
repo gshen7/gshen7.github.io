@@ -13,8 +13,10 @@ CONTENT
   * cbs
   * western
 
-CLOSING middle
+CLOSING
 
-RESPONSIVE - mobile version, short version
+RESPONSIVE
+* mobile version
+* short version
 
 TIMELINE 

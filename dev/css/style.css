@@ -77,3 +77,7 @@ a:visited{
 a>.img-thumbnail:hover{
     opacity: 0.5;
 }
+
+.dropdown-toggle, .dropdown-menu {
+    width: 100%;
+}

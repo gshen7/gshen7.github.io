@@ -44,8 +44,16 @@ body {
 
 .side {
     position: fixed;
-    padding-left: 50px;
+    /*padding-left: 50px;*/
     z-index: 1;
+}
+
+.left {
+    padding-left: 50px;
+}
+
+.right {
+    padding-right: 50px;
 }
 
 .portrait {

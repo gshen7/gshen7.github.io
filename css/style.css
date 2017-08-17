@@ -44,7 +44,6 @@ body {
 
 .side {
     position: fixed;
-    /*padding-left: 50px;*/
     z-index: 1;
 }
 

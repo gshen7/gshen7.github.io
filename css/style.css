@@ -116,3 +116,11 @@ a>.img-thumbnail:hover{
 .row{
     margin: 0;
 }
+
+.col-md-offset-9.side {
+    margin-left: 70%;
+}
+
+.col-md-offset-6.side {
+    margin-left: 47%;
+}

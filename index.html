@@ -1,218 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html> 
     <head>
-        <!-- Metadata -->
-        <meta charset="utf-8">
-        <title>Gary Shen</title>
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> Gary Shen </title>
+        <link rel="shortcut icon" type="image/x-icon" href="images/pageico.png" />
 
-        <!-- CSS links -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+        <link rel="stylesheet" type="text/css" href="css/responsive.css"></link>
+        <link rel="stylesheet" type="text/css" href="css/animate.css"></link>
+
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
         
-        <!-- Icon -->
-        <link rel="shortcut icon" type="image/x-icon" href="resources/pageico.png" />
-
-        <!-- JS -->
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="https://use.fontawesome.com/056c94c98c.js"></script>
-        <script src="js/script.js"></script>
-        
+        <script type="text/javascript">
+            function changeText(text){
+                var display = document.getElementById('text-display');
+                display.innerHTML = text;
+            }
+        </script>
     </head>
-    <body>
-        <div class="collapse" id="container-sm">
-            <div class="row padded">
-                <div class="row">
-                    <div class="col-xs-10 col-xs-offset-1">
-                        <div class="panel panel-info">
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-xs-8 col-xs-offset-2">
-                                        <img src="resources/portrait.png" class="img-circle img-responsive padded portrait" alt="portrait" >
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-10 col-xs-offset-1">
-                                        <div class="dropdown text-center">
-                                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Gary Shen <span class="caret"></span></button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="text-center text-small" href="#" onclick="navTo('about')">About</a></li>
-                                                <li><a class="text-center text-small" href="#" onclick="navTo('projects')">Projects</a></li>                                    
-                                                <li><a class="text-center text-small" href="#" onclick="navTo('experience')">Experience</a></li>
-                                                <li class="divider"/>
-                                                <li><a class="text-center text-small" href="resources/resume.pdf" target="_blank">Resume</a></li>
-                                                <li><a class="text-center text-small" href="mailto:garyshen09@gmail.com" target="_blank">garyshen09@gmail.com</a></li>
-                                                <li><a class="text-center text-small" href="https://www.linkedin.com/in/gshen7" target="_blank">linkedin.com/in/gshen7</a></li>
-                                                <li><a class="text-center text-small" href="https://www.github.com/gshen7" target="_blank">github.com/gshen7</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr/>
-                                <div class="row padded hidden" id="sm-content-div-about">
-                                    <div class="col-xs-12">
-                                        <div>
-                                            <h4>About</h4>
-                                            <b>Computer engineering and business</b> dual degree student at Western University and the Ivey School of Business. 
-                                            <b>Software development experience</b> includes work in agile, test-driven, and research environments. 
-                                            <br/><br/>
-                                            <b>Interests</b> include travelling, playing and watching sports, particularly hockey, 
-                                            table tennis and golf, and board/card games. I also enjoy discussions on pro sports analytics 
-                                            and a wide variety of reading and viewing interests.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row padded hidden" id="sm-content-div-projects">
-                                    <div class="col-xs-12">
-                                        <div>
-                                            <h4>Projects</h4>
-                                            <div class="row padded">
-                                                <div class="col-xs-12">
-                                                    <input type="text" placeholder="Search" class="form-control" id="sm-proj-search" onkeyup="filterProjects(true)">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-xs-12">
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Filter By Technologies <span class="caret"></span></button>
-                                                        <ul class="dropdown-menu" id="sm-projects-tag-filter"></ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <hr/>
-                                            <div class="col-md-12" id="sm-projects-container"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row padded hidden" id="sm-content-div-experience">
-                                    <div class="col-xs-12">
-                                        <div>
-                                            <h4>Experience</h4>
-                                            <div class="row padded">
-                                                <div class="col-xs-12">
-                                                    <table>
-                                                        <tr id="sm-experience-thumbs"></tr>
-                                                    </table>
-                                                </div>
-                                            </div>
-
-                                            <div class="row" id="sm-experience-container"></div>
-                                        </div>
-                                    </div>
-                                </div>       
-                            </div>
-                        </div>
-                    </div>
+    <body style="overflow:hidden;">
+        <header>
+           <nav class="navbar navbar-fixed-top bg-dark">
+                <div class="container">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link-active" href="index.html"><i class="fa fa-home"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="portfolio.html">Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="documents/resume.pdf" target="_blank">Resume <i class="fa fa-download"></i></a>
+                            </li>
+                        </ul>
                 </div>
-            </div>
-        </div>
+            </nav>
+        </header>
 
-        <div class="collapse" id="container-lg">
-            <div class="row padded">
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-3 col-md-offset-3 side transform animated slideInLeft" id="left-sidebar">
-                            <div class="panel panel-info">
-                                <div class="panel-body">
-                                    <ul class="nav nav-pills nav-stacked">
-                                        <li id="about-pill"><a href="#" onclick="navTo('about')">About</a></li>
-                                        <li id="projects-pill"><a href="#" onclick="navTo('projects')">Projects</a></li>                                    
-                                        <li id="experience-pill"><a href="#" onclick="navTo('experience')">Experience</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-md-offset-3 hidden transform animated zoomIn" id="content-div-about">
-                            <div class="panel panel-info">
-                                <div class="panel-body" id="content-panel-about">
-                                    <div class="row">
-                                        <div class="col-md-6 text-center">
-                                            <img src="resources/about-school.png" class="img-circle img-responsive" alt="about" >
-                                            <hr/>
-                                            <div class="half-text text-justify">
-                                                I'm a <b>Computer Engineering and Business</b> dual degree student at <b>Western University and the Ivey School of Business</b>. 
-                                                My experience in software development includes work in agile, test-driven, and research environments. 
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 text-center">
-                                            <img src="resources/about-interests.png" class="img-circle img-responsive" alt="about" >
-                                            <hr/>
-                                            <div class="half-text text-justify">
-                                                <b>Interests</b> include travelling, playing and watching sports, particularly hockey, 
-                                                table tennis and golf, and board/card games. I also enjoy discussions on pro sports analytics 
-                                                and a wide variety of reading and viewing interests.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-md-offset-3 hidden transform animated zoomIn" id="content-div-projects">
-                            <div class="panel panel-info">
-                                <div class="panel-body" id="content-panel-projects">     
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <input type="text" placeholder="Search" class="form-control" id="proj-search" onkeyup="filterProjects()">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="dropdown">
-                                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Filter By Technologies <span class="caret"></span></button>
-                                                <ul class="dropdown-menu" id="projects-tag-filter"></ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr/>
-                                    <div class="col-md-12" id="projects-container"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-md-offset-3 hidden transform animated zoomIn" id="content-div-experience">
-                            <div class="panel panel-info">
-                                <div class="panel-body" id="content-panel-experience">
-                                    <div class="row padded">
-                                        <div class="col-md-12">
-                                            <table>
-                                                <tr id="experience-thumbs"></tr>
-                                            </table>
-                                        </div>
-                                    </div>
+        <section class="opening-banner">
+            <div class="container animated bounceIn">
+                <h1 class="opening-header">Welcome! I'm Gary!</h1>
+                <h2 class="opening-sub" id="text-display">I'm glad you're here!</h2> 
 
-                                    <div class="row" id="experience-container"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-md-offset-6 text-center side animated slideInRight transform" id="right-sidebar">
-                            <div class="panel panel-info">
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-md-8 col-md-offset-2">
-                                            <img src="resources/portrait.png" class="img-circle img-responsive padded portrait" alt="portrait" >
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <h3><span class="label label-default">Gary Shen</span></h3><span class="label label-primary">Software Developer</span>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12 btn-group-vertical padded">
-                                            <a href="resources/resume.pdf" target="_blank" class="btn btn-default"><span class="badge pull-left"><i class="fa fa-download"></i></span> Resume</a>
-                                            <a href="mailto:garyshen09@gmail.com" target="_blank" class="btn btn-default"><span class="badge pull-left"><i class="fa fa-envelope"></i></span> garyshen09@gmail.com</a>
-                                            <a href="https://www.linkedin.com/in/gshen7" target="_blank" class="btn btn-default"><span class="badge pull-left"><i class="fa fa-linkedin"></i></span> linkedin.com/in/gshen7</a>
-                                            <a href="https://www.github.com/gshen7" target="_blank" class="btn btn-default"><span class="badge pull-left"><i class="fa fa-github"></i></span> github.com/gshen7</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <br>
+                
+                <a href="mailto:garyshen09@gmail.com" class="opening-icon" target="_blank"><i id="mail-icon" class="fa fa-envelope" onmouseover="changeText('garyshen09@gmail.com')" onmouseout="changeText('I\'m glad you\'re here!')"></i></a>
+                <a href="https://www.linkedin.com/in/gshen7" class="opening-icon" target="_blank"><i id="in-icon" class="fa fa-linkedin" onmouseover="changeText('linkedin.com/in/gshen7')" onmouseout="changeText('I\'m glad you\'re here!')"></i></a>
+                <a href="https://github.com/gshen7" class="opening-icon" target="_blank"  ><i id="git-icon" class="fa fa-github" onmouseover="changeText('github.com/gshen7')"onmouseout="changeText('I\'m glad you\'re here!')"></i></a>
+                <a href="tel:226-700-3927" class="opening-icon" target="_blank"><i id="phone-icon" class="fa fa-phone" onmouseover="changeText('226-700-3927')"onmouseout="changeText('I\'m glad you\'re here!')"></i></a>
+                
             </div>
-        </div>
-    </body>
+        </section>
+    </body>    
 </html>

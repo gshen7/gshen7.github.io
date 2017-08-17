@@ -108,3 +108,7 @@ a>.img-thumbnail:hover{
 .dropdown-toggle, .dropdown-menu {
     width: 100%;
 }
+
+.text-small {
+    font-size: 12px;
+}

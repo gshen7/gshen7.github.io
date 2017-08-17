@@ -78,6 +78,7 @@ const PROJECTS = [
     },
 ]
 const WIDTH_THRESHOLD = 1160;
+const HEIGHT_THRESHOLD = 1450;
 
 var currentActive = "home";
 var selectedTags = TAGS;
@@ -97,22 +98,23 @@ $(document).ready(function() {
     $(window).on('resize', function(){
         var win = $(this); 
         var width = $(window).width();
-        if(width>WIDTH_THRESHOLD){
-            resizeBig();
-        } else {
+        var height = $(window).height();
+        if(width<WIDTH_THRESHOLD || height<HEIGHT_THRESHOLD){
             resizeSmall();
+        } else {
+            resizeBig();
         }
   });
 });
 
 $( window ).on( "load", function() {
+    init();
     var width = $(window).width();
-    if(width<WIDTH_THRESHOLD){
+    if(width<WIDTH_THRESHOLD || height<HEIGHT_THRESHOLD){
         initSmall();
     } else {
         initBig();
     }
-    init();
 });
 
 function changeCheck(tag){
@@ -134,7 +136,16 @@ function changeContent(newActive){
         var rightSidebar = document.getElementById("right-sidebar");
         rightSidebar.className = rightSidebar.className.replace("col-md-offset-6", "col-md-offset-9");
     } 
-    var newContentPanel = document.getElementById("content-panel-"+newActive);
+
+    oldContentDiv = document.getElementById("sm-content-div-" + currentActive);
+    newContentDiv = document.getElementById("sm-content-div-" + newActive);
+    if(oldContentDiv && !oldContentDiv.className.includes("hidden")){
+        oldContentDiv.className = oldContentDiv.className + " hidden";
+    }
+    if(newContentDiv.className.includes("hidden")){
+        newContentDiv.className = newContentDiv.className.replace("hidden", "");
+    } 
+    
     currentActive=newActive;
 }
 

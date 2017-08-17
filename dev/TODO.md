@@ -1,2 +1,3 @@
 CONTENT
+
 CLOSING middle

@@ -113,7 +113,7 @@ var selectedTags = TAGS;
 var searchKey = "";
 
 $(document).ready(function() {
-    $( '#projects-tag-filter, #sm-projects-tags-filter' ).on( 'click', function( event ) {
+    $( '#projects-tag-filter, #sm-projects-tag-filter' ).on( 'click', function( event ) {
         var tag;
         if(event.target.className==="badge" || event.target.type==="checkbox"){
             tag = event.target.parentElement;
@@ -124,6 +124,7 @@ $(document).ready(function() {
         changeCheck(tag);
         event.stopPropagation();
     });
+
     $(window).on('resize', function(){
         var win = $(this); 
         var width = $(window).width();
@@ -295,7 +296,7 @@ function filterProjects(small){
     var otherInput = document.getElementById(!small ? 'sm-proj-search' : 'proj-search');
     otherInput.value = searchKey;
     var filteredProjects = PROJECTS.filter(function(p){
-        return p.title.includes(searchKey) || p.description.includes(searchKey);
+        return p.title.toUpperCase().includes(searchKey.toUpperCase()) || p.description.toUpperCase().includes(searchKey.toUpperCase());
     })
     filteredProjects = filteredProjects.filter(function(p){
         for(let i=0;i<selectedTags.length;i++){
@@ -356,7 +357,7 @@ function resizeSmall(){
 
 function updateTagsFilter(first){
     var tagOptions = TAGS.map(function(t) {
-        var out = "<li class=\"keep-open\"><a href=\"#\"><input type=\"checkbox\" id=\"" + t + "-check\" disabled ";
+        var out = "<li class=\"keep-open\"><a><input type=\"checkbox\" id=\"" + t + "-check\" disabled ";
         if(selectedTags.includes(t) && !first){
             out += "checked";
         } 
@@ -368,7 +369,7 @@ function updateTagsFilter(first){
     projectsTagFilter.innerHTML = tagOptions.join(" ");
 
     var tagOptions = TAGS.map(function(t) {
-        var out = "<li class=\"keep-open\"><a href=\"#\"><input type=\"checkbox\" id=\"sm-" + t + "-check\" disabled ";
+        var out = "<li class=\"keep-open\"><a><input type=\"checkbox\" id=\"sm-" + t + "-check\" disabled ";
         if(selectedTags.includes(t) && !first){
             out += "checked";
         } 

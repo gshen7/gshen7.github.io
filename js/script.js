@@ -194,11 +194,6 @@ function hideContent(){
   var rightSidebar = document.getElementById("right-sidebar");
   rightSidebar.className = rightSidebar.className.replace("col-md-offset-9", "col-md-offset-6");
 
-  // oldContentDiv = document.getElementById("sm-content-div-" + currentActive);
-  // if(oldContentDiv && !oldContentDiv.className.includes("hidden")){
-  //   oldContentDiv.className = oldContentDiv.className + " hidden";
-  // }
-
   currentActive="home";
 }
 

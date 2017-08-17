@@ -182,6 +182,26 @@ function changeContent(newActive){
     currentActive=newActive;
 }
 
+function hideContent(){
+  var oldContentDiv = document.getElementById("content-div-" + currentActive);
+  if(oldContentDiv && !oldContentDiv.className.includes("hidden")){
+    oldContentDiv.className = oldContentDiv.className + " hidden";
+  }
+
+  var leftSidebar = document.getElementById("left-sidebar");
+  leftSidebar.classList.add("col-md-offset-3");
+
+  var rightSidebar = document.getElementById("right-sidebar");
+  rightSidebar.className = rightSidebar.className.replace("col-md-offset-9", "col-md-offset-6");
+
+  // oldContentDiv = document.getElementById("sm-content-div-" + currentActive);
+  // if(oldContentDiv && !oldContentDiv.className.includes("hidden")){
+  //   oldContentDiv.className = oldContentDiv.className + " hidden";
+  // }
+
+  currentActive="home";
+}
+
 function changePanels(filteredProjects){
     var panels = filteredProjects.map(function(p) {
         var out = "<div class=\"panel panel-default\"><div class=\"panel-heading\" data-toggle=\"collapse\" href=\"#project-" + p.id + "-collapse\">" + p.title + "</div><div class=\"panel-body\">";
@@ -336,9 +356,13 @@ function navTo(newActive){
     if(oldPill){
         oldPill.className="inactive";
     }
-    var newPill = document.getElementById(newActive+"-pill");
-    newPill.className="active";
-    changeContent(newActive);
+    if (newActive === currentActive){
+        hideContent();
+    }else{
+        var newPill = document.getElementById(newActive+"-pill");
+        newPill.className="active";
+        changeContent(newActive);
+    }
 }
 
 function resizeBig(){

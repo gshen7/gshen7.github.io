@@ -1,3 +1,0 @@
-CONTENT
-
-CLOSING middle

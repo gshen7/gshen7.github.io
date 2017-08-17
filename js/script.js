@@ -83,7 +83,7 @@ const EXPERIENCE = [
         position: "Software Developer Co-op",
         location: "Waterloo, ON, Canada",
         date: "May 2017-Aug 2017",
-        description: "Full-stack development of dashboard aggregating various metrics.",
+        description: "Full-stack development of metric dashboard aggregating testing data from various sources.",
         logoSource: "resources/exp-magnet.png"
     },
     {
@@ -92,7 +92,7 @@ const EXPERIENCE = [
         position: "Student Developer",
         location: "London, ON, Canada",
         date: "Jan 2017-May 2017",
-        description: "Porting puzzles used for cognitive evalations from flash player to HTML5 and JS to modernize platform.",
+        description: "Ported puzzles used for cognitive evalations from flash player to HTML5 and JS to modernize platform.",
         logoSource: "resources/exp-cbs.png"
     },
     {
@@ -185,7 +185,7 @@ function changeContent(newActive){
 function changePanels(filteredProjects){
     var panels = filteredProjects.map(function(p) {
         var out = "<div class=\"panel panel-default\"><div class=\"panel-heading\" data-toggle=\"collapse\" href=\"#project-" + p.id + "-collapse\">" + p.title + "</div><div class=\"panel-body\">";
-        for(let i=0;i<p.tags.length;i++){
+        for(var i=0;i<p.tags.length;i++){
             out += "  <span class=\"label label-default\">" + p.tags[i] + "</span>";
         }
         out += "<div class=\"collapse\" id=\"project-" + p.id + "-collapse\"><br/>" + p.description + "</div></div></div>";
@@ -197,7 +197,7 @@ function changePanels(filteredProjects){
 
     panels = filteredProjects.map(function(p) {
         var out = "<div class=\"panel panel-default\"><div class=\"panel-heading\" data-toggle=\"collapse\" href=\"#sm-project-" + p.id + "-collapse\">" + p.title + "</div><div class=\"panel-body\">";
-        for(let i=0;i<p.tags.length;i++){
+        for(var i=0;i<p.tags.length;i++){
             out += "  <span class=\"label label-default\">" + p.tags[i] + "</span>";
         }
         out += "<div class=\"collapse\" id=\"sm-project-" + p.id + "-collapse\"><br/>" + p.description + "</div></div></div>";
@@ -210,7 +210,7 @@ function changePanels(filteredProjects){
 
 function changeSelectedTags(){
     selectedTags = [];
-    for(let i=0;i<TAGS.length;i++){
+    for(var i=0;i<TAGS.length;i++){
         var tagCheck = document.getElementById(TAGS[i]+"-check");
         if(tagCheck.checked){
             selectedTags.push(TAGS[i]);
@@ -270,7 +270,7 @@ function changeWells(experience){
 }
 
 function expandExperience(key){
-    for(let i=0;i<EXPERIENCE.length;i++){
+    for(var i=0;i<EXPERIENCE.length;i++){
         if(key!==EXPERIENCE[i].key){
             var thumb = document.getElementById(EXPERIENCE[i].key+"-thumb");
             thumb.className = thumb.className.replace("faded", "");
@@ -299,7 +299,7 @@ function filterProjects(small){
         return p.title.toUpperCase().includes(searchKey.toUpperCase()) || p.description.toUpperCase().includes(searchKey.toUpperCase());
     })
     filteredProjects = filteredProjects.filter(function(p){
-        for(let i=0;i<selectedTags.length;i++){
+        for(var i=0;i<selectedTags.length;i++){
             if(p.tags.includes(selectedTags[i])){
                 return true;
             }

@@ -49,6 +49,7 @@ span.badge.pull-left {
 
 .half-text {
     color: grey;
+    font-size: 18px;
 }
 
 b {
@@ -64,6 +65,10 @@ table {
     width: 100%;
 }
 
+a {
+    text-decoration: none !important; 
+}
+
 a:hover{
     color: lightgrey !important;
     text-decoration: none;    
@@ -76,6 +81,10 @@ a:visited{
 
 a>.img-thumbnail:hover{
     opacity: 0.5;
+}
+
+.faded {
+    opacity: 0.5 !important;
 }
 
 .dropdown-toggle, .dropdown-menu {

@@ -1,65 +1,81 @@
-const tags = ["red", "orange", "yellow", "green", "blue"];
+const experienceKeys = ["magnet", "cbs", "uwo"];
+const tags = [
+    "NodeJS", //0
+    "Java", //1
+    "Meteor", //2
+    "Android", //3
+    "R", //4
+    "MATLAB", //5
+    "MongoDB", //6
+    "MySQL", //7
+    "Machine Learning", //8
+];
+const tagsCount = {
+    "NodeJS": 2,
+    "Java": 5,
+    "Meteor": 1,
+    "Android": 2,
+    "R": 2,
+    "MATLAB": 1,
+    "MongoDB": 1,
+    "MySQL": 1,
+    "Machine Learning": 3, 
+}
 const projects = [
     {
         id: 0,
-        title: "0",
-        tags: [tags[0], tags[1]],
-        description: "zero",
+        title: "IOU",
+        tags: [tags[0], tags[2], tags[6]],
+        description: "[In Progress] A web application simplifying the process for collecting money from friends using the PayPal API.",
     },
     {
         id: 1,
-        title: "1",
-        tags: [tags[2], tags[3]],
-        description: "one",
+        title: "NHL Prediction Model",
+        tags: [tags[4], tags[8]],
+        description: "A model for predicting various aspects of NHL games. Used the perceptron machine learning algorithm to create a model to predict which teams will make the playoffs based on input factors of various season stats. Also created regression models for (A) evaluating players based on a single number metric, aggregating contributions on a game by game basis; and (B) predicting fantasy hockey points based on recent stats.",
     },
     {
         id: 2,
-        title: "2",
-        tags: [tags[4], tags[0]],
-        description: "two",
+        title: "Group Tools Chatbot",
+        tags: [tags[0]],
+        description: "A Facebook messenger chatbot to add several tools for group chats. Tools were a gold star tracker, list randomizer and selector, and reaction picture library.",
     },
     {
         id: 3,
-        title: "3",
-        tags: [tags[1], tags[2]],
-        description: "three",
+        title: "Support and Resistance Line Generator",
+        tags: [tags[4]],
+        description: "A platform to determine and plot support and resistance lines based on stock charts.",
     },
     {
         id: 4,
-        title: "4",
-        tags: [tags[3], tags[4]],
-        description: "four",
+        title: "BikeSafe for V2V",
+        tags: [tags[1], tags[3]],
+        description: "A smartwatch app to detect cyclists' hand signals.",
     },
     {
         id: 5,
-        title: "5",
-        tags: [tags[0], tags[1]],
-        description: "five",
+        title: "Indoor Locationing App",
+        tags: [tags[1], tags[3]],
+        description: "A novel indoor locationing technique based on a self-developed WiFi signal strength propagation based model.",
     },
     {
         id: 6,
-        title: "6",
-        tags: [tags[2], tags[3]],
-        description: "six",
+        title: "Activity Tracking App",
+        tags: [tags[1], tags[3], tags[5], tags[8]],
+        description: "A machine learning based app to track physical activities throughout the day. Could distinguish between walking, running, stairs, and sitting.",
     },
     {
         id: 7,
-        title: "7",
-        tags: [tags[4], tags[0]],
-        description: "seven",
+        title: "Smart Bed Monitoring System",
+        tags: [tags[1], tags[8]],
+        description: "A machine learning based system for detecting bed-related scenarios and monitoring sleep patterns using simple, non-intrusive piezoelectric force sensors.",
     },
     {
         id: 8,
-        title: "8",
-        tags: [tags[1], tags[2]],
-        description: "eight",
+        title: "RFID Object Locator",
+        tags: [tags[1], tags[7]],
+        description: "A system for locating tagged items.",
     },
-    {
-        id: 9,
-        title: "9",
-        tags: [tags[3], tags[4]],
-        description: "nine",
-    }
 ]
 
 var currentActive = "home";
@@ -92,7 +108,7 @@ function filterProjects(){
     var searchKey = searchInput.value;
     
     var filteredProjects = projects.filter(function(p){
-        return p.title.includes(searchKey);
+        return p.title.includes(searchKey) || p.description.includes(searchKey);
     })
     filteredProjects = filteredProjects.filter(function(p){
         for(let i=0;i<selectedTags.length;i++){
@@ -131,6 +147,22 @@ function changeSelectedTags(){
     filterProjects();
 }
 
+function expandExperience(key){
+    for(let i=0;i<experienceKeys.length;i++){
+        if(key!==experienceKeys[i]){
+            var thumb = document.getElementById(experienceKeys[i]+"-thumb");
+            thumb.className = thumb.className.replace("faded", "");
+            var content = document.getElementById(experienceKeys[i]+"-collapse");
+            content.className = content.className.replace("in", "");
+        } else {
+            var thumb = document.getElementById(experienceKeys[i]+"-thumb");
+            thumb.className = thumb.className.includes("faded") ? thumb.className : thumb.className + " faded";
+            var content = document.getElementById(experienceKeys[i]+"-collapse");
+            content.className = content.className.includes("in") ? content.className : content.className+" in";
+        }
+    }
+}
+
 function init(){
     changePanels(projects);
     updateTagsFilter();
@@ -153,7 +185,7 @@ function updateTagsFilter(){
         if(selectedTags.includes(t)){
             out += "checked";
         } 
-        out += "/> " + t + "</a></li>";
+        out += "/> " + t + " <span class=\"badge\">" + tagsCount[t] + "</span></a></li>";
         return out;
     });
 

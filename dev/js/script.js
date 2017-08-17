@@ -1,4 +1,3 @@
-const EXPERIENCE_KEYS = ["magnet", "cbs", "uwo"];
 const TAGS = [
     "NodeJS", //0
     "Java", //1
@@ -23,25 +22,25 @@ const TAGS_COUNT = {
 }
 const PROJECTS = [
     {
-        id: 0,
+        id: 8,
         title: "IOU",
         tags: [TAGS[0], TAGS[2], TAGS[6]],
         description: "[In Progress] A web application simplifying the process for collecting money from friends using the PayPal API.",
     },
     {
-        id: 1,
+        id: 7,
         title: "NHL Prediction Model",
         tags: [TAGS[4], TAGS[8]],
         description: "A model for predicting various aspects of NHL games. Used the perceptron machine learning algorithm to create a model to predict which teams will make the playoffs based on input factors of various season stats. Also created regression models for (A) evaluating players based on a single number metric, aggregating contributions on a game by game basis; and (B) predicting fantasy hockey points based on recent stats.",
     },
     {
-        id: 2,
+        id: 6,
         title: "Group Tools Chatbot",
         tags: [TAGS[0]],
         description: "A Facebook messenger chatbot to add several tools for group chats. Tools were a gold star tracker, list randomizer and selector, and reaction picture library.",
     },
     {
-        id: 3,
+        id: 5,
         title: "Support and Resistance Line Generator",
         tags: [TAGS[4]],
         description: "A platform to determine and plot support and resistance lines based on stock charts.",
@@ -53,38 +52,68 @@ const PROJECTS = [
         description: "A smartwatch app to detect cyclists' hand signals.",
     },
     {
-        id: 5,
+        id: 3,
         title: "Indoor Locationing App",
         tags: [TAGS[1], TAGS[3]],
         description: "A novel indoor locationing technique based on a self-developed WiFi signal strength propagation based model.",
     },
     {
-        id: 6,
+        id: 2,
         title: "Activity Tracking App",
         tags: [TAGS[1], TAGS[3], TAGS[5], TAGS[8]],
         description: "A machine learning based app to track physical activities throughout the day. Could distinguish between walking, running, stairs, and sitting.",
     },
     {
-        id: 7,
+        id: 1,
         title: "Smart Bed Monitoring System",
         tags: [TAGS[1], TAGS[8]],
         description: "A machine learning based system for detecting bed-related scenarios and monitoring sleep patterns using simple, non-intrusive piezoelectric force sensors.",
     },
     {
-        id: 8,
+        id: 0,
         title: "RFID Object Locator",
         tags: [TAGS[1], TAGS[7]],
         description: "A system for locating tagged items.",
     },
 ]
+const EXPERIENCE = [
+     {
+        key: "magnet",
+        company: "Magnet Forensics",
+        position: "Software Developer Co-op",
+        location: "Waterloo, ON, Canada",
+        date: "May 2017-Aug 2017",
+        description: "Full-stack development of dashboard aggregating various metrics.",
+        logoSource: "resources/exp-magnet.png"
+    },
+    {
+        key: "cbs",
+        company: "Cambridge Brain Sciences",
+        position: "Student Developer",
+        location: "London, ON, Canada",
+        date: "Jan 2017-May 2017",
+        description: "Porting puzzles used for cognitive evalations from flash player to HTML5 and JS to modernize platform.",
+        logoSource: "resources/exp-cbs.png"
+    },
+    {
+        key: "uwo",
+        company: "Western University ECE Research Group",
+        position: "Undergraduate Researcher",
+        location: "London, ON, Canada",
+        date: "Nov 2015-Aug 2016",
+        description: "Research and development of smartphone based human activity recognition and indoor locationing. <br/>Publications: <br/>A novel Wifi-based indoor localization system <br/><a href=\"http://ieeexplore.ieee.org/document/7844783/\">Mitigating sensor differences for phone-based human activity recognition",
+        logoSource: "resources/exp-uwo.png"
+    },
+]
 const WIDTH_THRESHOLD = 1160;
-const HEIGHT_THRESHOLD = 1450;
+const HEIGHT_THRESHOLD = 450;
 
 var currentActive = "home";
 var selectedTags = TAGS;
+var searchKey = "";
 
 $(document).ready(function() {
-    $( '#projects-tag-filter' ).on( 'click', function( event ) {
+    $( '#projects-tag-filter, #sm-projects-tags-filter' ).on( 'click', function( event ) {
         var tag;
         if(event.target.className==="badge" || event.target.type==="checkbox"){
             tag = event.target.parentElement;
@@ -110,6 +139,7 @@ $(document).ready(function() {
 $( window ).on( "load", function() {
     init();
     var width = $(window).width();
+    var height = $(window).height();
     if(width<WIDTH_THRESHOLD || height<HEIGHT_THRESHOLD){
         initSmall();
     } else {
@@ -120,6 +150,8 @@ $( window ).on( "load", function() {
 function changeCheck(tag){
     var tagCheck = document.getElementById(tag+"-check");
     tagCheck.checked = !tagCheck.checked;
+    var smallTagCheck = document.getElementById("sm-" + tag+"-check");
+    smallTagCheck.checked = !smallTagCheck.checked;
     changeSelectedTags();
 }
 
@@ -161,6 +193,18 @@ function changePanels(filteredProjects){
 
     var projectsContainer = document.getElementById('projects-container');
     projectsContainer.innerHTML = panels.join(" ");
+
+    panels = filteredProjects.map(function(p) {
+        var out = "<div class=\"panel panel-default\"><div class=\"panel-heading\" data-toggle=\"collapse\" href=\"#sm-project-" + p.id + "-collapse\">" + p.title + "</div><div class=\"panel-body\">";
+        for(let i=0;i<p.tags.length;i++){
+            out += "  <span class=\"label label-default\">" + p.tags[i] + "</span>";
+        }
+        out += "<div class=\"collapse\" id=\"sm-project-" + p.id + "-collapse\"><br/>" + p.description + "</div></div></div>";
+        return out;
+    });
+
+    var smallProjectsContainer = document.getElementById('sm-projects-container');
+    smallProjectsContainer.innerHTML = panels.join(" ");
 }
 
 function changeSelectedTags(){
@@ -175,31 +219,81 @@ function changeSelectedTags(){
     filterProjects();
 }
 
-function changeText(text, id){
-    var display = document.getElementById(id);
-    display.innerHTML = text;
+function changeWells(experience){
+    var thumbs = experience.map(function(e){
+        return "<td class=\"text-center\"><a onmouseover=\"expandExperience('" + e.key +
+            "')\"><img src=\"" + e.logoSource + 
+            "\" id=\"" + e.key +
+            "-thumb\" class=\"img-small img-thumbnail img-responsive\"></a></td>";
+    });
+
+    var thumbnailContainer = document.getElementById("experience-thumbs");
+    thumbnailContainer.innerHTML = thumbs.join(" ");
+
+    var thumbs = experience.map(function(e){
+        return "<td class=\"text-center\"><a onmouseover=\"expandExperience('" + e.key +
+            "')\"><img src=\"" + e.logoSource + 
+            "\" id=\"sm-" + e.key +
+            "-thumb\" class=\"img-small img-thumbnail img-responsive\"></a></td>";
+    });
+
+    thumbnailContainer = document.getElementById("sm-experience-thumbs");
+    thumbnailContainer.innerHTML = thumbs.join(" ");
+    
+    
+    var divs = experience.map(function(e) {
+        return "<div class=\"col-md-12 collapse\" id=\"" + e.key + 
+            "-collapse\"><h4 class=\"text-center\">" + e.company + 
+            "</h4><br/><i><table class=\"text-center\"><tr><td>" + e.position +
+            "</td><td>" + e.location +
+            "</td><td>" + e.date +
+            "</td></tr></table></i><hr/><div class=\"well text-justify\">" + e.description +
+            "</div></div>";
+    });
+
+    var experienceContainer = document.getElementById('experience-container');
+    experienceContainer.innerHTML = divs.join(" ");
+
+    divs = experience.map(function(e) {
+        return "<div class=\"col-md-12 collapse\" id=\"sm-" + e.key + 
+            "-collapse\"><h4 class=\"text-center\">" + e.company + 
+            "</h4><br/><i><table class=\"text-center\"><tr><td>" + e.position +
+            "</td></tr><tr><td>" + e.location +
+            "</td></tr><tr><td>" + e.date +
+            "</td></tr></table></i><hr/><div class=\"well\">" + e.description +
+            "</div></div>";
+    });
+
+    var smallExperienceContainer = document.getElementById('sm-experience-container');
+    smallExperienceContainer.innerHTML = divs.join(" ");
 }
 
 function expandExperience(key){
-    for(let i=0;i<EXPERIENCE_KEYS.length;i++){
-        if(key!==EXPERIENCE_KEYS[i]){
-            var thumb = document.getElementById(EXPERIENCE_KEYS[i]+"-thumb");
+    for(let i=0;i<EXPERIENCE.length;i++){
+        if(key!==EXPERIENCE[i].key){
+            var thumb = document.getElementById(EXPERIENCE[i].key+"-thumb");
             thumb.className = thumb.className.replace("faded", "");
-            var content = document.getElementById(EXPERIENCE_KEYS[i]+"-collapse");
+            var content = document.getElementById(EXPERIENCE[i].key+"-collapse");
             content.className = content.className.replace("in", "");
+            var smallContent = document.getElementById("sm-" + EXPERIENCE[i].key+"-collapse");
+            smallContent.className = smallContent.className.replace("in", "");
+            
         } else {
-            var thumb = document.getElementById(EXPERIENCE_KEYS[i]+"-thumb");
+            var thumb = document.getElementById(EXPERIENCE[i].key+"-thumb");
             thumb.className = thumb.className.includes("faded") ? thumb.className : thumb.className + " faded";
-            var content = document.getElementById(EXPERIENCE_KEYS[i]+"-collapse");
+            var content = document.getElementById(EXPERIENCE[i].key+"-collapse");
             content.className = content.className.includes("in") ? content.className : content.className+" in";
+            var smallContent = document.getElementById("sm-" + EXPERIENCE[i].key+"-collapse");
+            smallContent.className = smallContent.className.includes("in") ? smallContent.className : smallContent.className+" in";
         }
     }
 }
 
-function filterProjects(){
-    var searchInput = document.getElementById('proj-search');
-    var searchKey = searchInput.value;
-    
+function filterProjects(small){
+    var searchInput = document.getElementById(small ? 'sm-proj-search' : 'proj-search');
+    searchKey = searchInput.value;
+    var otherInput = document.getElementById(!small ? 'sm-proj-search' : 'proj-search');
+    otherInput.value = searchKey;
     var filteredProjects = PROJECTS.filter(function(p){
         return p.title.includes(searchKey) || p.description.includes(searchKey);
     })
@@ -211,11 +305,13 @@ function filterProjects(){
         }
         return false;
     })
+
     changePanels(filteredProjects);
 }
 
 function init(){
     changePanels(PROJECTS);
+    changeWells(EXPERIENCE);
     updateTagsFilter(true);
     filterProjects();
 }
@@ -269,5 +365,17 @@ function updateTagsFilter(first){
     });
 
     var projectsTagFilter = document.getElementById('projects-tag-filter');
+    projectsTagFilter.innerHTML = tagOptions.join(" ");
+
+    var tagOptions = TAGS.map(function(t) {
+        var out = "<li class=\"keep-open\"><a href=\"#\"><input type=\"checkbox\" id=\"sm-" + t + "-check\" disabled ";
+        if(selectedTags.includes(t) && !first){
+            out += "checked";
+        } 
+        out += "/> " + t + " <span class=\"badge\">" + TAGS_COUNT[t] + "</span></a></li>";
+        return out;
+    });
+
+    var projectsTagFilter = document.getElementById('sm-projects-tag-filter');
     projectsTagFilter.innerHTML = tagOptions.join(" ");
 }

@@ -73,19 +73,19 @@
                                             <h4>Projects</h4>
                                             <div class="row padded">
                                                 <div class="col-xs-12">
-                                                    <input type="text" placeholder="Search" class="form-control" id="proj-search" onkeyup="filterProjects()">
+                                                    <input type="text" placeholder="Search" class="form-control" id="sm-proj-search" onkeyup="filterProjects(true)">
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-xs-12">
                                                     <div class="dropdown">
                                                         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Filter By Technologies <span class="caret"></span></button>
-                                                        <ul class="dropdown-menu" id="projects-tag-filter"></ul>
+                                                        <ul class="dropdown-menu" id="sm-projects-tag-filter"></ul>
                                                     </div>
                                                 </div>
                                             </div>
                                             <hr/>
-                                            <div class="col-md-12" id="projects-container"></div>
+                                            <div class="col-md-12" id="sm-projects-container"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -94,37 +94,14 @@
                                         <div>
                                             <h4>Experience</h4>
                                             <div class="row padded">
-                                                <div class="col-md-12">
+                                                <div class="col-xs-12">
                                                     <table>
-                                                        <tr>
-                                                            <td class="text-center"><a onmouseover="expandExperience('magnet')"><img src="resources/exp-magnet.png" id="magnet-thumb" class="img-small img-thumbnail img-responsive" alt="experience" ></a></td>
-                                                            <td class="text-center"><a onmouseover="expandExperience('cbs')"><img src="resources/exp-cbs.png" id="cbs-thumb" class="img-small img-thumbnail img-responsive" alt="experience" ></a></td>
-                                                            <td class="text-center"><a onmouseover="expandExperience('uwo')"><img src="resources/exp-uwo.png" id="uwo-thumb" class="img-small img-thumbnail img-responsive" alt="experience" ></a></td>
-                                                        </tr>
+                                                        <tr id="sm-experience-thumbs"></tr>
                                                     </table>
                                                 </div>
                                             </div>
 
-                                            <div class="row">
-                                                <div class="col-md-12 collapse" id="magnet-collapse">
-                                                    <h4 class="text-center">Magnet Forensics</h4><br/>
-                                                    <i><table class="text-center"><tr><td>Software Developer Co-op</td></tr><tr><td>Waterloo, ON, Canada</td></tr><tr><td>May 2017-Aug 2017</td></tr></table></i>
-                                                    <hr/>
-                                                    <div class="well">Full-stack development of dashboard aggregating various metrics.</div>
-                                                </div>
-                                                <div class="col-md-12 collapse" id="cbs-collapse">
-                                                    <h4 class="text-center">Cambridge Brain Sciences</h4><br/>
-                                                    <i><table class="text-center"><tr><td>Student Developer</td></tr><tr><td>London, ON, Canada</td></tr><tr><td>Jan 2017-Apr 2017</td></tr></table></i>
-                                                    <hr/>
-                                                    <div class="well">Porting puzzles used for cognitive evaluations from flash player to HTML5 and JS to modernize platform.</div>
-                                                </div>
-                                                <div class="col-md-12 collapse" id="uwo-collapse">
-                                                    <h4 class="text-center">Western University Electrical and Computer Engineering</h4><br/>
-                                                    <i><table class="text-center"><tr><td>Undergraduate Researcher</td></tr><tr><td>London, ON, Canada</td></tr><tr><td>Nov 2015-Aug 2016</td></tr></table></i>
-                                                    <hr/>
-                                                    <div class="well">Research and development of smartphone based human activity recognition and indoor locationing. <br/>Publications: <br/>A novel Wifi-based indoor localization system <br/><a href="http://ieeexplore.ieee.org/document/7844783/">Mitigating sensor differences for phone-based human activity recognition</a></div>
-                                                </div>
-                                            </div>
+                                            <div class="row" id="sm-experience-container"></div>
                                         </div>
                                     </div>
                                 </div>       
@@ -200,35 +177,12 @@
                                     <div class="row padded">
                                         <div class="col-md-12">
                                             <table>
-                                                <tr>
-                                                    <td class="text-center"><a onmouseover="expandExperience('magnet')"><img src="resources/exp-magnet.png" id="magnet-thumb" class="img-small img-thumbnail img-responsive" alt="experience" ></a></td>
-                                                    <td class="text-center"><a onmouseover="expandExperience('cbs')"><img src="resources/exp-cbs.png" id="cbs-thumb" class="img-small img-thumbnail img-responsive" alt="experience" ></a></td>
-                                                    <td class="text-center"><a onmouseover="expandExperience('uwo')"><img src="resources/exp-uwo.png" id="uwo-thumb" class="img-small img-thumbnail img-responsive" alt="experience" ></a></td>
-                                                </tr>
+                                                <tr id="experience-thumbs"></tr>
                                             </table>
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-md-12 collapse" id="magnet-collapse">
-                                            <h4 class="text-center">Magnet Forensics</h4><br/>
-                                            <i><table class="text-center"><tr><td>Software Developer Co-op</td><td>Waterloo, ON, Canada</td><td>May 2017-Aug 2017</td></tr></table></i>
-                                            <hr/>
-                                            <div class="well text-justify">Full-stack development of dashboard aggregating various metrics.</div>
-                                        </div>
-                                        <div class="col-md-12 collapse" id="cbs-collapse">
-                                            <h4 class="text-center">Cambridge Brain Sciences</h4><br/>
-                                            <i><table class="text-center"><tr><td>Student Developer</td><td>London, ON, Canada</td><td>Jan 2017-Apr 2017</td></tr></table></i>
-                                            <hr/>
-                                            <div class="well text-justify">Porting puzzles used for cognitive evaluations from flash player to HTML5 and JS to modernize platform.</div>
-                                        </div>
-                                        <div class="col-md-12 collapse" id="uwo-collapse">
-                                            <h4 class="text-center">Western University Electrical and Computer Engineering</h4><br/>
-                                            <i><table class="text-center"><tr><td>Undergraduate Researcher</td><td>London, ON, Canada</td><td>Nov 2015-Aug 2016</td></tr></table></i>
-                                            <hr/>
-                                            <div class="well text-justify">Research and development of smartphone based human activity recognition and indoor locationing. <br/>Publications: <br/>A novel Wifi-based indoor localization system <br/><a href="http://ieeexplore.ieee.org/document/7844783/">Mitigating sensor differences for phone-based human activity recognition</a></div>
-                                        </div>
-                                    </div>
+                                    <div class="row" id="experience-container"></div>
                                 </div>
                             </div>
                         </div>

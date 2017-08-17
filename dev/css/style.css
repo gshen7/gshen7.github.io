@@ -11,8 +11,7 @@ span.badge.pull-left {
     margin-right: 0%;
 }
 
-.container {
-    background-image: url("../resources/landing-background.png");
+body {
     background: whitesmoke;
     background-position: center center;
     background-size: cover;
@@ -21,12 +20,31 @@ span.badge.pull-left {
     width: 100%;
 }
 
+#container-lg {
+    background: whitesmoke;
+    background-position: center center;
+    background-size: cover;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+#contianer-sm {
+    background: whitesmoke;
+    background-position: center center;
+    background-size: cover;
+    height: 100%;
+    position: absolute;
+    width: 100%; 
+}
+
 .btn-group-vertical {
     width: 100%;
 }
 
 .side {
     position: fixed;
+    padding-left: 50px;
     z-index: 1;
 }
 

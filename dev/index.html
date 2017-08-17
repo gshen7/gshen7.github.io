@@ -1,147 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
+        <!-- Metadata -->
+        <meta charset="utf-8">
+        <title>Gary Shen</title>
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Metadata -->
-    <meta charset="utf-8">
-    <title>Gary Shen</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- CSS links -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/animate.css">
+        
+        <!-- Icon -->
+        <link rel="shortcut icon" type="image/x-icon" href="resources/pageico.png" />
 
-    <!-- CSS links -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animate.css">
-    
-    <!-- Icon -->
-    <link rel="shortcut icon" type="image/x-icon" href="resources/pageico.png" />
-
-    <!-- JS -->
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://use.fontawesome.com/056c94c98c.js"></script>
-    <script src="js/script.js"></script>
-    
-</head>
-<body onload="init()">
-    <div class="container">
-        <div class="row padded">
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-3 col-md-offset-3 side transform animated slideInLeft" id="left-sidebar">
-                        <div class="panel panel-info">
-                            <div class="panel-body">
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li id="about-pill"><a href="#" onclick="navTo('about')">About</a></li>
-                                    <li id="projects-pill"><a href="#" onclick="navTo('projects')">Projects</a></li>                                    
-                                    <li id="experience-pill"><a href="#" onclick="navTo('experience')">Experience</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-md-offset-3 hidden transform animated zoomIn" id="content-div-about">
-                        <div class="panel panel-info">
-                            <div class="panel-body" id="content-panel-about">
-                                <div class="row">
-                                    <div class="col-md-6 text-center">
-                                        <img src="resources/about-school.png" class="img-circle img-responsive" alt="about" >
-                                        <hr/>
-                                        <div class="half-text text-justify">
-                                            I'm a <b>Computer Engineering and Business</b> dual degree student at <b>Western University and the Ivey School of Business</b>. 
-                                            My experience in software development includes work in agile, test-driven, and research environments. 
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 text-center">
-                                        <img src="resources/about-interests.png" class="img-circle img-responsive" alt="about" >
-                                        <hr/>
-                                        <div class="half-text text-justify">
-                                            <b>Interests</b> include travelling, playing and watching sports, particularly hockey, 
-                                            table tennis and golf, and board/card games. I also enjoy discussions on pro sports analytics 
-                                            and a wide variety of reading and viewing interests.
-                                        </div>
-                                    </div>
+        <!-- JS -->
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/056c94c98c.js"></script>
+        <script src="js/script.js"></script>
+        
+    </head>
+    <body>
+        <div class="collapse" id="container-lg">
+            <div class="row padded">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-3 col-md-offset-3 side transform animated slideInLeft" id="left-sidebar">
+                            <div class="panel panel-info">
+                                <div class="panel-body">
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li id="about-pill"><a href="#" onclick="navTo('about')">About</a></li>
+                                        <li id="projects-pill"><a href="#" onclick="navTo('projects')">Projects</a></li>                                    
+                                        <li id="experience-pill"><a href="#" onclick="navTo('experience')">Experience</a></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-md-offset-3 hidden transform animated zoomIn" id="content-div-projects">
-                        <div class="panel panel-info">
-                            <div class="panel-body" id="content-panel-projects">     
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <input type="text" placeholder="Search" class="form-control" id="proj-search" onkeyup="filterProjects()">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="dropdown">
-                                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Filter By Technologies <span class="caret"></span></button>
-                                            <ul class="dropdown-menu" id="projects-tag-filter"></ul>
+                        <div class="col-md-6 col-md-offset-3 hidden transform animated zoomIn" id="content-div-about">
+                            <div class="panel panel-info">
+                                <div class="panel-body" id="content-panel-about">
+                                    <div class="row">
+                                        <div class="col-md-6 text-center">
+                                            <img src="resources/about-school.png" class="img-circle img-responsive" alt="about" >
+                                            <hr/>
+                                            <div class="half-text text-justify">
+                                                I'm a <b>Computer Engineering and Business</b> dual degree student at <b>Western University and the Ivey School of Business</b>. 
+                                                My experience in software development includes work in agile, test-driven, and research environments. 
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 text-center">
+                                            <img src="resources/about-interests.png" class="img-circle img-responsive" alt="about" >
+                                            <hr/>
+                                            <div class="half-text text-justify">
+                                                <b>Interests</b> include travelling, playing and watching sports, particularly hockey, 
+                                                table tennis and golf, and board/card games. I also enjoy discussions on pro sports analytics 
+                                                and a wide variety of reading and viewing interests.
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <hr/>
-                                <div class="col-md-12" id="projects-container"></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-md-offset-3 hidden transform animated zoomIn" id="content-div-experience">
-                        <div class="panel panel-info">
-                            <div class="panel-body" id="content-panel-experience">
-                                <div class="row padded">
-                                    <div class="col-md-12">
-                                        <table>
-                                            <tr>
-                                                <td class="text-center"><a onmouseover="expandExperience('magnet')"><img src="resources/exp-magnet.png" id="magnet-thumb" class="img-small img-thumbnail img-responsive" alt="experience" ></a></td>
-                                                <td class="text-center"><a onmouseover="expandExperience('cbs')"><img src="resources/exp-cbs.png" id="cbs-thumb" class="img-small img-thumbnail img-responsive" alt="experience" ></a></td>
-                                                <td class="text-center"><a onmouseover="expandExperience('uwo')"><img src="resources/exp-uwo.png" id="uwo-thumb" class="img-small img-thumbnail img-responsive" alt="experience" ></a></td>
-                                            </tr>
-                                        </table>
+                        <div class="col-md-6 col-md-offset-3 hidden transform animated zoomIn" id="content-div-projects">
+                            <div class="panel panel-info">
+                                <div class="panel-body" id="content-panel-projects">     
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input type="text" placeholder="Search" class="form-control" id="proj-search" onkeyup="filterProjects()">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="dropdown">
+                                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Filter By Technologies <span class="caret"></span></button>
+                                                <ul class="dropdown-menu" id="projects-tag-filter"></ul>
+                                            </div>
+                                        </div>
                                     </div>
+                                    <hr/>
+                                    <div class="col-md-12" id="projects-container"></div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-md-offset-3 hidden transform animated zoomIn" id="content-div-experience">
+                            <div class="panel panel-info">
+                                <div class="panel-body" id="content-panel-experience">
+                                    <div class="row padded">
+                                        <div class="col-md-12">
+                                            <table>
+                                                <tr>
+                                                    <td class="text-center"><a onmouseover="expandExperience('magnet')"><img src="resources/exp-magnet.png" id="magnet-thumb" class="img-small img-thumbnail img-responsive" alt="experience" ></a></td>
+                                                    <td class="text-center"><a onmouseover="expandExperience('cbs')"><img src="resources/exp-cbs.png" id="cbs-thumb" class="img-small img-thumbnail img-responsive" alt="experience" ></a></td>
+                                                    <td class="text-center"><a onmouseover="expandExperience('uwo')"><img src="resources/exp-uwo.png" id="uwo-thumb" class="img-small img-thumbnail img-responsive" alt="experience" ></a></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
 
-                                <div class="row">
-                                    <div class="col-md-12 collapse" id="magnet-collapse">
-                                        <h4 class="text-center">Magnet Forensics</h4><br/>
-                                        <i><table class="text-center"><tr><td>Software Developer Co-op</td><td>Waterloo, ON, Canada</td><td>May 2017-Aug 2017</td></tr></table></i>
-                                        <hr/>
-                                        <div class="well text-justify">Full-stack development of dashboard aggregating various metrics.</div>
-                                    </div>
-                                    <div class="col-md-12 collapse" id="cbs-collapse">
-                                        <h4 class="text-center">Cambridge Brain Sciences</h4><br/>
-                                        <i><table class="text-center"><tr><td>Student Developer</td><td>London, ON, Canada</td><td>Jan 2017-Apr 2017</td></tr></table></i>
-                                        <hr/>
-                                        <div class="well text-justify">Porting puzzles used for cognitive evaluations from flash player to HTML5 and JS to modernize platform.</div>
-                                    </div>
-                                    <div class="col-md-12 collapse" id="uwo-collapse">
-                                        <h4 class="text-center">Western University Electrical and Computer Engineering</h4><br/>
-                                        <i><table class="text-center"><tr><td>Undergraduate Researcher</td><td>London, ON, Canada</td><td>Nov 2015-Aug 2016</td></tr></table></i>
-                                        <hr/>
-                                        <div class="well text-justify">Research and development of smartphone based human activity recognition and indoor locationing. <br/>Publications: <br/>A novel Wifi-based indoor localization system <br/><a href="http://ieeexplore.ieee.org/document/7844783/">Mitigating sensor differences for phone-based human activity recognition</a></div>
+                                    <div class="row">
+                                        <div class="col-md-12 collapse" id="magnet-collapse">
+                                            <h4 class="text-center">Magnet Forensics</h4><br/>
+                                            <i><table class="text-center"><tr><td>Software Developer Co-op</td><td>Waterloo, ON, Canada</td><td>May 2017-Aug 2017</td></tr></table></i>
+                                            <hr/>
+                                            <div class="well text-justify">Full-stack development of dashboard aggregating various metrics.</div>
+                                        </div>
+                                        <div class="col-md-12 collapse" id="cbs-collapse">
+                                            <h4 class="text-center">Cambridge Brain Sciences</h4><br/>
+                                            <i><table class="text-center"><tr><td>Student Developer</td><td>London, ON, Canada</td><td>Jan 2017-Apr 2017</td></tr></table></i>
+                                            <hr/>
+                                            <div class="well text-justify">Porting puzzles used for cognitive evaluations from flash player to HTML5 and JS to modernize platform.</div>
+                                        </div>
+                                        <div class="col-md-12 collapse" id="uwo-collapse">
+                                            <h4 class="text-center">Western University Electrical and Computer Engineering</h4><br/>
+                                            <i><table class="text-center"><tr><td>Undergraduate Researcher</td><td>London, ON, Canada</td><td>Nov 2015-Aug 2016</td></tr></table></i>
+                                            <hr/>
+                                            <div class="well text-justify">Research and development of smartphone based human activity recognition and indoor locationing. <br/>Publications: <br/>A novel Wifi-based indoor localization system <br/><a href="http://ieeexplore.ieee.org/document/7844783/">Mitigating sensor differences for phone-based human activity recognition</a></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 col-md-offset-6 text-center side animated slideInRight transform" id="right-sidebar">
-                        <div class="panel panel-info">
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-md-8 col-md-offset-2">
-                                        <img src="resources/portrait.png" class="img-circle img-responsive padded portrait" alt="portrait" >
+                        <div class="col-md-3 col-md-offset-6 text-center side animated slideInRight transform" id="right-sidebar">
+                            <div class="panel panel-info">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-8 col-md-offset-2">
+                                            <img src="resources/portrait.png" class="img-circle img-responsive padded portrait" alt="portrait" >
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h3><span class="label label-default">Gary Shen</span></h3><span class="label label-primary">Software Developer</span>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3><span class="label label-default">Gary Shen</span></h3><span class="label label-primary">Software Developer</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 btn-group-vertical padded">
-                                        <a href="resources/resume.pdf" target="_blank" class="btn btn-default"><span class="badge pull-left"><i class="fa fa-download"></i></span> Resume</a>
-                                        <a href="mailto:garyshen09@gmail.com" target="_blank" class="btn btn-default"><span class="badge pull-left"><i class="fa fa-envelope"></i></span> garyshen09@gmail.com</a>
-                                        <a href="https://www.linkedin.com/in/gshen7" target="_blank" class="btn btn-default"><span class="badge pull-left"><i class="fa fa-linkedin"></i></span> linkedin.com/in/gshen7</a>
-                                        <a href="https://www.github.com/gshen7" target="_blank" class="btn btn-default"><span class="badge pull-left"><i class="fa fa-github"></i></span> github.com/gshen7</a>
+                                    <div class="row">
+                                        <div class="col-md-12 btn-group-vertical padded">
+                                            <a href="resources/resume.pdf" target="_blank" class="btn btn-default"><span class="badge pull-left"><i class="fa fa-download"></i></span> Resume</a>
+                                            <a href="mailto:garyshen09@gmail.com" target="_blank" class="btn btn-default"><span class="badge pull-left"><i class="fa fa-envelope"></i></span> garyshen09@gmail.com</a>
+                                            <a href="https://www.linkedin.com/in/gshen7" target="_blank" class="btn btn-default"><span class="badge pull-left"><i class="fa fa-linkedin"></i></span> linkedin.com/in/gshen7</a>
+                                            <a href="https://www.github.com/gshen7" target="_blank" class="btn btn-default"><span class="badge pull-left"><i class="fa fa-github"></i></span> github.com/gshen7</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -150,6 +150,35 @@
                 </div>
             </div>
         </div>
-    </div>
-</body>
+
+        <div class="collapse" id="container-sm">
+            <div class="row padded">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="row">
+                        <div class="panel panel-info">
+                            <div class="panel-body">
+
+                                <div class="row">
+                                    <div class="dropdown text-center">
+                                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Gary Shen <span class="caret"></span></button>
+                                        <ul class="dropdown-menu" id="projects-tag-filter">
+                                            <li><a class="text-center" href="#" onclick="navTo('about')">About</a></li>
+                                            <li><a class="text-center" href="#" onclick="navTo('projects')">Projects</a></li>                                    
+                                            <li><a class="text-center" href="#" onclick="navTo('experience')">Experience</a></li>
+                                            <li class="divider"/>
+                                            <li><a class="text-center" href="resources/resume.pdf" target="_blank">Resume</a></li>
+                                            <li><a class="text-center" href="mailto:garyshen09@gmail.com" target="_blank">garyshen09@gmail.com</a></li>
+                                            <li><a class="text-center" href="https://www.linkedin.com/in/gshen7" target="_blank">linkedin.com/in/gshen7</a></li>
+                                            <li><a class="text-center" href="https://www.github.com/gshen7" target="_blank">github.com/gshen7</a></li>
+                                        </ul>
+                                    </div
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

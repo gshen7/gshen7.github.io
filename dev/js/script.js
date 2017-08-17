@@ -1,5 +1,5 @@
-const experienceKeys = ["magnet", "cbs", "uwo"];
-const tags = [
+const EXPERIENCE_KEYS = ["magnet", "cbs", "uwo"];
+const TAGS = [
     "NodeJS", //0
     "Java", //1
     "Meteor", //2
@@ -10,7 +10,7 @@ const tags = [
     "MySQL", //7
     "Machine Learning", //8
 ];
-const tagsCount = {
+const TAGS_COUNT = {
     "NodeJS": 2,
     "Java": 5,
     "Meteor": 1,
@@ -21,68 +21,69 @@ const tagsCount = {
     "MySQL": 1,
     "Machine Learning": 3, 
 }
-const projects = [
+const PROJECTS = [
     {
         id: 0,
         title: "IOU",
-        tags: [tags[0], tags[2], tags[6]],
+        tags: [TAGS[0], TAGS[2], TAGS[6]],
         description: "[In Progress] A web application simplifying the process for collecting money from friends using the PayPal API.",
     },
     {
         id: 1,
         title: "NHL Prediction Model",
-        tags: [tags[4], tags[8]],
+        tags: [TAGS[4], TAGS[8]],
         description: "A model for predicting various aspects of NHL games. Used the perceptron machine learning algorithm to create a model to predict which teams will make the playoffs based on input factors of various season stats. Also created regression models for (A) evaluating players based on a single number metric, aggregating contributions on a game by game basis; and (B) predicting fantasy hockey points based on recent stats.",
     },
     {
         id: 2,
         title: "Group Tools Chatbot",
-        tags: [tags[0]],
+        tags: [TAGS[0]],
         description: "A Facebook messenger chatbot to add several tools for group chats. Tools were a gold star tracker, list randomizer and selector, and reaction picture library.",
     },
     {
         id: 3,
         title: "Support and Resistance Line Generator",
-        tags: [tags[4]],
+        tags: [TAGS[4]],
         description: "A platform to determine and plot support and resistance lines based on stock charts.",
     },
     {
         id: 4,
         title: "BikeSafe for V2V",
-        tags: [tags[1], tags[3]],
+        tags: [TAGS[1], TAGS[3]],
         description: "A smartwatch app to detect cyclists' hand signals.",
     },
     {
         id: 5,
         title: "Indoor Locationing App",
-        tags: [tags[1], tags[3]],
+        tags: [TAGS[1], TAGS[3]],
         description: "A novel indoor locationing technique based on a self-developed WiFi signal strength propagation based model.",
     },
     {
         id: 6,
         title: "Activity Tracking App",
-        tags: [tags[1], tags[3], tags[5], tags[8]],
+        tags: [TAGS[1], TAGS[3], TAGS[5], TAGS[8]],
         description: "A machine learning based app to track physical activities throughout the day. Could distinguish between walking, running, stairs, and sitting.",
     },
     {
         id: 7,
         title: "Smart Bed Monitoring System",
-        tags: [tags[1], tags[8]],
+        tags: [TAGS[1], TAGS[8]],
         description: "A machine learning based system for detecting bed-related scenarios and monitoring sleep patterns using simple, non-intrusive piezoelectric force sensors.",
     },
     {
         id: 8,
         title: "RFID Object Locator",
-        tags: [tags[1], tags[7]],
+        tags: [TAGS[1], TAGS[7]],
         description: "A system for locating tagged items.",
     },
 ]
+const WIDTH_THRESHOLD = 1160;
 
 var currentActive = "home";
-var selectedTags = tags;
+var selectedTags = TAGS;
 
 $(document).ready(function() {
-    $( '.dropdown-menu' ).on( 'click', function( event ) {
+    $( '#projects-tag-filter' ).on( 'click', function( event ) {
         var tag;
         if(event.target.className==="badge" || event.target.type==="checkbox"){
             tag = event.target.parentElement;
@@ -93,6 +94,25 @@ $(document).ready(function() {
         changeCheck(tag);
         event.stopPropagation();
     });
+    $(window).on('resize', function(){
+        var win = $(this); 
+        var width = $(window).width();
+        if(width>WIDTH_THRESHOLD){
+            resizeBig();
+        } else {
+            resizeSmall();
+        }
+  });
+});
+
+$( window ).on( "load", function() {
+    var width = $(window).width();
+    if(width<WIDTH_THRESHOLD){
+        initSmall();
+    } else {
+        initBig();
+    }
+    init();
 });
 
 function changeCheck(tag){
@@ -134,10 +154,10 @@ function changePanels(filteredProjects){
 
 function changeSelectedTags(){
     selectedTags = [];
-    for(let i=0;i<tags.length;i++){
-        var tagCheck = document.getElementById(tags[i]+"-check");
+    for(let i=0;i<TAGS.length;i++){
+        var tagCheck = document.getElementById(TAGS[i]+"-check");
         if(tagCheck.checked){
-            selectedTags.push(tags[i]);
+            selectedTags.push(TAGS[i]);
         }
     }
     updateTagsFilter();
@@ -150,16 +170,16 @@ function changeText(text, id){
 }
 
 function expandExperience(key){
-    for(let i=0;i<experienceKeys.length;i++){
-        if(key!==experienceKeys[i]){
-            var thumb = document.getElementById(experienceKeys[i]+"-thumb");
+    for(let i=0;i<EXPERIENCE_KEYS.length;i++){
+        if(key!==EXPERIENCE_KEYS[i]){
+            var thumb = document.getElementById(EXPERIENCE_KEYS[i]+"-thumb");
             thumb.className = thumb.className.replace("faded", "");
-            var content = document.getElementById(experienceKeys[i]+"-collapse");
+            var content = document.getElementById(EXPERIENCE_KEYS[i]+"-collapse");
             content.className = content.className.replace("in", "");
         } else {
-            var thumb = document.getElementById(experienceKeys[i]+"-thumb");
+            var thumb = document.getElementById(EXPERIENCE_KEYS[i]+"-thumb");
             thumb.className = thumb.className.includes("faded") ? thumb.className : thumb.className + " faded";
-            var content = document.getElementById(experienceKeys[i]+"-collapse");
+            var content = document.getElementById(EXPERIENCE_KEYS[i]+"-collapse");
             content.className = content.className.includes("in") ? content.className : content.className+" in";
         }
     }
@@ -169,7 +189,7 @@ function filterProjects(){
     var searchInput = document.getElementById('proj-search');
     var searchKey = searchInput.value;
     
-    var filteredProjects = projects.filter(function(p){
+    var filteredProjects = PROJECTS.filter(function(p){
         return p.title.includes(searchKey) || p.description.includes(searchKey);
     })
     filteredProjects = filteredProjects.filter(function(p){
@@ -184,9 +204,23 @@ function filterProjects(){
 }
 
 function init(){
-    changePanels(projects);
+    changePanels(PROJECTS);
     updateTagsFilter(true);
     filterProjects();
+}
+
+function initBig(){
+    var containerLg = document.getElementById("container-lg");
+    containerLg.className="";
+    var containerSm = document.getElementById("container-sm");
+    containerSm.className="collapse";    
+}
+
+function initSmall(){
+    var containerLg = document.getElementById("container-lg");
+    containerLg.className="collapse";
+    var containerSm = document.getElementById("container-sm");
+    containerSm.className="";    
 }
 
 function navTo(newActive){
@@ -199,13 +233,27 @@ function navTo(newActive){
     changeContent(newActive);
 }
 
+function resizeBig(){
+    var containerLg = document.getElementById("container-lg");
+    containerLg.className="";
+    var containerSm = document.getElementById("container-sm");
+    containerSm.className="collapse";
+}
+
+function resizeSmall(){
+    var containerLg = document.getElementById("container-lg");
+    containerLg.className="collapse";
+    var containerSm = document.getElementById("container-sm");
+    containerSm.className="";   
+}
+
 function updateTagsFilter(first){
-    var tagOptions = tags.map(function(t) {
+    var tagOptions = TAGS.map(function(t) {
         var out = "<li class=\"keep-open\"><a href=\"#\"><input type=\"checkbox\" id=\"" + t + "-check\" disabled ";
         if(selectedTags.includes(t) && !first){
             out += "checked";
         } 
-        out += "/> " + t + " <span class=\"badge\">" + tagsCount[t] + "</span></a></li>";
+        out += "/> " + t + " <span class=\"badge\">" + TAGS_COUNT[t] + "</span></a></li>";
         return out;
     });
 

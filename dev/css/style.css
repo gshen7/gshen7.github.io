@@ -112,3 +112,7 @@ a>.img-thumbnail:hover{
 .text-small {
     font-size: 12px;
 }
+
+.row{
+    margin: 0;
+}

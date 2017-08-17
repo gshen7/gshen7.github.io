@@ -81,6 +81,26 @@ const projects = [
 var currentActive = "home";
 var selectedTags = tags;
 
+$(document).ready(function() {
+    $( '.dropdown-menu' ).on( 'click', function( event ) {
+        var tag;
+        if(event.target.className==="badge" || event.target.type==="checkbox"){
+            tag = event.target.parentElement;
+        } else {
+            tag = event.target;
+        }
+        tag = tag.childNodes[1].nodeValue.trim();
+        changeCheck(tag);
+        event.stopPropagation();
+    });
+});
+
+function changeCheck(tag){
+    var tagCheck = document.getElementById(tag+"-check");
+    tagCheck.checked = !tagCheck.checked;
+    changeSelectedTags();
+}
+
 function changeContent(newActive){
     var oldContentDiv = document.getElementById("content-div-" + currentActive);
     var newContentDiv = document.getElementById("content-div-" + newActive);
@@ -96,29 +116,6 @@ function changeContent(newActive){
     } 
     var newContentPanel = document.getElementById("content-panel-"+newActive);
     currentActive=newActive;
-}
-
-function changeText(text, id){
-    var display = document.getElementById(id);
-    display.innerHTML = text;
-}
-
-function filterProjects(){
-    var searchInput = document.getElementById('proj-search');
-    var searchKey = searchInput.value;
-    
-    var filteredProjects = projects.filter(function(p){
-        return p.title.includes(searchKey) || p.description.includes(searchKey);
-    })
-    filteredProjects = filteredProjects.filter(function(p){
-        for(let i=0;i<selectedTags.length;i++){
-            if(p.tags.includes(selectedTags[i])){
-                return true;
-            }
-        }
-        return false;
-    })
-    changePanels(filteredProjects);
 }
 
 function changePanels(filteredProjects){
@@ -147,6 +144,11 @@ function changeSelectedTags(){
     filterProjects();
 }
 
+function changeText(text, id){
+    var display = document.getElementById(id);
+    display.innerHTML = text;
+}
+
 function expandExperience(key){
     for(let i=0;i<experienceKeys.length;i++){
         if(key!==experienceKeys[i]){
@@ -163,9 +165,27 @@ function expandExperience(key){
     }
 }
 
+function filterProjects(){
+    var searchInput = document.getElementById('proj-search');
+    var searchKey = searchInput.value;
+    
+    var filteredProjects = projects.filter(function(p){
+        return p.title.includes(searchKey) || p.description.includes(searchKey);
+    })
+    filteredProjects = filteredProjects.filter(function(p){
+        for(let i=0;i<selectedTags.length;i++){
+            if(p.tags.includes(selectedTags[i])){
+                return true;
+            }
+        }
+        return false;
+    })
+    changePanels(filteredProjects);
+}
+
 function init(){
     changePanels(projects);
-    updateTagsFilter();
+    updateTagsFilter(true);
     filterProjects();
 }
 
@@ -179,10 +199,10 @@ function navTo(newActive){
     changeContent(newActive);
 }
 
-function updateTagsFilter(){
+function updateTagsFilter(first){
     var tagOptions = tags.map(function(t) {
-        var out = "<li><a href=\"#\"><input type=\"checkbox\" id=\"" + t + "-check\" onclick=\"changeSelectedTags()\" ";
-        if(selectedTags.includes(t)){
+        var out = "<li class=\"keep-open\"><a href=\"#\"><input type=\"checkbox\" id=\"" + t + "-check\" disabled ";
+        if(selectedTags.includes(t) && !first){
             out += "checked";
         } 
         out += "/> " + t + " <span class=\"badge\">" + tagsCount[t] + "</span></a></li>";

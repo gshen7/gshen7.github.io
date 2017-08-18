@@ -109,6 +109,7 @@ const HEIGHT_THRESHOLD = 500;
 var currentActive = "home";
 var selectedTags = TAGS;
 var searchKey = "";
+var size = "";
 
 $(document).ready(function() {
     $( '#projects-tag-filter, #sm-projects-tag-filter' ).on( 'click', function( event ) {
@@ -172,7 +173,7 @@ function changeCheck(tag){
 }
 
 function changeContent(newActive){
-    if(currentActive !== "home"){
+    if(currentActive !== "home" && size==="lg"){
         var panel = document.getElementById("content-panel-"+currentActive);
         var panelWidth = panel.offsetWidth;
 
@@ -203,21 +204,6 @@ function changeContent(newActive){
     }
     
     currentActive=newActive;
-}
-
-function hideContent(){
-  var oldContentDiv = document.getElementById("content-div-" + currentActive);
-  if(oldContentDiv && !oldContentDiv.className.includes("hidden")){
-    oldContentDiv.className = oldContentDiv.className + " hidden";
-  }
-
-  var leftSidebar = document.getElementById("left-sidebar");
-  leftSidebar.classList.add("col-md-offset-3");
-
-  var rightSidebar = document.getElementById("right-sidebar");
-  rightSidebar.className = rightSidebar.className.replace("col-md-offset-9", "col-md-offset-6");
-
-  currentActive="home";
 }
 
 function changePanels(filteredProjects){
@@ -388,6 +374,21 @@ function filterProjects(small){
     changePanels(filteredProjects);
 }
 
+function hideContent(){
+    var oldContentDiv = document.getElementById("content-div-" + currentActive);
+    if(oldContentDiv && !oldContentDiv.className.includes("hidden")){
+      oldContentDiv.className = oldContentDiv.className + " hidden";
+    }
+  
+    var leftSidebar = document.getElementById("left-sidebar");
+    leftSidebar.classList.add("col-md-offset-3");
+  
+    var rightSidebar = document.getElementById("right-sidebar");
+    rightSidebar.className = rightSidebar.className.replace("col-md-offset-9", "col-md-offset-6");
+  
+    currentActive="home";
+  }
+  
 function init(){
     changePanels(PROJECTS);
     changeWells(EXPERIENCE);
@@ -399,14 +400,16 @@ function initBig(){
     var containerLg = document.getElementById("container-lg");
     containerLg.className="";
     var containerSm = document.getElementById("container-sm");
-    containerSm.className="collapse";    
+    containerSm.className="collapse"; 
+    size="lg";   
 }
 
 function initSmall(){
     var containerLg = document.getElementById("container-lg");
     containerLg.className="collapse";
     var containerSm = document.getElementById("container-sm");
-    containerSm.className="";    
+    containerSm.className="";
+    size = "sm";
 }
 
 function navTo(newActive){
@@ -428,13 +431,15 @@ function resizeBig(){
     containerLg.className="";
     var containerSm = document.getElementById("container-sm");
     containerSm.className="collapse";
+    size="lg";
 }
 
 function resizeSmall(){
     var containerLg = document.getElementById("container-lg");
     containerLg.className="collapse";
     var containerSm = document.getElementById("container-sm");
-    containerSm.className="";   
+    containerSm.className=""; 
+    size="sm";  
 }
 
 function updateTagsFilter(first){

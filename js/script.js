@@ -1,3 +1,4 @@
+const CONTENT_KEYS=["about", "projects", "experience"];
 const TAGS = [
     "NodeJS", //0
     "Java", //1
@@ -105,8 +106,8 @@ const EXPERIENCE = [
         logoSource: "resources/exp-uwo.png"
     },
 ]
-const WIDTH_THRESHOLD = 1160;
-const HEIGHT_THRESHOLD = 450;
+const WIDTH_THRESHOLD = 1000;
+const HEIGHT_THRESHOLD = 500;
 
 var currentActive = "home";
 var selectedTags = TAGS;
@@ -157,6 +158,14 @@ function changeCheck(tag){
 }
 
 function changeContent(newActive){
+    if(currentActive !== "home"){
+        var panel = document.getElementById("content-panel-"+currentActive);
+        var panelWidth = panel.offsetWidth;
+
+        var newContentPanel = document.getElementById("content-panel-"+newActive);
+        newContentPanel.style.width = panelWidth;
+    }
+    
     var oldContentDiv = document.getElementById("content-div-" + currentActive);
     var newContentDiv = document.getElementById("content-div-" + newActive);
     if(oldContentDiv && !oldContentDiv.className.includes("hidden")){
@@ -177,7 +186,7 @@ function changeContent(newActive){
     }
     if(newContentDiv.className.includes("hidden")){
         newContentDiv.className = newContentDiv.className.replace("hidden", "");
-    } 
+    }
     
     currentActive=newActive;
 }

@@ -1,3 +1,1 @@
-* CONTENT - fill out content constants for descriptions of experience and projects
-
-* OTHER PAGES - skills, hobbies/interests
+* POTENTIAL PAGES - skills, hobbies/interests

@@ -1,80 +1,68 @@
 const CONTENT_KEYS=["about", "projects", "experience"];
 const TAGS = [
-    "NodeJS", //0
-    "Java", //1
-    "Meteor", //2
-    "Android", //3
-    "R", //4
-    "MATLAB", //5
-    "MongoDB", //6
-    "MySQL", //7
-    "Machine Learning", //8
+    "NodeJS",
+    "Java",
+    "Python",
+    "Meteor",
+    "Android",
+    "R",
+    "MongoDB",
+    "MySQL",
+    "Machine Learning",
 ];
 const TAGS_COUNT = {
     "NodeJS": 2,
-    "Java": 5,
+    "Java": 3,
+    "Python": 1,
     "Meteor": 1,
-    "Android": 2,
+    "Android": 1,
     "R": 2,
-    "MATLAB": 1,
     "MongoDB": 1,
-    "MySQL": 1,
-    "Machine Learning": 3, 
+    "MySQL": 2,
+    "Machine Learning": 2, 
 }
 const PROJECTS = [
     {
-        id: 8,
+        id: 6,
         title: "IOU",
-        tags: [TAGS[0], TAGS[2], TAGS[6]],
+        tags: ["NodeJS", "Meteor", "MongoDB"],
         description: "[In Progress] A web application simplifying the process for collecting money from friends using the PayPal API.",
     },
     {
-        id: 7,
+        id: 5,
         title: "NHL Prediction Model",
-        tags: [TAGS[4], TAGS[8]],
+        tags: ["R", "Machine Learning"],
         description: "A model for predicting various aspects of NHL games. Used the perceptron machine learning algorithm to create a model to predict which teams will make the playoffs based on input factors of various season stats. Also created regression models for (A) evaluating players based on a single number metric, aggregating contributions on a game by game basis; and (B) predicting fantasy hockey points based on recent stats.",
     },
     {
-        id: 6,
+        id: 4,
         title: "Group Tools Chatbot",
-        tags: [TAGS[0]],
+        tags: ["NodeJS"],
         description: "A Facebook messenger chatbot to add several tools for group chats. Tools were a gold star tracker, list randomizer and selector, and reaction picture library.",
     },
     {
-        id: 5,
+        id: 3,
         title: "Support and Resistance Line Generator",
-        tags: [TAGS[4]],
+        tags: ["R"],
         description: "A platform to determine and plot support and resistance lines based on stock charts.",
     },
     {
-        id: 4,
-        title: "BikeSafe for V2V",
-        tags: [TAGS[1], TAGS[3]],
-        description: "A smartwatch app to detect cyclists' hand signals.",
-    },
-    {
-        id: 3,
-        title: "Indoor Locationing App",
-        tags: [TAGS[1], TAGS[3]],
-        description: "A novel indoor locationing technique based on a self-developed WiFi signal strength propagation based model.",
-    },
-    {
         id: 2,
-        title: "Activity Tracking App",
-        tags: [TAGS[1], TAGS[3], TAGS[5], TAGS[8]],
-        description: "A machine learning based app to track physical activities throughout the day. Could distinguish between walking, running, stairs, and sitting.",
+        title: "BikeSafe for V2V",
+        tags: ["Java", "Python", "Android"],
+        description: "A smartwatch app to detect cyclists' hand signals for the purpose of demoing a system to allow cyclists to integrate into vehicle to vehicle communication protocols of the future.",
     },
     {
         id: 1,
         title: "Smart Bed Monitoring System",
-        tags: [TAGS[1], TAGS[8]],
-        description: "A machine learning based system for detecting bed-related scenarios and monitoring sleep patterns using simple, non-intrusive piezoelectric force sensors.",
+        tags: ["Java", "MySQL", "Machine Learning"],
+        description: "A machine learning based system for detecting bed-related scenarios and monitoring sleep patterns and sending alerts for certain situations. Used simple, non-intrusive piezoelectric force sensors transmitting readings via ZigBee nodes in real time. Stored historical data in a MySQL database for use in trending health history.",
     },
     {
         id: 0,
         title: "RFID Object Locator",
-        tags: [TAGS[1], TAGS[7]],
-        description: "A system for locating tagged items.",
+        tags: ["Java", "MySQL"],
+        description: "A system for locating items with RFID tags attached to them using an RFID scanner. Tracked item-tag pairings in a MySQL database to allow for only specific items selected in JavaFX frontend to be tracked.",
     },
 ]
 const EXPERIENCE = [
@@ -84,7 +72,12 @@ const EXPERIENCE = [
         position: "Software Developer Co-op",
         location: "Waterloo, ON, Canada",
         date: "May 2017-Aug 2017",
-        description: "Full-stack development of metric dashboard aggregating testing data from various sources.",
+        description: "Full-stack development of metric dashboard aggregating testing data from various sources. Used React.JS/Redux for the frontend UI connected to a C# REST API endpoints to access a MySQL database." +
+            "<ul><li>Created dashboard page for viewing results of automated regression tests using Jenkins API.</li><li>Added ability to mark certain automated test runs as outliers and a view to display metric deltas between runs.</li>" +
+            "<li>Designed and implemented view to show health of product features over a history of code changes.</li><li>Integrated dashboard with Jira API to track expected hit counts to ease process of maintaining a golden baseline.</li>" +
+            "<li>Created widget to display status of installer and expect new files into the known installer files.</li></ul>" +
+            "Winforms FlexNet Licensing Tool Development." +
+            "<ul><li>Multithreaded requests to FlexNet API to create a more robust process for pulling data.</li><li>Designed and implemented previewing functionality to display a customer's existing licenses, improving license renewal and removal process.</li></ul>",
         logoSource: "resources/exp-magnet.png"
     },
     {
@@ -93,7 +86,9 @@ const EXPERIENCE = [
         position: "Student Developer",
         location: "London, ON, Canada",
         date: "Jan 2017-May 2017",
-        description: "Ported puzzles used for cognitive evalations from flash player to HTML5 and JS to modernize platform.",
+        description: "Modernized suite of brain games used for cognitive tests." + 
+            "<ul><li>Ported games from flash player to HTML5 and JS.</li><li>Developed model for standardizing scores of old tests so that past data remained relevant and comparable to new results.</li>" +
+            "<li>Built automated test suite in Ruby/Rails using RSpec and contributed to behaviour testing of modern version of games, ensuring behaviour replicated old version.</li></ul>",
         logoSource: "resources/exp-cbs.png"
     },
     {
@@ -102,7 +97,9 @@ const EXPERIENCE = [
         position: "Undergraduate Researcher",
         location: "London, ON, Canada",
         date: "Nov 2015-Aug 2016",
-        description: "Research and development of smartphone based human activity recognition and indoor locationing. <br/>Publications: <br/>A novel Wifi-based indoor localization system <br/><a href=\"http://ieeexplore.ieee.org/document/7844783/\">Mitigating sensor differences for phone-based human activity recognition",
+        description: "Research and development in the field of communications/computing technologies and associated applications" +
+            "<ul><li>Designed a novel indoor locationing technique based on WiFi signal strength propagation. Developed model for propagation and prototyped system using Android. (Publication: <a href=\"#\">A novel Wifi-based indoor localization system - IEEE CSCWD 2017</a>).</li>" +
+            "<li>Researched methods of improving human activity recognition apps through machine learning methods. (Publication: <a href=\"http://ieeexplore.ieee.org/document/7844783/\">Mitigating sensor differences for phone-based human activity recognition</a>).</li></ul>",
         logoSource: "resources/exp-uwo.png"
     },
 ]
@@ -225,7 +222,7 @@ function hideContent(){
 
 function changePanels(filteredProjects){
     var panels = filteredProjects.map(function(p) {
-        var out = "<div class=\"panel panel-default\"><div class=\"panel-heading\" data-toggle=\"collapse\" href=\"#project-" + p.id + "-collapse\">" + p.title + "</div><div class=\"panel-body\">";
+        var out = "<div class=\"panel panel-default\" id=\"project-" + p.id + "-panel\"><div class=\"panel-heading\" onmouseover=\"expandProject(" + p.id + ")\">" + p.title + "</div><div class=\"panel-body\">";
         for(var i=0;i<p.tags.length;i++){
             out += "  <span class=\"label label-default\">" + p.tags[i] + "</span>";
         }
@@ -237,7 +234,7 @@ function changePanels(filteredProjects){
     projectsContainer.innerHTML = panels.join(" ");
 
     panels = filteredProjects.map(function(p) {
-        var out = "<div class=\"panel panel-default\"><div class=\"panel-heading\" data-toggle=\"collapse\" href=\"#sm-project-" + p.id + "-collapse\">" + p.title + "</div><div class=\"panel-body\">";
+        var out = "<div class=\"panel panel-default\" id=\"sm-project-" + p.id + "-panel\"><div class=\"panel-heading\" onmouseover=\"expandProject(" + p.id + ")\">" + p.title + "</div><div class=\"panel-body\">";
         for(var i=0;i<p.tags.length;i++){
             out += "  <span class=\"label label-default\">" + p.tags[i] + "</span>";
         }
@@ -302,7 +299,7 @@ function changeWells(experience){
             "</h4><br/><i><table class=\"text-center\"><tr><td>" + e.position +
             "</td></tr><tr><td>" + e.location +
             "</td></tr><tr><td>" + e.date +
-            "</td></tr></table></i><hr/><div class=\"well\">" + e.description +
+            "</td></tr></table></i><hr/><div class=\"well text-justify\">" + e.description +
             "</div></div>";
     });
 
@@ -327,6 +324,46 @@ function expandExperience(key){
             content.className = content.className.includes("in") ? content.className : content.className+" in";
             var smallContent = document.getElementById("sm-" + EXPERIENCE[i].key+"-collapse");
             smallContent.className = smallContent.className.includes("in") ? smallContent.className : smallContent.className+" in";
+        }
+    }
+}
+
+function expandProject(id){
+    for(var i=0;i<PROJECTS.length;i++){
+        if(id!==PROJECTS[i].id){
+            var panel = document.getElementById("project-" + PROJECTS[i].id+"-panel");
+            if(panel){
+                panel.className = panel.className.replace("info", "default");                
+            }
+            var content = document.getElementById("project-" + PROJECTS[i].id+"-collapse");
+            if(content){
+                content.className = content.className.replace("in", "");
+            }
+            var smallPanel = document.getElementById("sm-project-" + PROJECTS[i].id+"-panel");
+            if(smallPanel){
+                smallPanel.className = smallPanel.className.replace("info", "default");                
+            }
+            var smallContent = document.getElementById("sm-project-" + PROJECTS[i].id+"-collapse");
+            if(smallContent){
+                smallContent.className = smallContent.className.replace("in", "");
+            }
+        } else {
+            var panel = document.getElementById("project-" + PROJECTS[i].id+"-panel");
+            if(panel){
+                panel.className = panel.className.replace("default", "info");                
+            }
+            var content = document.getElementById("project-" + PROJECTS[i].id+"-collapse");
+            if(content){
+                content.className = content.className.includes("in") ? content.className : content.className+" in";
+            }
+            var smallPanel = document.getElementById("sm-project-" + PROJECTS[i].id+"-panel");
+            if(smallPanel){
+                smallPanel.className = smallPanel.className.replace("default", "info");                
+            }
+            var smallContent = document.getElementById("sm-project-" + PROJECTS[i].id+"-collapse");
+            if(smallContent){
+                smallContent.className = smallContent.className.includes("in") ? smallContent.className : smallContent.className+" in";
+            }
         }
     }
 }

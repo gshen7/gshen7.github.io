@@ -1,19 +1,9 @@
 const CONTENT_KEYS=["about", "projects", "experience"];
-const TAGS = [
-    "NodeJS",
-    "Java",
-    "Python",
-    "Meteor",
-    "Android",
-    "R",
-    "MongoDB",
-    "MySQL",
-    "Machine Learning",
-];
-const TAGS_COUNT = {
+const TAGS = {
     "NodeJS": 2,
     "Java": 3,
     "Python": 1,
+    "Assembly": 1,
     "Meteor": 1,
     "Android": 1,
     "R": 2,
@@ -23,22 +13,28 @@ const TAGS_COUNT = {
 }
 const PROJECTS = [
     {
-        id: 6,
+        id: 7,
         title: "IOU",
         tags: ["NodeJS", "Meteor", "MongoDB"],
         description: "[In Progress] A web application simplifying the process for collecting money from friends using the PayPal API.",
     },
     {
-        id: 5,
+        id: 6,
         title: "NHL Prediction Model",
         tags: ["R", "Machine Learning"],
         description: "A model for predicting various aspects of NHL games. Used the perceptron machine learning algorithm to create a model to predict which teams will make the playoffs based on input factors of various season stats. Also created regression models for (A) evaluating players based on a single number metric, aggregating contributions on a game by game basis; and (B) predicting fantasy hockey points based on recent stats.",
     },
     {
-        id: 4,
+        id: 5,
         title: "Group Tools Chatbot",
         tags: ["NodeJS"],
         description: "A Facebook messenger chatbot to add several tools for group chats. Tools were a gold star tracker, list randomizer and selector, and reaction picture library.",
+    },
+    {
+        id: 4,
+        title: "Alarming",
+        tags: ["Assembly"],
+        description: "An HC12 microcontroller attachment to a stationary exercise bicycle that plays an alarm sound until a certain distance measured by wheel rotations is travelled. Created to address the alarming trend of decreasing physical activity and to be used in conjunction with a timed electrical outlet to serve as an alarm clock that promotes physical activity as a part of the waking routine.",
     },
     {
         id: 3,
@@ -107,7 +103,7 @@ const WIDTH_THRESHOLD = 1000;
 const HEIGHT_THRESHOLD = 500;
 
 var currentActive = "home";
-var selectedTags = TAGS;
+var selectedTags = Object.keys(TAGS);
 var searchKey = "";
 var size = "";
 
@@ -154,10 +150,10 @@ $( window ).on( "load", function() {
 });
 
 function changeAllCheck(checked){
-    for(var i=0;i<TAGS.length;i++){
-        var tagCheck = document.getElementById(TAGS[i]+"-check");
+    for(var i=0;i<Object.keys(TAGS).length;i++){
+        var tagCheck = document.getElementById(Object.keys(TAGS)[i]+"-check");
         tagCheck.className = "fa fa-" + (checked ? "check-" : "") + "square-o";
-        var smallTagCheck = document.getElementById("sm-" + TAGS[i] +"-check");
+        var smallTagCheck = document.getElementById("sm-" + Object.keys(TAGS)[i] +"-check");
         smallTagCheck.className = "fa fa-" + (checked ? "check-" : "") + "square-o";
     }
     
@@ -234,10 +230,10 @@ function changePanels(filteredProjects){
 
 function changeSelectedTags(){
     selectedTags = [];
-    for(var i=0;i<TAGS.length;i++){
-        var tagCheck = document.getElementById(TAGS[i]+"-check");
+    for(var i=0;i<Object.keys(TAGS).length;i++){
+        var tagCheck = document.getElementById(Object.keys(TAGS)[i]+"-check");
         if(tagCheck.className.includes("check")){
-            selectedTags.push(TAGS[i]);
+            selectedTags.push(Object.keys(TAGS)[i]);
         }
     }
     updateTagsFilter();
@@ -443,24 +439,24 @@ function resizeSmall(){
 }
 
 function updateTagsFilter(first){
-    var tagOptions = TAGS.map(function(t) {
+    var tagOptions = Object.keys(TAGS).map(function(t) {
         var out = "<li class=\"keep-open\"><a><i id=\"" + t + "-check\" class=\"fa fa-";
         if(selectedTags.includes(t) && !first){
             out += "check-";
         }
-        out += "square-o\"></i> " + t + " <span class=\"badge\">" + TAGS_COUNT[t] + "</span></a></li>";
+        out += "square-o\"></i> " + t + " <span class=\"badge\">" + TAGS[t] + "</span></a></li>";
         return out;
     });
 
     var projectsTagFilter = document.getElementById('projects-tag-filter');
     projectsTagFilter.innerHTML = "<li class=\"keep-open\"><a>Select All</a></li><li class=\"keep-open\"><a>Select None</a></li><li class=\"divider\"/>" + tagOptions.join(" ");
 
-    var tagOptions = TAGS.map(function(t) {
+    var tagOptions = Object.keys(TAGS).map(function(t) {
         var out = "<li class=\"keep-open\"><a><i id=\"sm-" + t + "-check\" class=\"fa fa-";
         if(selectedTags.includes(t) && !first){
             out += "check-";
         }
-        out += "square-o\"></i>" + t + " <span class=\"badge\">" + TAGS_COUNT[t] + "</span></a></li>";
+        out += "square-o\"></i>" + t + " <span class=\"badge\">" + TAGS[t] + "</span></a></li>";
         return out;
     });
 

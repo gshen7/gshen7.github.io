@@ -116,7 +116,7 @@ var searchKey = "";
 $(document).ready(function() {
     $( '#projects-tag-filter, #sm-projects-tag-filter' ).on( 'click', function( event ) {
         var tag;
-        if(event.target.className==="badge" || event.target.type==="checkbox"){
+        if(event.target.className==="badge" || event.target.className.includes("fa-")){
             tag = event.target.parentElement;
         } else {
             tag = event.target;
@@ -158,9 +158,9 @@ $( window ).on( "load", function() {
 function changeAllCheck(checked){
     for(var i=0;i<TAGS.length;i++){
         var tagCheck = document.getElementById(TAGS[i]+"-check");
-        tagCheck.checked = checked;
+        tagCheck.className = "fa fa-" + (checked ? "check-" : "") + "square-o";
         var smallTagCheck = document.getElementById("sm-" + TAGS[i] +"-check");
-        smallTagCheck.checked = !smallTagCheck.checked;
+        smallTagCheck.className = "fa fa-" + (checked ? "check-" : "") + "square-o";
     }
     
     changeSelectedTags();
@@ -168,9 +168,9 @@ function changeAllCheck(checked){
     
 function changeCheck(tag){
     var tagCheck = document.getElementById(tag+"-check");
-    tagCheck.checked = !tagCheck.checked;
+    tagCheck.className = "fa fa-" + (tagCheck.className.includes("check") ? "" : "check-") + "square-o";
     var smallTagCheck = document.getElementById("sm-" + tag +"-check");
-    smallTagCheck.checked = !smallTagCheck.checked;
+    smallTagCheck.className = "fa fa-" + (smallTagCheck.className.includes("check") ? "" : "check-") + "square-o";
     changeSelectedTags();
 }
 
@@ -253,7 +253,7 @@ function changeSelectedTags(){
     selectedTags = [];
     for(var i=0;i<TAGS.length;i++){
         var tagCheck = document.getElementById(TAGS[i]+"-check");
-        if(tagCheck.checked){
+        if(tagCheck.className.includes("check")){
             selectedTags.push(TAGS[i]);
         }
     }
@@ -402,11 +402,11 @@ function resizeSmall(){
 
 function updateTagsFilter(first){
     var tagOptions = TAGS.map(function(t) {
-        var out = "<li class=\"keep-open\"><a><input type=\"checkbox\" id=\"" + t + "-check\" disabled ";
+        var out = "<li class=\"keep-open\"><a><i id=\"" + t + "-check\" class=\"fa fa-";
         if(selectedTags.includes(t) && !first){
-            out += "checked";
-        } 
-        out += "/> " + t + " <span class=\"badge\">" + TAGS_COUNT[t] + "</span></a></li>";
+            out += "check-";
+        }
+        out += "square-o\"></i> " + t + " <span class=\"badge\">" + TAGS_COUNT[t] + "</span></a></li>";
         return out;
     });
 
@@ -414,11 +414,11 @@ function updateTagsFilter(first){
     projectsTagFilter.innerHTML = "<li class=\"keep-open\"><a>Select All</a></li><li class=\"keep-open\"><a>Select None</a></li><li class=\"divider\"/>" + tagOptions.join(" ");
 
     var tagOptions = TAGS.map(function(t) {
-        var out = "<li class=\"keep-open\"><a><input type=\"checkbox\" id=\"sm-" + t + "-check\" disabled ";
+        var out = "<li class=\"keep-open\"><a><i id=\"sm-" + t + "-check\" class=\"fa fa-";
         if(selectedTags.includes(t) && !first){
-            out += "checked";
-        } 
-        out += "/> " + t + " <span class=\"badge\">" + TAGS_COUNT[t] + "</span></a></li>";
+            out += "check-";
+        }
+        out += "square-o\"></i>" + t + " <span class=\"badge\">" + TAGS_COUNT[t] + "</span></a></li>";
         return out;
     });
 

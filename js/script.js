@@ -121,8 +121,14 @@ $(document).ready(function() {
         } else {
             tag = event.target;
         }
-        tag = tag.childNodes[1].nodeValue.trim();
-        changeCheck(tag);
+        if(tag.innerText==="Select All"){
+            changeAllCheck(true);
+        } else if(tag.innerText==="Select None"){
+            changeAllCheck(false);
+        } else if(tag.className!=="divider"){
+            tag = tag.childNodes[1].nodeValue.trim();
+            changeCheck(tag);    
+        }
         event.stopPropagation();
     });
 
@@ -149,10 +155,21 @@ $( window ).on( "load", function() {
     }
 });
 
+function changeAllCheck(checked){
+    for(var i=0;i<TAGS.length;i++){
+        var tagCheck = document.getElementById(TAGS[i]+"-check");
+        tagCheck.checked = checked;
+        var smallTagCheck = document.getElementById("sm-" + TAGS[i] +"-check");
+        smallTagCheck.checked = !smallTagCheck.checked;
+    }
+    
+    changeSelectedTags();
+}
+    
 function changeCheck(tag){
     var tagCheck = document.getElementById(tag+"-check");
     tagCheck.checked = !tagCheck.checked;
-    var smallTagCheck = document.getElementById("sm-" + tag+"-check");
+    var smallTagCheck = document.getElementById("sm-" + tag +"-check");
     smallTagCheck.checked = !smallTagCheck.checked;
     changeSelectedTags();
 }
@@ -394,7 +411,7 @@ function updateTagsFilter(first){
     });
 
     var projectsTagFilter = document.getElementById('projects-tag-filter');
-    projectsTagFilter.innerHTML = tagOptions.join(" ");
+    projectsTagFilter.innerHTML = "<li class=\"keep-open\"><a>Select All</a></li><li class=\"keep-open\"><a>Select None</a></li><li class=\"divider\"/>" + tagOptions.join(" ");
 
     var tagOptions = TAGS.map(function(t) {
         var out = "<li class=\"keep-open\"><a><input type=\"checkbox\" id=\"sm-" + t + "-check\" disabled ";
@@ -406,5 +423,5 @@ function updateTagsFilter(first){
     });
 
     var projectsTagFilter = document.getElementById('sm-projects-tag-filter');
-    projectsTagFilter.innerHTML = tagOptions.join(" ");
+    projectsTagFilter.innerHTML = "<li class=\"keep-open\"><a>Select All</a></li><li class=\"keep-open\"><a>Select None</a></li><li class=\"divider\"/>" + tagOptions.join(" ");
 }

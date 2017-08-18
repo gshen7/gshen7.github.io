@@ -1,4 +1,16 @@
-const CONTENT_KEYS=["about", "projects", "experience"];
+const CONTENT_KEYS = ["about", "projects", "experience"];
+const ABOUT = {
+    overview: {
+        description: "I'm a <b>Computer Engineering and Business</b> dual degree student at <b>Western University and the Ivey School of Business</b>." +
+            " My experience in software development includes work in agile, test-driven, and research environments.",
+        img: "resources/about-overview.png",
+    },
+    interests: {
+        description: "<b>Interests</b> include travelling, playing and watching sports, particularly hockey, table tennis and golf, and board/card games. " +
+            "I also enjoy discussions on pro sports analytics and a wide variety of reading and viewing interests.",
+        img: "resources/about-interests.png",
+    },
+};
 const TAGS = {
     "NodeJS": 2,
     "Java": 3,
@@ -10,7 +22,7 @@ const TAGS = {
     "MongoDB": 1,
     "MySQL": 2,
     "Machine Learning": 2, 
-}
+};
 const PROJECTS = [
     {
         id: 7,
@@ -60,7 +72,7 @@ const PROJECTS = [
         tags: ["Java", "MySQL"],
         description: "A system for locating items with RFID tags attached to them using an RFID scanner. Tracked item-tag pairings in a MySQL database to allow for only specific items selected in JavaFX frontend to be tracked.",
     },
-]
+];
 const EXPERIENCE = [
      {
         key: "magnet",
@@ -98,7 +110,7 @@ const EXPERIENCE = [
             "<li>Researched methods of improving human activity recognition apps through machine learning methods. (Publication: <a href=\"http://ieeexplore.ieee.org/document/7844783/\">Mitigating sensor differences for phone-based human activity recognition</a>).</li></ul>",
         logoSource: "resources/exp-uwo.png"
     },
-]
+];
 const WIDTH_THRESHOLD = 1000;
 const HEIGHT_THRESHOLD = 500;
 
@@ -148,6 +160,27 @@ $( window ).on( "load", function() {
         initBig();
     }
 });
+
+function changeAbout(about){
+    var overviewContent = "<img src=\"" + ABOUT.overview.img + 
+        "\" class=\"img-circle img-responsive portrait\"><hr/><div class=\"half-text\">" + ABOUT.overview.description +
+        "</div>";
+
+    var overviewContainer = document.getElementById('about-overview');
+    overviewContainer.innerHTML = overviewContent;
+
+    var interestsContent = "<img src=\"" + ABOUT.interests.img + 
+        "\" class=\"img-circle img-responsive portrait\"><hr/><div class=\"half-text\">" + ABOUT.interests.description +
+        "</div>";
+
+    var interestsContainer = document.getElementById('about-interests');
+    interestsContainer.innerHTML = interestsContent;
+
+    var smallContent = ABOUT.overview.description + "<br/><br/>" + ABOUT.interests.description;
+
+    var smallContainer = document.getElementById('sm-about-container');
+    smallContainer.innerHTML = smallContent;
+}
 
 function changeAllCheck(checked){
     for(var i=0;i<Object.keys(TAGS).length;i++){
@@ -260,7 +293,6 @@ function changeWells(experience){
 
     thumbnailContainer = document.getElementById("sm-experience-thumbs");
     thumbnailContainer.innerHTML = thumbs.join(" ");
-    
     
     var divs = experience.map(function(e) {
         return "<div class=\"col-md-12 collapse\" id=\"" + e.key + 
@@ -386,6 +418,7 @@ function hideContent(){
   }
   
 function init(){
+    changeAbout(ABOUT);
     changePanels(PROJECTS);
     changeWells(EXPERIENCE);
     updateTagsFilter(true);

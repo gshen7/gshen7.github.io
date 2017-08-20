@@ -1,7 +1,3 @@
-html {
-    background: whitesmoke;
-}
-
 .padded {
     padding-top: 5%;
     padding-bottom: 5%;
@@ -18,24 +14,6 @@ body {
     height: 100%;
     position: absolute;
     width: 100%;
-}
-
-#container-lg {
-    background: whitesmoke;
-    background-position: center center;
-    background-size: cover;
-    height: 100%;
-    position: absolute;
-    width: 100%;
-}
-
-#contianer-sm {
-    background: whitesmoke;
-    background-position: center center;
-    background-size: cover;
-    height: 100%;
-    position: absolute;
-    width: 100%; 
 }
 
 .btn-group-vertical {
@@ -130,4 +108,14 @@ a>.img-thumbnail:hover{
 
 .min-height {
     min-height: 400px;
+}
+
+#particles-js{
+  width: 100%;
+  height: 100%;
+  background-color: darkgray;
+  background-image: url('');
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: fixed;
 }

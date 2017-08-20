@@ -111,79 +111,70 @@ const EXPERIENCE = [
         logoSource: "resources/exp-uwo.png"
     },
 ];
-const WIDTH_THRESHOLD = 1000;
-const HEIGHT_THRESHOLD = 500;
-
-var currentActive = "home";
-var selectedTags = Object.keys(TAGS);
-var searchKey = "";
-var size = "";
-
-jQuery( document ).ready( function( $ ) {
-    particlesJS("particles-js", {
-        "particles": {
-            "number": {
-                "value": 50,
-                "density": {
-                    "enable": false,
-                }
-            },
-            "color": {
-                "value": "#000000"
-            },
-            "shape": {
-                "type": "circle",
-                "stroke": {
-                    "width": 1,
-                    "color": "#ffffff"
-                },
-            },
-            "size": {
-                "value": 10,
-                "random": true,
-                "anim": {
-                    "enable": false,
-                }
-            },
-            "opacity": {
-                "value": 0.25,
-                "random": false,
-                "anim": {
-                    "enable": false,
-                }
-            },
-            "line_linked": {
-                "enable": true,
-                "distance": 100,
-                "color": "#ffffff",
-                "opacity": 0.75,
-                "width": 1
-            },
-            "move": {
-                "enable": true,
-                "speed": 5,
-                "direction": "none",
-                "random": true,
-                "straight": false,
-                "out_mode": "out",
-                "bounce": false,
-                "attract": {
-                    "enable": false,
-                }
+const PARTICLES_CONFIG_BIG = {
+    "particles": {
+        "number": {
+            "value": 100,
+            "density": {
+                "enable": false,
             }
+        },
+        "color": {
+            "value": "#000000"
+        },
+        "shape": {
+            "type": "circle",
+            "stroke": {
+                "width": 1,
+                "color": "#ffffff"
             },
-        "interactivity": {
-            "detect_on": "canvas",
-            "events": {
-                "onhover": {
-                    "enable": true,
-                    "mode": "repulse"
-                },
-                "onclick": {
-                    "enable": true,
-                    "mode": "bubble"
-                },
-                "resize": true
+        },
+        "size": {
+            "value": 10,
+            "random": true,
+            "anim": {
+                "enable": false,
+            }
+        },
+        "opacity": {
+            "value": 0.25,
+            "random": false,
+            "anim": {
+                "enable": false,
+            }
+        },
+        "line_linked": {
+            "enable": true,
+            "distance": 100,
+            "color": "#ffffff",
+            "opacity": 0.75,
+            "width": 1
+        },
+        "move": {
+            "enable": true,
+            "speed": 5,
+            "direction": "none",
+            "random": true,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false,
+            "attract": {
+                "enable": false,
+            }
+        }
+        },
+    "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+            "onhover": {
+                "enable": true,
+                "mode": "repulse"
+            },
+            "onclick": {
+                "enable": true,
+                "mode": "bubble"
+            },
+            "resize": true
         },
         "modes": {
             "grab": {
@@ -210,10 +201,109 @@ jQuery( document ).ready( function( $ ) {
                 "particles_nb": 5
             }
         }
+    },
+    "retina_detect": true
+}
+const PARTICLES_CONFIG_SMALL = {
+    "particles": {
+        "number": {
+            "value": 25,
+            "density": {
+                "enable": false,
+            }
         },
-        "retina_detect": true
-    });
-});
+        "color": {
+            "value": "#000000"
+        },
+        "shape": {
+            "type": "circle",
+            "stroke": {
+                "width": 1,
+                "color": "#ffffff"
+            },
+        },
+        "size": {
+            "value": 10,
+            "random": true,
+            "anim": {
+                "enable": false,
+            }
+        },
+        "opacity": {
+            "value": 0.25,
+            "random": false,
+            "anim": {
+                "enable": false,
+            }
+        },
+        "line_linked": {
+            "enable": true,
+            "distance": 100,
+            "color": "#ffffff",
+            "opacity": 0.75,
+            "width": 1
+        },
+        "move": {
+            "enable": true,
+            "speed": 10,
+            "direction": "none",
+            "random": true,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false,
+            "attract": {
+                "enable": false,
+            }
+        }
+        },
+    "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+            "onhover": {
+                "enable": true,
+                "mode": "repulse"
+            },
+            "onclick": {
+                "enable": true,
+                "mode": "bubble"
+            },
+            "resize": true
+        },
+        "modes": {
+            "grab": {
+                "distance": 100,
+                "line_linked": {
+                    "opacity": 1
+            }
+            },
+            "bubble": {
+                "distance": 300,
+                "size": 10,
+                "duration": 0.25,
+                "opacity": 1,
+                "speed": 500
+            },
+            "repulse": {
+                "distance": 150,
+                "duration": 1
+            },
+            "push": {
+                "particles_nb": 5
+            },
+            "remove": {
+                "particles_nb": 5
+            }
+        }
+    },
+    "retina_detect": true
+}
+const WIDTH_THRESHOLD = 1000;
+const HEIGHT_THRESHOLD = 500;
+
+var currentActive = "home";
+var selectedTags = Object.keys(TAGS);
+var searchKey = "";
+var size = "sm";
 
 $(document).ready(function() {
     $( '#projects-tag-filter, #sm-projects-tag-filter' ).on( 'click', function( event ) {
@@ -522,16 +612,18 @@ function init(){
 }
 
 function initBig(){
-    var containerLg = document.getElementById("container-lg");
-    containerLg.className="";
     var containerSm = document.getElementById("container-sm");
     containerSm.className="collapse"; 
-    size="lg";   
+    size="lg";
+    particlesJS("particles-js", PARTICLES_CONFIG_BIG); 
+    var containerLg = document.getElementById("container-lg");
+    containerLg.className="";
 }
 
 function initSmall(){
     var containerLg = document.getElementById("container-lg");
     containerLg.className="collapse";
+    particlesJS("particles-js", PARTICLES_CONFIG_SMALL);    
     var containerSm = document.getElementById("container-sm");
     containerSm.className="";
     size = "sm";
@@ -552,19 +644,25 @@ function navTo(newActive){
 }
 
 function resizeBig(){
-    var containerLg = document.getElementById("container-lg");
-    containerLg.className="";
-    var containerSm = document.getElementById("container-sm");
-    containerSm.className="collapse";
-    size="lg";
+    if(size!="lg"){
+        var containerSm = document.getElementById("container-sm");
+        containerSm.className="collapse";
+        particlesJS("particles-js", PARTICLES_CONFIG_BIG);    
+        var containerLg = document.getElementById("container-lg");
+        containerLg.className="";
+        size="lg";
+    }
 }
 
 function resizeSmall(){
-    var containerLg = document.getElementById("container-lg");
-    containerLg.className="collapse";
-    var containerSm = document.getElementById("container-sm");
-    containerSm.className=""; 
-    size="sm";  
+    if(size!="sm"){
+        var containerLg = document.getElementById("container-lg");
+        containerLg.className="collapse";
+        particlesJS("particles-js", PARTICLES_CONFIG_SMALL);
+        var containerSm = document.getElementById("container-sm");
+        containerSm.className=""; 
+        size="sm";  
+    }
 }
 
 function updateTagsFilter(first){

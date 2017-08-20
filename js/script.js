@@ -168,11 +168,11 @@ const PARTICLES_CONFIG_BIG = {
         "events": {
             "onhover": {
                 "enable": true,
-                "mode": "repulse"
+                "mode": "bubble"
             },
             "onclick": {
                 "enable": true,
-                "mode": "bubble"
+                "mode": "repulse"
             },
             "resize": true
         },
@@ -261,11 +261,11 @@ const PARTICLES_CONFIG_SMALL = {
         "events": {
             "onhover": {
                 "enable": true,
-                "mode": "repulse"
+                "mode": "bubble"
             },
             "onclick": {
                 "enable": true,
-                "mode": "bubble"
+                "mode": "repulse"
             },
             "resize": true
         },

@@ -106,7 +106,7 @@ const EXPERIENCE = [
         location: "London, ON, Canada",
         date: "Nov 2015-Aug 2016",
         description: "Research and development in the field of communications/computing technologies and associated applications" +
-            "<ul><li>Designed a novel indoor locationing technique based on WiFi signal strength propagation. Developed model for propagation and prototyped system using Android. (Publication: <a href=\"#\">A novel Wifi-based indoor localization system - IEEE CSCWD 2017</a>).</li>" +
+            "<ul><li>Designed a novel indoor locationing technique based on WiFi signal strength propagation. Developed model for propagation and prototyped system using Android. (Publication: A novel Wifi-based indoor localization system - IEEE CSCWD 2017).</li>" +
             "<li>Researched methods of improving human activity recognition apps through machine learning methods. (Publication: <a href=\"http://ieeexplore.ieee.org/document/7844783/\">Mitigating sensor differences for phone-based human activity recognition</a>).</li></ul>",
         logoSource: "resources/exp-uwo.png"
     },
@@ -593,6 +593,10 @@ function hideContent(){
     if(oldContentDiv && !oldContentDiv.className.includes("hidden")){
       oldContentDiv.className = oldContentDiv.className + " hidden";
     }
+    var oldContentDivSmall = document.getElementById("sm-content-div-" + currentActive);
+    if(oldContentDivSmall && !oldContentDivSmall.className.includes("hidden")){
+        oldContentDivSmall.className = oldContentDivSmall.className + " hidden";
+    }
   
     var leftSidebar = document.getElementById("left-sidebar");
     leftSidebar.classList.add("col-md-offset-3");
@@ -632,13 +636,21 @@ function initSmall(){
 function navTo(newActive){
     var oldPill = document.getElementById(currentActive+"-pill");
     if(oldPill){
-        oldPill.className="inactive";
+        oldPill.className="";
     }
+    var oldSmallPill = document.getElementById("sm-"+currentActive+"-pill");
+    if(oldSmallPill){
+        oldSmallPill.className="";
+    }
+
     if (newActive === currentActive){
         hideContent();
     }else{
         var newPill = document.getElementById(newActive+"-pill");
         newPill.className="active";
+        var newSmallPill = document.getElementById("sm-"+newActive+"-pill");
+        newSmallPill.className="active";
+
         changeContent(newActive);
     }
 }

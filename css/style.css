@@ -119,3 +119,7 @@ a>.img-thumbnail:hover{
   background-repeat: no-repeat;
   position: fixed;
 }
+
+.active{
+    background: blue;
+}

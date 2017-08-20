@@ -123,7 +123,7 @@ jQuery( document ).ready( function( $ ) {
     particlesJS("particles-js", {
         "particles": {
             "number": {
-                "value": 100,
+                "value": 50,
                 "density": {
                     "enable": false,
                 }

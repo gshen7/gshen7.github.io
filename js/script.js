@@ -107,7 +107,7 @@ const EXPERIENCE = [
         date: "Nov 2015-Aug 2016",
         description: "Research and development in the field of communications/computing technologies and associated applications" +
             "<ul><li>Designed a novel indoor locationing technique based on WiFi signal strength propagation. Developed model for propagation and prototyped system using Android. (Publication: A novel Wifi-based indoor localization system - IEEE CSCWD 2017).</li>" +
-            "<li>Researched methods of improving human activity recognition apps through machine learning methods. (Publication: <a href=\"http://ieeexplore.ieee.org/document/7844783/\">Mitigating sensor differences for phone-based human activity recognition</a>).</li></ul>",
+            "<li>Researched methods of improving human activity recognition apps through machine learning methods. (Publication: <a target=\"_blank\" href=\"http://ieeexplore.ieee.org/document/7844783/\">Mitigating sensor differences for phone-based human activity recognition</a>).</li></ul>",
         logoSource: "resources/exp-uwo.png"
     },
 ];
@@ -499,7 +499,7 @@ function changeWells(experience){
             "</h4><br/><i><table class=\"text-center\"><tr><td>" + e.position +
             "</td></tr><tr><td>" + e.location +
             "</td></tr><tr><td>" + e.date +
-            "</td></tr></table></i><hr/><div class=\"well text-justify\">" + e.description +
+            "</td></tr></table></i><hr/><div class=\"well\">" + e.description +
             "</div></div>";
     });
 

@@ -80,7 +80,7 @@ const EXPERIENCE = [
         position: "Software Developer Co-op",
         location: "Waterloo, ON, Canada",
         date: "May 2017-Aug 2017",
-        description: "Full-stack development of metric dashboard aggregating testing data from various sources. Used React.JS/Redux for the frontend UI connected to a C# REST API endpoints to access a MySQL database." +
+        description: "Full-stack development of metric dashboard aggregating testing data from various sources. Used React.JS/Redux for the frontend UI connected to C# REST API endpoints to access a MySQL database." +
             "<ul><li>Created dashboard page for viewing results of automated regression tests using Jenkins API.</li><li>Added ability to mark certain automated test runs as outliers and a view to display metric deltas between runs.</li>" +
             "<li>Designed and implemented view to show health of product features over a history of code changes.</li><li>Integrated dashboard with Jira API to track expected hit counts to ease process of maintaining a golden baseline.</li>" +
             "<li>Created widget to display status of installer and expect new files into the known installer files.</li></ul>" +

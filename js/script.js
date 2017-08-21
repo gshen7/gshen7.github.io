@@ -297,7 +297,7 @@ const PARTICLES_CONFIG_SMALL = {
     },
     "retina_detect": true
 }
-const WIDTH_THRESHOLD = 1000;
+const WIDTH_THRESHOLD = 1100;
 const HEIGHT_THRESHOLD = 500;
 
 var currentActive = "home";

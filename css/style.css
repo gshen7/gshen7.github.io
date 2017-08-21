@@ -25,6 +25,10 @@ body {
     z-index: 1;
 }
 
+.panel{
+    opacity: 0.9;
+}
+
 .left {
     padding-left: 50px;
 }

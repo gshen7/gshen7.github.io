@@ -152,7 +152,7 @@ const PARTICLES_CONFIG_BIG = {
         },
         "move": {
             "enable": true,
-            "speed": 5,
+            "speed": 10,
             "direction": "none",
             "random": true,
             "straight": false,
@@ -164,7 +164,7 @@ const PARTICLES_CONFIG_BIG = {
         }
         },
     "interactivity": {
-        "detect_on": "canvas",
+        "detect_on": "window",
         "events": {
             "onhover": {
                 "enable": true,
@@ -191,7 +191,7 @@ const PARTICLES_CONFIG_BIG = {
                 "speed": 500
             },
             "repulse": {
-                "distance": 150,
+                "distance": 300,
                 "duration": 1
             },
             "push": {
@@ -257,7 +257,7 @@ const PARTICLES_CONFIG_SMALL = {
         }
         },
     "interactivity": {
-        "detect_on": "canvas",
+        "detect_on": "window",
         "events": {
             "onhover": {
                 "enable": true,
@@ -277,7 +277,7 @@ const PARTICLES_CONFIG_SMALL = {
             }
             },
             "bubble": {
-                "distance": 300,
+                "distance": 150,
                 "size": 10,
                 "duration": 0.25,
                 "opacity": 1,

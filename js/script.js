@@ -107,7 +107,7 @@ const EXPERIENCE = [
     date: "Jan 2017-May 2017",
     description:
       "Modernized suite of brain games used for cognitive tests." +
-      "<ul><li>Ported games from flash player to HTML5 and JS.</li><li>Developed model for standardizing scores of old tests so that past data remained relevant and comparable to new results.</li>" +
+      "<ul><li>Ported games from flash player to more modernized technology stack (Ruby/Rails and ReactJS/Redux).</li><li>Developed model for standardizing scores of old tests so that past data remained relevant and comparable to new results.</li>" +
       "<li>Built automated test suite in Ruby/Rails using RSpec and contributed to behaviour testing of modern version of games, ensuring behaviour replicated old version.</li></ul>",
     logoSource: "resources/exp-cbs.png"
   },

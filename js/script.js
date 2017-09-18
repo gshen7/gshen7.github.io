@@ -8,7 +8,7 @@ const ABOUT = {
   },
   interests: {
     description:
-      "<b>Interests</b> include travelling, playing and watching sports, particularly hockey, table tennis and golf, and board/card games. " +
+      "<b>Interests</b> include travelling, playing and watching sports, particularly hockey, table tennis and golf, board/card games, and lifting weights at the gym. " +
       "I also enjoy discussions on pro sports analytics and a wide variety of reading and viewing interests.",
     img: "resources/about-interests.png"
   }

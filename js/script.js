@@ -2,15 +2,14 @@ const CONTENT_KEYS = ["about", "projects", "experience"];
 const ABOUT = {
   overview: {
     description:
-    "I'm a <b>Business</b> student at the <b>Ivey School of Business at Western University</b>." +
-    " I completed my first two years in <b>Computer Engineering</b> and have" +
-    " software development experience in agile, test-driven, and research environments.",
+      "I'm a <b>computer engineering</b> and <b>business</b> student at the <b>Ivey School of Business at Western University</b>." +
+      " I have software development experience in agile, test-driven, and research environments.",
     img: "resources/about-overview.png"
   },
   interests: {
     description:
-    "<b>Interests</b> include travelling, playing and watching sports, particularly hockey, table tennis and golf, and board/card games." +
-    "I also enjoy discussions on pro sports analytics and a wide variety of reading and viewing interests.",
+      "<b>Interests</b> include travelling, playing and watching sports, particularly hockey, table tennis and golf, and board/card games." +
+      "I also enjoy discussions on pro sports analytics and a wide variety of reading and viewing interests.",
     img: "resources/about-interests.png"
   }
 };
@@ -32,56 +31,56 @@ const PROJECTS = [
     title: "IOU",
     tags: ["NodeJS", "Meteor", "MongoDB"],
     description:
-    "A web application simplifying the process for collecting money from friends using the PayPal API. Allows users to request, track and make payments."
+      "A web application simplifying the process for collecting money from friends using the PayPal API. Allows users to request, track and make payments."
   },
   {
     id: 6,
     title: "NHL Prediction Model",
     tags: ["R", "Machine Learning"],
     description:
-    "A model for predicting various aspects of NHL games. Used the perceptron machine learning algorithm to create a model to predict which teams will make the playoffs based on input factors of various season stats. Also created regression models for (A) evaluating players based on a single number metric, aggregating contributions on a game by game basis; and (B) predicting fantasy hockey points based on recent stats."
+      "A model for predicting various aspects of NHL games. Used the perceptron machine learning algorithm to create a model to predict which teams will make the playoffs based on input factors of various season stats. Also created regression models for (A) evaluating players based on a single number metric, aggregating contributions on a game by game basis; and (B) predicting fantasy hockey points based on recent stats."
   },
   {
     id: 5,
     title: "Group Tools Chatbot",
     tags: ["NodeJS"],
     description:
-    "A Facebook messenger chatbot to add several tools for group chats. Tools were a gold star tracker, list randomizer and selector, and reaction picture library."
+      "A Facebook messenger chatbot to add several tools for group chats. Tools were a gold star tracker, list randomizer and selector, and reaction picture library."
   },
   {
     id: 4,
     title: "Alarming",
     tags: ["Assembly"],
     description:
-    "An HC12 microcontroller attachment to a stationary exercise bicycle that plays an alarm sound until a certain distance measured by wheel rotations is travelled. Created to address the alarming trend of decreasing physical activity and to be used in conjunction with a timed electrical outlet to serve as an alarm clock that promotes physical activity as a part of the waking routine."
+      "An HC12 microcontroller attachment to a stationary exercise bicycle that plays an alarm sound until a certain distance measured by wheel rotations is travelled. Created to address the alarming trend of decreasing physical activity and to be used in conjunction with a timed electrical outlet to serve as an alarm clock that promotes physical activity as a part of the waking routine."
   },
   {
     id: 3,
     title: "Support and Resistance Line Generator",
     tags: ["R"],
     description:
-    "A platform to determine and plot support and resistance lines based on stock charts."
+      "A platform to determine and plot support and resistance lines based on stock charts."
   },
   {
     id: 2,
     title: "BikeSafe for V2V",
     tags: ["Java", "Python", "Android"],
     description:
-    "A smartwatch app to detect cyclists' hand signals for the purpose of demoing a system to allow cyclists to integrate into vehicle to vehicle communication protocols of the future."
+      "A smartwatch app to detect cyclists' hand signals for the purpose of demoing a system to allow cyclists to integrate into vehicle to vehicle communication protocols of the future."
   },
   {
     id: 1,
     title: "Smart Bed Monitoring System",
     tags: ["Java", "MySQL", "Machine Learning"],
     description:
-    "A machine learning based system for detecting bed-related scenarios and monitoring sleep patterns and sending alerts for certain situations. Used simple, non-intrusive piezoelectric force sensors transmitting readings via ZigBee nodes in real time. Stored historical data in a MySQL database for use in trending health history."
+      "A machine learning based system for detecting bed-related scenarios and monitoring sleep patterns and sending alerts for certain situations. Used simple, non-intrusive piezoelectric force sensors transmitting readings via ZigBee nodes in real time. Stored historical data in a MySQL database for use in trending health history."
   },
   {
     id: 0,
     title: "RFID Object Locator",
     tags: ["Java", "MySQL"],
     description:
-    "A system for locating items with RFID tags attached to them using an RFID scanner. Tracked item-tag pairings in a MySQL database to allow for only specific items selected in JavaFX frontend to be tracked."
+      "A system for locating items with RFID tags attached to them using an RFID scanner. Tracked item-tag pairings in a MySQL database to allow for only specific items selected in JavaFX frontend to be tracked."
   }
 ];
 const EXPERIENCE = [
@@ -92,9 +91,9 @@ const EXPERIENCE = [
     location: "London, ON, Canada",
     date: "Nov 2015-Aug 2016",
     description:
-    "Research and development in the field of communications/computing technologies and associated applications" +
-    "<ul><li>Designed a novel indoor locationing technique based on WiFi signal strength propagation. Developed model for propagation and prototyped system using Android. (Publication: A novel Wifi-based indoor localization system - IEEE CSCWD 2017).</li>" +
-    '<li>Researched methods of improving human activity recognition apps through machine learning methods. (Publication: <a target="_blank" href="http://ieeexplore.ieee.org/document/7844783/">Mitigating sensor differences for phone-based human activity recognition</a>).</li></ul>',
+      "Research and development in the field of communications/computing technologies and associated applications" +
+      "<ul><li>Designed a novel indoor locationing technique based on WiFi signal strength propagation. Developed model for propagation and prototyped system using Android. (Publication: A novel Wifi-based indoor localization system - IEEE CSCWD 2017).</li>" +
+      '<li>Researched methods of improving human activity recognition apps through machine learning methods. (Publication: <a target="_blank" href="http://ieeexplore.ieee.org/document/7844783/">Mitigating sensor differences for phone-based human activity recognition</a>).</li></ul>',
     logoSource: "resources/exp-uwo.png"
   },
   {
@@ -104,9 +103,9 @@ const EXPERIENCE = [
     location: "London, ON, Canada",
     date: "Jan 2017-May 2017",
     description:
-    "Modernized suite of brain games used for cognitive tests." +
-    "<ul><li>Ported games from flash player to more modernized technology stack (Ruby/Rails and ReactJS/Redux).</li><li>Developed model for standardizing scores of old tests so that past data remained relevant and comparable to new results.</li>" +
-    "<li>Built automated test suite in Ruby/Rails using RSpec and contributed to behaviour testing of modern version of games, ensuring behaviour replicated old version.</li></ul>",
+      "Modernized suite of brain games used for cognitive tests." +
+      "<ul><li>Ported games from flash player to more modernized technology stack (Ruby/Rails and ReactJS/Redux).</li><li>Developed model for standardizing scores of old tests so that past data remained relevant and comparable to new results.</li>" +
+      "<li>Built automated test suite in Ruby/Rails using RSpec and contributed to behaviour testing of modern version of games, ensuring behaviour replicated old version.</li></ul>",
     logoSource: "resources/exp-cbs.png"
   },
   {
@@ -116,201 +115,112 @@ const EXPERIENCE = [
     location: "Waterloo, ON, Canada",
     date: "May 2017-Aug 2017",
     description:
-    "Full-stack development of metric dashboard aggregating testing data from various sources. Used React.JS/Redux for the frontend UI connected to C# REST API endpoints to access a MySQL database." +
-    "<ul><li>Created dashboard page for viewing results of automated regression tests using Jenkins API.</li><li>Added ability to mark certain automated test runs as outliers and a view to display metric deltas between runs.</li>" +
-    "<li>Designed and implemented view to show health of product features over a history of code changes.</li><li>Integrated dashboard with Jira API to track expected hit counts to ease process of maintaining a golden baseline.</li>" +
-    "<li>Created widget to display status of installer and expect new files into the known installer files.</li></ul>" +
-    "Winforms FlexNet Licensing Tool Development." +
-    "<ul><li>Multithreaded requests to FlexNet API to create a more robust process for pulling data.</li><li>Designed and implemented previewing functionality to display a customer's existing licenses, improving license renewal and removal process.</li></ul>",
+      "Full-stack development of metric dashboard aggregating testing data from various sources. Used React.JS/Redux for the frontend UI connected to C# REST API endpoints to access a MySQL database." +
+      "<ul><li>Created dashboard page for viewing results of automated regression tests using Jenkins API.</li><li>Added ability to mark certain automated test runs as outliers and a view to display metric deltas between runs.</li>" +
+      "<li>Designed and implemented view to show health of product features over a history of code changes.</li><li>Integrated dashboard with Jira API to track expected hit counts to ease process of maintaining a golden baseline.</li>" +
+      "<li>Created widget to display status of installer and expect new files into the known installer files.</li></ul>" +
+      "Winforms FlexNet Licensing Tool Development." +
+      "<ul><li>Multithreaded requests to FlexNet API to create a more robust process for pulling data.</li><li>Designed and implemented previewing functionality to display a customer's existing licenses, improving license renewal and removal process.</li></ul>",
     logoSource: "resources/exp-magnet.png"
   }
 ];
-const PARTICLES_CONFIG_BIG = {
-  particles: {
-    number: {
-      value: 100,
-      density: {
-        enable: false
-      }
-    },
-    color: {
-      value: "#000000"
-    },
-    shape: {
-      type: "circle",
-      stroke: {
-        width: 1,
-        color: "#ffffff"
-      }
-    },
-    size: {
-      value: 10,
-      random: true,
-      anim: {
-        enable: false
-      }
-    },
-    opacity: {
-      value: 0.25,
-      random: false,
-      anim: {
-        enable: false
-      }
-    },
-    line_linked: {
-      enable: true,
-      distance: 100,
-      color: "#ffffff",
-      opacity: 0.75,
-      width: 1
-    },
-    move: {
-      enable: true,
-      speed: 10,
-      direction: "none",
-      random: true,
-      straight: false,
-      out_mode: "out",
-      bounce: false,
-      attract: {
-        enable: false
-      }
-    }
-  },
-  interactivity: {
-    detect_on: "window",
-    events: {
-      onhover: {
-        enable: true,
-        mode: "bubble"
-      },
-      onclick: {
-        enable: true,
-        mode: "repulse"
-      },
-      resize: true
-    },
-    modes: {
-      grab: {
-        distance: 100,
-        line_linked: {
-          opacity: 1
+function PARTICLES_CONFIG(isBig) {
+  var obj = {
+    particles: {
+      number: {
+        value: isBig ? 100 : 25,
+        density: {
+          enable: false
         }
       },
-      bubble: {
-        distance: 300,
-        size: 10,
-        duration: 0.25,
-        opacity: 1,
-        speed: 500
+      color: {
+        value: "#000000"
       },
-      repulse: {
-        distance: 300,
-        duration: 1
-      },
-      push: {
-        particles_nb: 5
-      },
-      remove: {
-        particles_nb: 5
-      }
-    }
-  },
-  retina_detect: true
-};
-const PARTICLES_CONFIG_SMALL = {
-  particles: {
-    number: {
-      value: 25,
-      density: {
-        enable: false
-      }
-    },
-    color: {
-      value: "#000000"
-    },
-    shape: {
-      type: "circle",
-      stroke: {
-        width: 1,
-        color: "#ffffff"
-      }
-    },
-    size: {
-      value: 10,
-      random: true,
-      anim: {
-        enable: false
-      }
-    },
-    opacity: {
-      value: 0.25,
-      random: false,
-      anim: {
-        enable: false
-      }
-    },
-    line_linked: {
-      enable: true,
-      distance: 100,
-      color: "#ffffff",
-      opacity: 0.75,
-      width: 1
-    },
-    move: {
-      enable: true,
-      speed: 10,
-      direction: "none",
-      random: true,
-      straight: false,
-      out_mode: "out",
-      bounce: false,
-      attract: {
-        enable: false
-      }
-    }
-  },
-  interactivity: {
-    detect_on: "window",
-    events: {
-      onhover: {
-        enable: true,
-        mode: "bubble"
-      },
-      onclick: {
-        enable: true,
-        mode: "repulse"
-      },
-      resize: true
-    },
-    modes: {
-      grab: {
-        distance: 100,
-        line_linked: {
-          opacity: 1
+      shape: {
+        type: "circle",
+        stroke: {
+          width: 1,
+          color: "#ffffff"
         }
       },
-      bubble: {
-        distance: 150,
-        size: 10,
-        duration: 0.25,
-        opacity: 1,
-        speed: 500
+      size: {
+        value: 10,
+        random: true,
+        anim: {
+          enable: false
+        }
       },
-      repulse: {
-        distance: 150,
-        duration: 1
+      opacity: {
+        value: 0.25,
+        random: false,
+        anim: {
+          enable: false
+        }
       },
-      push: {
-        particles_nb: 5
+      line_linked: {
+        enable: true,
+        distance: 100,
+        color: "#ffffff",
+        opacity: 0.75,
+        width: 1
       },
-      remove: {
-        particles_nb: 5
+      move: {
+        enable: true,
+        speed: 10,
+        direction: "none",
+        random: true,
+        straight: false,
+        out_mode: "out",
+        bounce: false,
+        attract: {
+          enable: false
+        }
       }
-    }
-  },
-  retina_detect: true
-};
+    },
+    interactivity: {
+      detect_on: "window",
+      events: {
+        onhover: {
+          enable: true,
+          mode: "bubble"
+        },
+        onclick: {
+          enable: true,
+          mode: "repulse"
+        },
+        resize: true
+      },
+      modes: {
+        grab: {
+          distance: 100,
+          line_linked: {
+            opacity: 1
+          }
+        },
+        bubble: {
+          distance: isBig ? 300 : 150,
+          size: 10,
+          duration: 0.25,
+          opacity: 1,
+          speed: 500
+        },
+        repulse: {
+          distance: isBig ? 300 : 150,
+          duration: 1
+        },
+        push: {
+          particles_nb: 5
+        },
+        remove: {
+          particles_nb: 5
+        }
+      }
+    },
+    retina_detect: true
+  };
+  return obj;
+}
+
 const WIDTH_THRESHOLD = 1100;
 const HEIGHT_THRESHOLD = 500;
 
@@ -319,8 +229,8 @@ var selectedTags = Object.keys(TAGS);
 var searchKey = "";
 var size = "sm";
 
-$(document).ready(function () {
-  $("#projects-tag-filter, #sm-projects-tag-filter").on("click", function (
+$(document).ready(function() {
+  $("#projects-tag-filter, #sm-projects-tag-filter").on("click", function(
     event
   ) {
     var tag;
@@ -343,7 +253,7 @@ $(document).ready(function () {
     event.stopPropagation();
   });
 
-  $(window).on("resize", function () {
+  $(window).on("resize", function() {
     var win = $(this);
     var width = $(window).width();
     var height = $(window).height();
@@ -355,7 +265,7 @@ $(document).ready(function () {
   });
 });
 
-$(window).on("load", function () {
+$(window).on("load", function() {
   init();
   var width = $(window).width();
   var height = $(window).height();
@@ -462,7 +372,7 @@ function changeContent(newActive) {
 }
 
 function changePanels(filteredProjects) {
-  var panels = filteredProjects.map(function (p) {
+  var panels = filteredProjects.map(function(p) {
     var out =
       '<div class="panel panel-default" id="project-' +
       p.id +
@@ -486,7 +396,7 @@ function changePanels(filteredProjects) {
   var projectsContainer = document.getElementById("projects-container");
   projectsContainer.innerHTML = panels.join(" ");
 
-  panels = filteredProjects.map(function (p) {
+  panels = filteredProjects.map(function(p) {
     var out =
       '<div class="panel panel-default" id="sm-project-' +
       p.id +
@@ -524,7 +434,7 @@ function changeSelectedTags() {
 }
 
 function changeWells(experience) {
-  var thumbs = experience.map(function (e) {
+  var thumbs = experience.map(function(e) {
     return (
       '<td class="text-center"><a onmouseover="expandExperience(\'' +
       e.key +
@@ -539,7 +449,7 @@ function changeWells(experience) {
   var thumbnailContainer = document.getElementById("experience-thumbs");
   thumbnailContainer.innerHTML = thumbs.join(" ");
 
-  var thumbs = experience.map(function (e) {
+  var thumbs = experience.map(function(e) {
     return (
       '<td class="text-center"><a onmouseover="expandExperience(\'' +
       e.key +
@@ -554,7 +464,7 @@ function changeWells(experience) {
   thumbnailContainer = document.getElementById("sm-experience-thumbs");
   thumbnailContainer.innerHTML = thumbs.join(" ");
 
-  var divs = experience.map(function (e) {
+  var divs = experience.map(function(e) {
     return (
       '<div class="col-md-12 collapse" id="' +
       e.key +
@@ -575,7 +485,7 @@ function changeWells(experience) {
   var experienceContainer = document.getElementById("experience-container");
   experienceContainer.innerHTML = divs.join(" ");
 
-  divs = experience.map(function (e) {
+  divs = experience.map(function(e) {
     return (
       '<div class="col-md-12 collapse" id="sm-' +
       e.key +
@@ -698,13 +608,13 @@ function filterProjects(small) {
     !small ? "sm-proj-search" : "proj-search"
   );
   otherInput.value = searchKey;
-  var filteredProjects = PROJECTS.filter(function (p) {
+  var filteredProjects = PROJECTS.filter(function(p) {
     return (
       p.title.toUpperCase().includes(searchKey.toUpperCase()) ||
       p.description.toUpperCase().includes(searchKey.toUpperCase())
     );
   });
-  filteredProjects = filteredProjects.filter(function (p) {
+  filteredProjects = filteredProjects.filter(function(p) {
     for (var i = 0; i < selectedTags.length; i++) {
       if (p.tags.includes(selectedTags[i])) {
         return true;
@@ -752,7 +662,7 @@ function initBig() {
   var containerSm = document.getElementById("container-sm");
   containerSm.className = "collapse";
   size = "lg";
-  particlesJS("particles-js", PARTICLES_CONFIG_BIG);
+  particlesJS("particles-js", PARTICLES_CONFIG(true));
   var containerLg = document.getElementById("container-lg");
   containerLg.className = "";
 }
@@ -760,7 +670,7 @@ function initBig() {
 function initSmall() {
   var containerLg = document.getElementById("container-lg");
   containerLg.className = "collapse";
-  particlesJS("particles-js", PARTICLES_CONFIG_SMALL);
+  particlesJS("particles-js", PARTICLES_CONFIG(false));
   var containerSm = document.getElementById("container-sm");
   containerSm.className = "";
   size = "sm";
@@ -792,7 +702,7 @@ function resizeBig() {
   if (size != "lg") {
     var containerSm = document.getElementById("container-sm");
     containerSm.className = "collapse";
-    particlesJS("particles-js", PARTICLES_CONFIG_BIG);
+    particlesJS("particles-js", PARTICLES_CONFIG(true));
     var containerLg = document.getElementById("container-lg");
     containerLg.className = "";
     size = "lg";
@@ -803,7 +713,7 @@ function resizeSmall() {
   if (size != "sm") {
     var containerLg = document.getElementById("container-lg");
     containerLg.className = "collapse";
-    particlesJS("particles-js", PARTICLES_CONFIG_SMALL);
+    particlesJS("particles-js", PARTICLES_CONFIG(false));
     var containerSm = document.getElementById("container-sm");
     containerSm.className = "";
     size = "sm";
@@ -811,7 +721,7 @@ function resizeSmall() {
 }
 
 function updateTagsFilter(first) {
-  var tagOptions = Object.keys(TAGS).map(function (t) {
+  var tagOptions = Object.keys(TAGS).map(function(t) {
     var out = '<li class="keep-open"><a><i id="' + t + '-check" class="fa fa-';
     if (selectedTags.includes(t) && !first) {
       out += "check-";
@@ -830,7 +740,7 @@ function updateTagsFilter(first) {
     '<li class="keep-open"><a>Select All</a></li><li class="keep-open"><a>Select None</a></li><li class="divider"/>' +
     tagOptions.join(" ");
 
-  var tagOptions = Object.keys(TAGS).map(function (t) {
+  var tagOptions = Object.keys(TAGS).map(function(t) {
     var out =
       '<li class="keep-open"><a><i id="sm-' + t + '-check" class="fa fa-';
     if (selectedTags.includes(t) && !first) {

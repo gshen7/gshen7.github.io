@@ -14,18 +14,27 @@ const ABOUT = {
   }
 };
 const TAGS = {
-  NodeJS: 2,
+  NodeJS: 3,
   Java: 3,
   Python: 1,
   Assembly: 1,
   Meteor: 1,
+  Express: 1,
+  ReactNative: 1,
   Android: 1,
   R: 2,
-  MongoDB: 1,
+  MongoDB: 2,
   MySQL: 2,
   "Machine Learning": 2
 };
 const PROJECTS = [
+  {
+    id: 8,
+    title: "LineApp",
+    tags: ["ReactNative", "NodeJS", "MongoDB", "Express"],
+    description:
+      "A native mobile application for crowd sourcing the lengths of lines. Users check in to a line to receive a promotional offer that is scanned upon checkout, which automatically checks them out of the line."
+  },
   {
     id: 7,
     title: "IOU",

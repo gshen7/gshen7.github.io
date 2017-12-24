@@ -59,11 +59,15 @@ const PROJECTS = [
     title: "Group Tools Chatbot",
     tags: ["NodeJS"],
     description:
-      "A Facebook messenger chatbot to add several tools for group chats. Tools were a gold star tracker, list randomizer and selector, and reaction picture library."
+      "A Facebook messenger chatbot to add several tools for group chats. Tools included: <ul>" +
+      "<li>A gold star tracker for more tangibly giving and receiving kudos in the chat.</li>" +
+      "<li>A list randomizer/selector for choosing people in the group.</li>" +
+      "<li>A reaction picture library for quick access to various group specific pictures to send.</li>" +
+      "</ul>"
   },
   {
     id: 4,
-    title: "Alarming",
+    title: "Bike Alarm",
     tags: ["Assembly"],
     description:
       "An HC12 microcontroller attachment to a stationary exercise bicycle that plays an alarm sound until a certain distance measured by wheel rotations is travelled. Created to address the alarming trend of decreasing physical activity and to be used in conjunction with a timed electrical outlet to serve as an alarm clock that promotes physical activity as a part of the waking routine."
@@ -73,7 +77,7 @@ const PROJECTS = [
     title: "Support and Resistance Line Generator",
     tags: ["R"],
     description:
-      "A platform to determine and plot support and resistance lines based on stock charts."
+      "An algorithm to determine and plot support and resistance lines onto stock charts."
   },
   {
     id: 2,

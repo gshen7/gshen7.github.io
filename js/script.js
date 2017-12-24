@@ -20,18 +20,19 @@ const TAGS = {
   Assembly: 1,
   Meteor: 1,
   Express: 1,
-  ReactNative: 1,
+  "React Native": 1,
   Android: 1,
   R: 2,
   MongoDB: 2,
   MySQL: 2,
-  "Machine Learning": 2
+  "Machine Learning": 2,
+  Tensorflow: 1
 };
 const PROJECTS = [
   {
     id: 8,
     title: "LineApp",
-    tags: ["ReactNative", "NodeJS", "MongoDB", "Express"],
+    tags: ["React Native", "NodeJS", "MongoDB", "Express"],
     description:
       "A native mobile application for crowd sourcing the lengths of lines. Users check in to a line to receive a promotional offer that is scanned upon checkout, which automatically checks them out of the line."
   },
@@ -45,9 +46,13 @@ const PROJECTS = [
   {
     id: 6,
     title: "NHL Prediction Model",
-    tags: ["R", "Machine Learning"],
+    tags: ["R", "Machine Learning", "Tensorflow"],
     description:
-      "A model for predicting various aspects of NHL games. Used the perceptron machine learning algorithm to create a model to predict which teams will make the playoffs based on input factors of various season stats. Also created regression models for (A) evaluating players based on a single number metric, aggregating contributions on a game by game basis; and (B) predicting fantasy hockey points based on recent stats."
+      "Created models for predicting various aspects of NHL hockey including: <ul>" +
+      "<li>A model to predict a team's final point total based on various recent season stats. This model was supplemented with a Monte Carlo simulation to provide playoff chances at any given point in a season. Weightings from this model were also used to evaluate the performance of an individual player by creating a single number metric representing the player's contributions to the team's point total. </li>" +
+      "<li>A model to predict an individual player's fantasy point output on a game by game and season by season basis.</li>" +
+      "<li>A model to predict how far a team will make it in the playoffs based on stats from the current season.</li>" +
+      "</ul>"
   },
   {
     id: 5,

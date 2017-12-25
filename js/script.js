@@ -2,7 +2,7 @@ const CONTENT_KEYS = ["about", "projects", "experience"];
 const ABOUT = {
   overview: {
     description:
-      "I'm a <b>computer engineering</b> and <b>business</b> student at the <b>Ivey School of Business at Western University</b>." +
+      "I'm a <b>computer engineering</b> and <b>business administration</b> student at the <b>Ivey School of Business at Western University</b>." +
       " I have software development experience in agile, test-driven, and research environments.",
     img: "resources/about-overview.png"
   },

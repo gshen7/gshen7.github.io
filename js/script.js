@@ -8,7 +8,7 @@ const ABOUT = {
   },
   interests: {
     description:
-      "<b>Interests</b> include travelling, playing and watching sports, particularly hockey, table tennis and golf, and board/card games." +
+      "<b>Interests</b> include travelling, playing and watching sports (particularly hockey, table tennis, golf), and board/card games. " +
       "I also enjoy discussions on pro sports analytics and a wide variety of reading and viewing interests.",
     img: "resources/about-interests.png"
   }
@@ -142,6 +142,15 @@ const EXPERIENCE = [
     logoSource: "resources/exp-magnet.png"
   }
 ];
+const HOCKEY = {
+  overview: {
+    description:
+      "This area of my site is still under construction! <hr/> I'm going to use this space to display work I've done on predicting various aspects of the NHL. As a preview of what's to come, here's an output of my model's projected points for the 2017-2018 season.",
+    img: "resources/hockey-projections1718.png"
+  }
+};
+
+//returns configuration for particles background
 function PARTICLES_CONFIG(isBig) {
   var obj = {
     particles: {
@@ -247,6 +256,7 @@ var selectedTags = Object.keys(TAGS);
 var searchKey = "";
 var size = "sm";
 
+//allows for clicking of items to check and uncheck project tags
 $(document).ready(function() {
   $("#projects-tag-filter, #sm-projects-tag-filter").on("click", function(
     event
@@ -283,6 +293,7 @@ $(document).ready(function() {
   });
 });
 
+//initializes all the content
 $(window).on("load", function() {
   init();
   var width = $(window).width();
@@ -294,6 +305,7 @@ $(window).on("load", function() {
   }
 });
 
+//fill about content
 function changeAbout(about) {
   var overviewContent =
     '<img src="' +
@@ -322,6 +334,7 @@ function changeAbout(about) {
   smallContainer.innerHTML = smallContent;
 }
 
+//handle select all or select none click
 function changeAllCheck(checked) {
   for (var i = 0; i < Object.keys(TAGS).length; i++) {
     var tagCheck = document.getElementById(Object.keys(TAGS)[i] + "-check");
@@ -335,6 +348,7 @@ function changeAllCheck(checked) {
   changeSelectedTags();
 }
 
+//handle click on tag
 function changeCheck(tag) {
   var tagCheck = document.getElementById(tag + "-check");
   tagCheck.className =
@@ -349,6 +363,7 @@ function changeCheck(tag) {
   changeSelectedTags();
 }
 
+//change content of main panel
 function changeContent(newActive) {
   if (currentActive !== "home" && size === "lg") {
     var panel = document.getElementById("content-panel-" + currentActive);
@@ -389,6 +404,25 @@ function changeContent(newActive) {
   currentActive = newActive;
 }
 
+//fill hockey content
+function changeHockey(hockey) {
+  var overviewContainer = document.getElementById("hockey-overview");
+  overviewContainer.innerHTML = HOCKEY.overview.description;
+
+  var projectionsImage =
+    '<img src="' + HOCKEY.overview.img + '" class="img-responsive">';
+
+  var projectionsContainer = document.getElementById("hockey-projections");
+  projectionsContainer.innerHTML = projectionsImage;
+
+  var smallContent =
+    HOCKEY.overview.description + "<br/><br/>" + projectionsImage;
+
+  var smallContainer = document.getElementById("sm-hockey-container");
+  smallContainer.innerHTML = smallContent;
+}
+
+//handle mouseover of projects
 function changePanels(filteredProjects) {
   var panels = filteredProjects.map(function(p) {
     var out =
@@ -439,6 +473,7 @@ function changePanels(filteredProjects) {
   smallProjectsContainer.innerHTML = panels.join(" ");
 }
 
+//change what tags are selected
 function changeSelectedTags() {
   selectedTags = [];
   for (var i = 0; i < Object.keys(TAGS).length; i++) {
@@ -451,6 +486,7 @@ function changeSelectedTags() {
   filterProjects();
 }
 
+//change which experience is showing
 function changeWells(experience) {
   var thumbs = experience.map(function(e) {
     return (
@@ -527,6 +563,7 @@ function changeWells(experience) {
   smallExperienceContainer.innerHTML = divs.join(" ");
 }
 
+//handle changing of experience displayed
 function expandExperience(key) {
   for (var i = 0; i < EXPERIENCE.length; i++) {
     if (key !== EXPERIENCE[i].key) {
@@ -557,6 +594,7 @@ function expandExperience(key) {
   }
 }
 
+//show project details
 function expandProject(id) {
   for (var i = 0; i < PROJECTS.length; i++) {
     if (id !== PROJECTS[i].id) {
@@ -617,6 +655,7 @@ function expandProject(id) {
   }
 }
 
+//change which projects are displayed
 function filterProjects(small) {
   var searchInput = document.getElementById(
     small ? "sm-proj-search" : "proj-search"
@@ -644,6 +683,7 @@ function filterProjects(small) {
   changePanels(filteredProjects);
 }
 
+//hide middle panel
 function hideContent() {
   var oldContentDiv = document.getElementById("content-div-" + currentActive);
   if (oldContentDiv && !oldContentDiv.className.includes("hidden")) {
@@ -672,10 +712,12 @@ function init() {
   changeAbout(ABOUT);
   changePanels(PROJECTS);
   changeWells(EXPERIENCE);
+  changeHockey(HOCKEY);
   updateTagsFilter(true);
   filterProjects();
 }
 
+//initialize big display
 function initBig() {
   var containerSm = document.getElementById("container-sm");
   containerSm.className = "collapse";
@@ -685,6 +727,7 @@ function initBig() {
   containerLg.className = "";
 }
 
+//initialize small display
 function initSmall() {
   var containerLg = document.getElementById("container-lg");
   containerLg.className = "collapse";
@@ -694,6 +737,7 @@ function initSmall() {
   size = "sm";
 }
 
+//handle navigation
 function navTo(newActive) {
   var oldPill = document.getElementById(currentActive + "-pill");
   if (oldPill) {
@@ -716,6 +760,7 @@ function navTo(newActive) {
   }
 }
 
+//handle resizing
 function resizeBig() {
   if (size != "lg") {
     var containerSm = document.getElementById("container-sm");
@@ -727,6 +772,7 @@ function resizeBig() {
   }
 }
 
+//handle resizing
 function resizeSmall() {
   if (size != "sm") {
     var containerLg = document.getElementById("container-lg");
@@ -738,6 +784,7 @@ function resizeSmall() {
   }
 }
 
+//update appearance of tags checklist
 function updateTagsFilter(first) {
   var tagOptions = Object.keys(TAGS).map(function(t) {
     var out = '<li class="keep-open"><a><i id="' + t + '-check" class="fa fa-';

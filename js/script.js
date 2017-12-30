@@ -2,13 +2,13 @@ const CONTENT_KEYS = ["about", "projects", "experience"];
 const ABOUT = {
   overview: {
     description:
-      "I'm a <b>computer engineering</b> and <b>business administration</b> student at the <b>Ivey School of Business at Western University</b>." +
+      'I\'m a <font color="#bdc1c0">computer engineering</font> and <font color="#bdc1c0">business administration</font> student at the Ivey School of Business at the University of Western Ontario.' +
       " I have software development experience in agile, test-driven, and research environments.",
     img: "resources/about-overview.png"
   },
   interests: {
     description:
-      "<b>Interests</b> include travelling, playing and watching sports (particularly hockey, table tennis, golf), and board/card games. " +
+      '<font color="#bdc1c0">Interests</font> include travelling, playing and watching sports (particularly hockey, table tennis, golf), and board/card games. ' +
       "I also enjoy discussions on pro sports analytics and a wide variety of reading and viewing interests.",
     img: "resources/about-interests.png"
   }
@@ -45,7 +45,8 @@ const PROJECTS = [
   },
   {
     id: 6,
-    title: "NHL Prediction Model",
+    title:
+      'NHL Prediction Model <a href="#" onclick="navTo(\'hockey\')" class="fa fa-external-link-square"></a>',
     tags: ["R", "Machine Learning", "Tensorflow"],
     description:
       "Created models for predicting various aspects of NHL hockey including: <ul>" +
@@ -145,18 +146,21 @@ const EXPERIENCE = [
 const HOCKEY = {
   overview:
     "This area of my site is still under construction! <br/><br/>" +
-    "I'm going to use this space to display work I've done trying to predict NHL results. " +
+    "I'm going to use this space to display some work I've relating to NHL data analysis. " +
     'If you\'re wondering, I\'m using R and tensorflow, with some data downloaded from <a href="naturalstattrick.com"> Natural Stat Trick</a> as well as some scraped from <a href="hockey-reference.com">Hockey Reference</a>. ' +
     "This is still very much a work in progress, both in terms of the models and figuring out the best way to host and display my work but here's a preview of some of the results:",
   work: [
     {
       description:
-        "Projected points for the 2017-2018 season. My next step with these results are going to be to turn these projections into playoff chances, that take into account some uncertainty. I also want to adjust this so that it can be adjusted in-season.",
+        "Projected points for the 2017-2018 season." +
+        "My next step with these results is going to be using these projections to generate playoff chance percentages that take into account some uncertainty." +
+        " I also want to allow this model to be adjusted in-season.",
       img: "resources/hockey-points.png"
     },
     {
       description:
-        "Top 30 players based on a single number metric (as of the start of the 2018-2018 season). These results are admittedly a little kooked but it's promising that some of the names you'd expect are at least in the top 30 (Mcdavid, Crosby, Bergeron).",
+        "Top 30 players based on a single number metric (as of the start of the 2018-2018 season)." +
+        " These results are admittedly a little kooked but it's promising that some of the names you'd expect are at least in the top 30 (Mcdavid, Crosby, Bergeron).",
       img: "resources/hockey-individual.png"
     }
   ]

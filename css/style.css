@@ -80,6 +80,10 @@ a {
   text-decoration: none !important;
 }
 
+.fa-external-link-square {
+  color: black;
+}
+
 a:hover {
   color: lightgrey !important;
   text-decoration: none;

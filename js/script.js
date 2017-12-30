@@ -153,7 +153,7 @@ const HOCKEY = {
     {
       description:
         "Projected points for the 2017-2018 season." +
-        "My next step with these results is going to be using these projections to generate playoff chance percentages that take into account some uncertainty." +
+        "My next step with these results is going to be using these projections to generate playoff chance percentages." +
         " I also want to allow this model to be adjusted in-season.",
       img: "resources/hockey-points.png"
     },

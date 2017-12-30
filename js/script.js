@@ -1,4 +1,4 @@
-const CONTENT_KEYS = ["about", "projects", "experience"];
+const CONTENT_KEYS = ["about", "projects", "experience", "hockey"];
 const ABOUT = {
   overview: {
     description:
@@ -45,7 +45,7 @@ const PROJECTS = [
   {
     id: 6,
     title:
-      'NHL Prediction Model <a href="#" onclick="navTo(\'hockey\')" class="fa fa-external-link-square"></a>',
+      'NHL Prediction Models <a href="#hockey" onclick="navTo(\'hockey\')" class="fa fa-external-link-square"></a>',
     tags: ["R", "Machine Learning", "Tensorflow", "Web Scraping"],
     description:
       "Created models for predicting various aspects of NHL hockey including: <ul>" +
@@ -748,6 +748,12 @@ function init() {
   changeHockey(HOCKEY);
   updateTagsFilter(true);
   filterProjects();
+  var anchor = window.location.hash.substr(1);
+  if (CONTENT_KEYS.includes(anchor)) {
+    navTo(anchor);
+  } else {
+    history.pushState(null, null, "#");
+  }
 }
 
 //initialize big display

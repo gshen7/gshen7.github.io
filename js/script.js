@@ -146,7 +146,7 @@ const EXPERIENCE = [
 ];
 const HOCKEY = {
   overview:
-    "This area of my site is still under construction! <br/><br/>" +
+    "This area of my site is still under construction.<br/><br/>" +
     "I'm going to use this space to display some work I've relating to NHL data analysis. " +
     'If you\'re wondering, I\'m using R and tensorflow, with some data downloaded from <a href="naturalstattrick.com"> Natural Stat Trick</a> as well as some scraped from <a href="hockey-reference.com">Hockey Reference</a>. ' +
     "This is still very much a work in progress, both in terms of the models and figuring out the best way to host and display my work but here's a preview of some of the results:",

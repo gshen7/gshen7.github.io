@@ -789,6 +789,7 @@ function navTo(newActive) {
 
   if (newActive === currentActive) {
     hideContent();
+    history.pushState(null, null, "#");
   } else {
     var newPill = document.getElementById(newActive + "-pill");
     newPill.className = "active";
@@ -796,6 +797,7 @@ function navTo(newActive) {
     newSmallPill.className = "active";
 
     changeContent(newActive);
+    history.pushState(null, null, "#" + newActive);
   }
 }
 

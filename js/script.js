@@ -14,19 +14,20 @@ const ABOUT = {
   }
 };
 const TAGS = {
-  NodeJS: 3,
   Java: 3,
+  R: 2,
   Python: 1,
   Assembly: 1,
+  SQL: 2,
+  NodeJS: 3,
   Meteor: 1,
   Express: 1,
+  MongoDB: 2,
   "React Native": 1,
   Android: 1,
-  R: 2,
-  MongoDB: 2,
-  MySQL: 2,
+  Tensorflow: 1,
   "Machine Learning": 2,
-  Tensorflow: 1
+  "Web Scraping": 1
 };
 const PROJECTS = [
   {
@@ -47,7 +48,7 @@ const PROJECTS = [
     id: 6,
     title:
       'NHL Prediction Model <a href="#" onclick="navTo(\'hockey\')" class="fa fa-external-link-square"></a>',
-    tags: ["R", "Machine Learning", "Tensorflow"],
+    tags: ["R", "Machine Learning", "Tensorflow", "Web Scraping"],
     description:
       "Created models for predicting various aspects of NHL hockey including: <ul>" +
       "<li>A model to predict a team's final point total based on various recent season stats. This model was supplemented with a Monte Carlo simulation to provide playoff chances at any given point in a season. Weightings from this model were also used to evaluate the performance of an individual player by creating a single number metric representing the player's contributions to the team's point total. </li>" +
@@ -90,16 +91,16 @@ const PROJECTS = [
   {
     id: 1,
     title: "Smart Bed Monitoring System",
-    tags: ["Java", "MySQL", "Machine Learning"],
+    tags: ["Java", "SQL", "Machine Learning"],
     description:
-      "A machine learning based system for detecting bed-related scenarios and monitoring sleep patterns and sending alerts for certain situations. Used simple, non-intrusive piezoelectric force sensors transmitting readings via ZigBee nodes in real time. Stored historical data in a MySQL database for use in trending health history."
+      "A machine learning based system for detecting bed-related scenarios and monitoring sleep patterns and sending alerts for certain situations. Used simple, non-intrusive piezoelectric force sensors transmitting readings via ZigBee nodes in real time. Stored historical data in a SQL database for use in trending health history."
   },
   {
     id: 0,
     title: "RFID Object Locator",
-    tags: ["Java", "MySQL"],
+    tags: ["Java", "SQL"],
     description:
-      "A system for locating items with RFID tags attached to them using an RFID scanner. Tracked item-tag pairings in a MySQL database to allow for only specific items selected in JavaFX frontend to be tracked."
+      "A system for locating items with RFID tags attached to them using an RFID scanner. Tracked item-tag pairings in a SQL database to allow for only specific items selected in JavaFX frontend to be tracked."
   }
 ];
 const EXPERIENCE = [
@@ -134,7 +135,7 @@ const EXPERIENCE = [
     location: "Waterloo, ON, Canada",
     date: "May 2017-Aug 2017",
     description:
-      "Full-stack development of metric dashboard aggregating testing data from various sources. Used React.JS/Redux for the frontend UI connected to C# REST API endpoints to access a MySQL database." +
+      "Full-stack development of metric dashboard aggregating testing data from various sources. Used React.JS/Redux for the frontend UI connected to C# REST API endpoints to access a SQL database." +
       "<ul><li>Created dashboard page for viewing results of automated regression tests using Jenkins API.</li><li>Added ability to mark certain automated test runs as outliers and a view to display metric deltas between runs.</li>" +
       "<li>Designed and implemented view to show health of product features over a history of code changes.</li><li>Integrated dashboard with Jira API to track expected hit counts to ease process of maintaining a golden baseline.</li>" +
       "<li>Created widget to display status of installer and expect new files into the known installer files.</li></ul>" +

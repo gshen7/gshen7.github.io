@@ -143,11 +143,23 @@ const EXPERIENCE = [
   }
 ];
 const HOCKEY = {
-  overview: {
-    description:
-      "This area of my site is still under construction! <hr/> I'm going to use this space to display work I've done on predicting various aspects of the NHL. As a preview of what's to come, here's an output of my model's projected points for the 2017-2018 season.",
-    img: "resources/hockey-projections1718.png"
-  }
+  overview:
+    "This area of my site is still under construction! <br/><br/>" +
+    "I'm going to use this space to display work I've done trying to predict NHL results. " +
+    'If you\'re wondering, I\'m using R and tensorflow, with some data downloaded from <a href="naturalstattrick.com"> Natural Stat Trick</a> as well as some scraped from <a href="hockey-reference.com">Hockey Reference</a>. ' +
+    "This is still very much a work in progress, both in terms of the models and figuring out the best way to host and display my work but here's a preview of some of the results:",
+  work: [
+    {
+      description:
+        "Projected points for the 2017-2018 season. My next step with these results are going to be to turn these projections into playoff chances, that take into account some uncertainty. I also want to adjust this so that it can be adjusted in-season.",
+      img: "resources/hockey-points.png"
+    },
+    {
+      description:
+        "Top 30 players based on a single number metric (as of the start of the 2018-2018 season). These results are admittedly a little kooked but it's promising that some of the names you'd expect are at least in the top 30 (Mcdavid, Crosby, Bergeron).",
+      img: "resources/hockey-individual.png"
+    }
+  ]
 };
 
 //returns configuration for particles background
@@ -310,7 +322,7 @@ function changeAbout(about) {
   var overviewContent =
     '<img src="' +
     ABOUT.overview.img +
-    '" class="img-circle img-responsive portrait"><hr/><div class="half-text">' +
+    '" class="img-circle img-responsive portrait"><hr/>' +
     ABOUT.overview.description +
     "</div>";
 
@@ -320,7 +332,7 @@ function changeAbout(about) {
   var interestsContent =
     '<img src="' +
     ABOUT.interests.img +
-    '" class="img-circle img-responsive portrait"><hr/><div class="half-text">' +
+    '" class="img-circle img-responsive portrait"><hr/>' +
     ABOUT.interests.description +
     "</div>";
 
@@ -407,16 +419,34 @@ function changeContent(newActive) {
 //fill hockey content
 function changeHockey(hockey) {
   var overviewContainer = document.getElementById("hockey-overview");
-  overviewContainer.innerHTML = HOCKEY.overview.description;
+  overviewContainer.innerHTML = HOCKEY.overview + "<hr/>";
 
-  var projectionsImage =
-    '<img src="' + HOCKEY.overview.img + '" class="img-responsive">';
+  var workContent = "";
 
-  var projectionsContainer = document.getElementById("hockey-projections");
-  projectionsContainer.innerHTML = projectionsImage;
+  for (var i = 0; i < HOCKEY.work.length; i++) {
+    workContent +=
+      '<div class = "col-md-6"><i>' +
+      HOCKEY.work[i].description +
+      "</i><br/><br/><br/>" +
+      '<img src="' +
+      HOCKEY.work[i].img +
+      '" class="img-responsive"><hr/></div>';
+  }
 
-  var smallContent =
-    HOCKEY.overview.description + "<br/><br/>" + projectionsImage;
+  var workContainer = document.getElementById("hockey-work");
+  workContainer.innerHTML = workContent;
+
+  var smallContent = HOCKEY.overview + "<hr/>";
+
+  for (var i = 0; i < HOCKEY.work.length; i++) {
+    smallContent +=
+      "<i>" +
+      HOCKEY.work[i].description +
+      "</i><br/><br/><br/>" +
+      '<img src="' +
+      HOCKEY.work[i].img +
+      '" class="img-responsive"><hr/>';
+  }
 
   var smallContainer = document.getElementById("sm-hockey-container");
   smallContainer.innerHTML = smallContent;

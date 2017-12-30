@@ -81,12 +81,14 @@
                             </div>
                             <hr/>
                             <!-- Content -->
+                            <!-- About -->
                             <div class="row padded hidden" id="sm-content-div-about">
                                 <div class="col-xs-12">
                                     <h4>About</h4>
                                     <div id="sm-about-container"></div>
                                 </div>
                             </div>
+                            <!-- Projects -->
                             <div class="row padded hidden" id="sm-content-div-projects">
                                 <div class="col-xs-12">
                                     <div>
@@ -111,6 +113,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- Experience -->
                             <div class="row padded hidden" id="sm-content-div-experience">
                                 <div class="col-xs-12">
                                     <div>
@@ -126,10 +129,11 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- Hockey -->
                             <div class="row padded hidden" id="sm-content-div-hockey">
                                 <div class="col-xs-12">
                                     <h4>Predicting Hockey</h4>
-                                    <div id="sm-hockey-container"></div>
+                                    <div class="text-center center" id="sm-hockey-container"></div>
                                 </div>
                             </div>
                         </div>
@@ -140,7 +144,7 @@
     </div>
 
     <!-- Web -->
-    <div class="collapse" id="container-lg">
+    <div class=" collapse" id="container-lg">
         <div class="row padded">
             <!-- Left panel -->
             <div class="col-md-3 col-md-offset-3 left side transform animated slideInLeft" id="left-sidebar">
@@ -148,22 +152,23 @@
                     <div class="panel-body min-height">
                         <ul class="nav nav-pills nav-stacked">
                             <li id="about-pill">
-                                <a href="#" onclick="navTo('about')">About</a>
+                                <a href="#" onclick="navTo( 'about')">About</a>
                             </li>
                             <li id="projects-pill">
-                                <a href="#" onclick="navTo('projects')">Projects</a>
+                                <a href="#" onclick="navTo( 'projects')">Projects</a>
                             </li>
                             <li id="experience-pill">
-                                <a href="#" onclick="navTo('experience')">Experience</a>
+                                <a href="#" onclick="navTo( 'experience')">Experience</a>
                             </li>
                             <li id="hockey-pill">
-                                <a href="#" onclick="navTo('hockey')">Predicting Hockey</a>
+                                <a href="#" onclick="navTo( 'hockey')">Predicting Hockey</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
             <!-- Content -->
+            <!-- About -->
             <div class="col-md-6 col-md-offset-3 hidden transform animated zoomIn" id="content-div-about">
                 <div class="panel panel-info" id="content-panel-about">
                     <div class="panel-body min-height">
@@ -174,12 +179,14 @@
                     </div>
                 </div>
             </div>
+            <!-- Projects -->
             <div class="col-md-6 col-md-offset-3 hidden transform animated zoomIn" id="content-div-projects">
                 <div class="panel panel-info" id="content-panel-projects">
                     <div class="panel-body min-height">
                         <div class="row">
                             <div class="col-md-6">
-                                <input type="text" placeholder="Search by Title or Description" class="form-control" id="proj-search" onkeyup="filterProjects()">
+                                <input type="text" placeholder="Search by Title or Description" class="form-control
+                                       " id="proj-search" onkeyup="filterProjects()">
                             </div>
                             <div class="col-md-6">
                                 <div class="dropdown">
@@ -195,6 +202,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Experience -->
             <div class="col-md-6 col-md-offset-3 hidden transform animated zoomIn" id="content-div-experience">
                 <div class="panel panel-info" id="content-panel-experience">
                     <div class="panel-body min-height">
@@ -209,13 +217,14 @@
                     </div>
                 </div>
             </div>
+            <!-- Hockey -->
             <div class="col-md-6 col-md-offset-3 hidden transform animated zoomIn" id="content-div-hockey">
                 <div class="panel panel-info" id="content-panel-hockey">
                     <div class="panel-body min-height">
                         <div class="row">
-                            <div class="col-md-6 text-center" id="hockey-overview"></div>
-                            <div class="col-md-6 text-center" id="hockey-projections"></div>
+                            <div class="col-md-12 text-center" id="hockey-overview"></div>
                         </div>
+                        <div class="row" id="hockey-work"></div>
                     </div>
                 </div>
             </div>
@@ -225,7 +234,8 @@
                     <div class="panel-body min-height">
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
-                                <img src="resources/portrait.png" class="img-circle img-responsive padded portrait" alt="portrait">
+                                <img src="resources/portrait.png" class="img-circle img-responsive padded portrait
+                                       " alt="portrait">
                             </div>
                         </div>
                         <div class="row">

@@ -2,14 +2,12 @@ const CONTENT_KEYS = ["about", "projects", "experience"];
 const ABOUT = {
   overview: {
     description:
-      'I\'m a <font color="#bdc1c0">computer engineering</font> and <font color="#bdc1c0">business administration</font> student at the Ivey School of Business at the University of Western Ontario.' +
-      " I have software development experience in agile, test-driven, and research environments.",
+      'I\'m a <font color="#bdc1c0">computer engineering</font> and <font color="#bdc1c0">business administration</font> student at the Ivey School of Business at the University of Western Ontario with software development experience in agile, test-driven, and research environments.',
     img: "resources/about-overview.png"
   },
   interests: {
     description:
-      '<font color="#bdc1c0">Interests</font> include travelling, playing and watching sports (particularly hockey, table tennis, golf), and board/card games. ' +
-      "I also enjoy discussions on pro sports analytics and a wide variety of reading and viewing interests.",
+      '<font color="#bdc1c0">Interests</font> include travelling, playing and watching sports (particularly hockey, table tennis, golf), and board/card games. ',
     img: "resources/about-interests.png"
   }
 };
@@ -35,7 +33,7 @@ const PROJECTS = [
     title: "LineApp",
     tags: ["React Native", "NodeJS", "MongoDB", "Express"],
     description:
-      "A native mobile application for crowd sourcing the lengths of lines. Users check in to a line to receive a promotional offer that is scanned upon checkout, which automatically checks them out of the line."
+      "A proof of concept mobile application for crowd sourcing the lengths of lines. Users check in to a line to receive a promotional offer that is scanned upon checkout, which automatically checks them out of the line."
   },
   {
     id: 7,
@@ -86,7 +84,7 @@ const PROJECTS = [
     title: "BikeSafe for V2V",
     tags: ["Java", "Python", "Android"],
     description:
-      "A smartwatch app to detect cyclists' hand signals for the purpose of demoing a system to allow cyclists to integrate into vehicle to vehicle communication protocols of the future."
+      "A proof of concept smartwatch app to detect cyclists' hand signals for the purpose of allowing cyclists to integrate into vehicle to vehicle communication protocols of the future."
   },
   {
     id: 1,
@@ -147,8 +145,8 @@ const EXPERIENCE = [
 const HOCKEY = {
   overview:
     "This area of my site is still under construction.<br/><br/>" +
-    "I'm going to use this space to display some work I've relating to NHL data analysis. " +
-    'If you\'re wondering, I\'m using R and tensorflow, with some data downloaded from <a href="naturalstattrick.com"> Natural Stat Trick</a> as well as some scraped from <a href="hockey-reference.com">Hockey Reference</a>. ' +
+    "I'm going to use this space to display some work I've done relating to NHL data analysis. " +
+    'If you\'re wondering, I\'m using R and tensorflow, with data downloaded from <a href="naturalstattrick.com"> Natural Stat Trick</a> as well as some data scraped from <a href="hockey-reference.com">Hockey Reference</a>. ' +
     "This is still very much a work in progress, both in terms of the models and figuring out the best way to host and display my work but here's a preview of some of the results:",
   work: [
     {

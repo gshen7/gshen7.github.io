@@ -159,7 +159,7 @@ const HOCKEY = {
     {
       description:
         "Top 30 players based on a single number metric (as of the start of the 2018-2018 season)." +
-        " These results are admittedly a little kooked but it's promising that some of the names you'd expect are at least in the top 30 (Mcdavid, Crosby, Bergeron).",
+        " These results are admittedly a little kooked but it's promising that some of the names you'd expect are at least in the top 30 (Mcdavid, Crosby, Bergeron, Karlsson, Doughty, Burns).",
       img: "resources/hockey-individual.png"
     }
   ]

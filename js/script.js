@@ -7,7 +7,9 @@ const ABOUT = {
   },
   interests: {
     description:
-      '<font color="blue">Interests</font> include travelling, playing and watching sports (particularly hockey, table tennis, golf), and board/card games. ',
+      '<font color="blue">Interests</font> include travelling, playing and watching sports (particularly hockey), and playing board/card games.' +
+      " My viewing interests cover a broad range of genres but my top 5 favorite shows of all time are: " +
+      "<ol><li>Billions</li><li>House</li><li>Scrubs</li><li>Game of Thrones</li><li>The Newsroom</li></ol>",
     img: "resources/about-interests.png"
   }
 };

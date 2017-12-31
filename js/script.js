@@ -160,7 +160,7 @@ const HOCKEY = {
     },
     {
       description:
-        "Top 30 players based on my model (as of the start of the 2018-2018 season)." +
+        "Top 30 players based on my model (as of the start of the 2017-2018 season)." +
         ' The "score" is a wholistic metric that aims to capture everything a player does to contribute to team success.' +
         " These results are admittedly a little kooked but it's promising that some of the names you'd expect are at least in the top 30 (Mcdavid, Crosby, Bergeron, Karlsson, Doughty, Burns).",
       img: "resources/hockey-individual.png"

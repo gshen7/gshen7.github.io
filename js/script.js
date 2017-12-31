@@ -153,13 +153,13 @@ const HOCKEY = {
     {
       description:
         "Projected points for the 2017-2018 season (Vegas not included because predictions depend on stats from previous years)." +
-        " My next step with these results is going to be using these projections to generate playoff chance percentages." +
-        " I also want to allow this model to be adjusted in-season.",
+        " Overall, these projections seem pretty reasonable to me, with a few anomalies.",
       img: "resources/hockey-points.png"
     },
     {
       description:
-        "Top 30 players based on a single number metric (as of the start of the 2018-2018 season)." +
+        "Top 30 players based on my model (as of the start of the 2018-2018 season)." +
+        ' The "score" is a wholistic metric that aims to capture everything a player does to contribute to team success.' +
         " These results are admittedly a little kooked but it's promising that some of the names you'd expect are at least in the top 30 (Mcdavid, Crosby, Bergeron, Karlsson, Doughty, Burns).",
       img: "resources/hockey-individual.png"
     }
@@ -264,7 +264,7 @@ function PARTICLES_CONFIG(isBig) {
   return obj;
 }
 
-const WIDTH_THRESHOLD = 1100;
+const WIDTH_THRESHOLD = 1150;
 const HEIGHT_THRESHOLD = 500;
 
 var currentActive = "home";

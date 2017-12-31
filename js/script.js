@@ -2,12 +2,12 @@ const CONTENT_KEYS = ["about", "projects", "experience", "hockey"];
 const ABOUT = {
   overview: {
     description:
-      'I\'m a <font color="#bdc1c0">computer engineering</font> and <font color="#bdc1c0">business administration</font> student at the Ivey School of Business at the University of Western Ontario with software development experience in agile, test-driven, and research environments.',
+      'I\'m a <font color="blue">computer engineering and business administration</font> student at the Ivey School of Business at the University of Western Ontario with software development experience in agile, test-driven, and research environments.',
     img: "resources/about-overview.png"
   },
   interests: {
     description:
-      '<font color="#bdc1c0">Interests</font> include travelling, playing and watching sports (particularly hockey, table tennis, golf), and board/card games. ',
+      '<font color="blue">Interests</font> include travelling, playing and watching sports (particularly hockey, table tennis, golf), and board/card games. ',
     img: "resources/about-interests.png"
   }
 };
@@ -144,15 +144,16 @@ const EXPERIENCE = [
 ];
 const HOCKEY = {
   overview:
-    "This area of my site is still under construction.<br/><br/>" +
-    "I'm going to use this space to display some work I've done relating to NHL data analysis. " +
-    'If you\'re wondering, I\'m using R and tensorflow, with data downloaded from <a href="naturalstattrick.com"> Natural Stat Trick</a> as well as some data scraped from <a href="hockey-reference.com">Hockey Reference</a>. ' +
-    "This is still very much a work in progress, both in terms of the models and figuring out the best way to host and display my work but here's a preview of some of the results:",
+    "This part of my site is still under construction.<br/><br/>" +
+    "I'm going to use this space to display some work I've done relating to NHL data/stat analysis." +
+    " The models I'm using are neural nets built and trained using R and tensorflow." +
+    ' The datasets I used were either downloaded from <a href="naturalstattrick.com"> Natural Stat Trick</a> or scraped from <a href="hockey-reference.com">Hockey Reference</a>.' +
+    " This is still very much a work in progress, both in terms of improving the models and figuring out the best way to host and display my work but here's a preview of some of the results:",
   work: [
     {
       description:
-        "Projected points for the 2017-2018 season. " +
-        "My next step with these results is going to be using these projections to generate playoff chance percentages." +
+        "Projected points for the 2017-2018 season (Vegas not included because predictions depend on stats from previous years)." +
+        " My next step with these results is going to be using these projections to generate playoff chance percentages." +
         " I also want to allow this model to be adjusted in-season.",
       img: "resources/hockey-points.png"
     },

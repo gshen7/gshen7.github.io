@@ -155,7 +155,7 @@ const HOCKEY = {
     {
       description:
         "Projected points for the 2017-2018 season (Vegas not included because predictions depend on stats from previous years)." +
-        " Overall, these projections seem pretty reasonable to me, with a few anomalies.",
+        " Overall, these projections seemed pretty reasonable to me, with a few anomalies.",
       img: "resources/hockey-points.png"
     },
     {

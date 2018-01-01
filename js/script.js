@@ -164,6 +164,11 @@ const HOCKEY = {
         ' The "score" is a wholistic metric that aims to capture everything a player does to contribute to team success.' +
         " These results are admittedly a little kooked but it's promising that some of the names you'd expect are at least in the top 30 (Mcdavid, Crosby, Bergeron, Karlsson, Doughty, Burns).",
       img: "resources/hockey-individual.png"
+    },
+    {
+      description:
+        "Playoff bracket prediction model for last year's playoffs (as of the end of the 2016-2017 regular season).",
+      img: "resources/hockey-bracket.png"
     }
   ]
 };

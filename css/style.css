@@ -3,6 +3,10 @@
   padding-bottom: 5%;
 }
 
+.bottom-pad {
+  padding-bottom: 5%;
+}
+
 .left-pad {
   padding-left: 5px;
   padding-top: 5px;
@@ -10,7 +14,14 @@
 
 .on-top {
   position: absolute;
+  position: fixed;
   z-index: 99;
+}
+
+.border {
+  border-left-color: lightblue;
+  border-left-style: solid;
+  border-width: 1px;
 }
 
 span.badge.pull-left {

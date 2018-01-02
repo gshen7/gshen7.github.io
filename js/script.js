@@ -143,8 +143,8 @@ const EXPERIENCE = [
   }
 ];
 const HOCKEY = {
+  link: "https://github.com/gshen7/tf-hockey",
   overview:
-    '<a href="https://github.com/gshen7/tf-hockey">Github Repository</a><br/><br/>' +
     "This is some of the work I've been doing relating to NHL data/stat analysis." +
     " The models I'm using are neural nets built and trained using the <i>tfestimators</i> package in R." +
     ' The datasets I used were either downloaded from <a href="naturalstattrick.com"> Natural Stat Trick</a> or scraped from <a href="hockey-reference.com">Hockey Reference</a>.' +
@@ -165,7 +165,8 @@ const HOCKEY = {
     },
     {
       description:
-        "Playoff bracket prediction model for last year's playoffs (as of the end of the 2016-2017 regular season).",
+        "Playoff bracket prediction model for last year's playoffs (as of the end of the 2016-2017 regular season)." +
+        " I used data from only the regular season of that same year to generate team strengths, then worked through the bracket, comparing teams to see which was more likely to advance.",
       img: "resources/hockey-bracket.png"
     }
   ]
@@ -439,19 +440,24 @@ function changeHockey(hockey) {
   overviewContainer.innerHTML = HOCKEY.overview + "<hr/>";
 
   var workContent = "";
-
   for (var i = 0; i < HOCKEY.work.length; i++) {
     workContent +=
-      '<div class = "col-md-6"><i>' +
+      '<div class = "border col-md-6 text-center center"><i>' +
       HOCKEY.work[i].description +
       "</i><br/><br/><br/>" +
       '<img src="' +
       HOCKEY.work[i].img +
-      '" class="img-responsive"><hr/></div>';
+      '" class="img-responsive"></div>';
   }
-
   var workContainer = document.getElementById("hockey-work");
   workContainer.innerHTML = workContent;
+
+  var linkContent =
+    '<hr/><a href="' +
+    HOCKEY.link +
+    '" target ="_blank"> Github Repository</a>';
+  var linkContainer = document.getElementById("hockey-link");
+  linkContainer.innerHTML = linkContent;
 
   var smallContent = HOCKEY.overview + "<hr/>";
 
@@ -467,6 +473,13 @@ function changeHockey(hockey) {
 
   var smallContainer = document.getElementById("sm-hockey-container");
   smallContainer.innerHTML = smallContent;
+
+  var smlinkContent =
+    '<a href="' +
+    HOCKEY.link +
+    '" target ="_blank"> Github Repository</a>';
+  var smlinkContainer = document.getElementById("sm-hockey-link");
+  smlinkContainer.innerHTML = smlinkContent;
 }
 
 //handle mouseover of projects

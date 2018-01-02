@@ -42,6 +42,11 @@ body {
   width: 150px;
 }
 
+.album {
+  margin: 0px auto 0px;
+  width: 300px;
+}
+
 .hidden {
   visibility: false;
 }

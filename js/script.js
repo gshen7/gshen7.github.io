@@ -144,9 +144,9 @@ const EXPERIENCE = [
 ];
 const HOCKEY = {
   overview:
-    "This part of my site is still under construction.<br/><br/>" +
-    "I'm going to use this space to display some work I've done relating to NHL data/stat analysis." +
-    " The models I'm using are neural nets built and trained using R and tensorflow." +
+    '<a href="https://github.com/gshen7/tf-hockey">Github Repository</a><br/><br/>' +
+    "This is some of the work I've been doing relating to NHL data/stat analysis." +
+    " The models I'm using are neural nets built and trained using the <i>tfestimators</i> package in R." +
     ' The datasets I used were either downloaded from <a href="naturalstattrick.com"> Natural Stat Trick</a> or scraped from <a href="hockey-reference.com">Hockey Reference</a>.' +
     " This is still very much a work in progress, both in terms of improving the models and figuring out the best way to host and display my work but here's a preview of some of the results:",
   work: [
@@ -160,7 +160,7 @@ const HOCKEY = {
       description:
         "Top 30 players based on my model (as of the start of the 2017-2018 season)." +
         ' The "score" is a wholistic metric that aims to capture everything a player does to contribute to team success.' +
-        " These results are admittedly a little kooked but it's promising that some of the names you'd expect are at least in the top 30 (Mcdavid, Crosby, Bergeron, Karlsson, Doughty, Burns).",
+        " These results are admittedly a little unexpected but it's promising that some of the names you'd expect are at least in the top 30 (Mcdavid, Crosby, Bergeron, Karlsson, Doughty, Burns).",
       img: "resources/hockey-individual.png"
     },
     {
@@ -349,7 +349,14 @@ function changeAbout(about) {
   interestsContainer.innerHTML = interestsContent;
 
   var smallContent =
-    ABOUT.overview.description + "<br/><br/>" + ABOUT.interests.description;
+    ABOUT.overview.description +
+    "<br/><br/>" +
+    ABOUT.interests.description +
+    '<br/><br/><table><tr><td><img src="' +
+    ABOUT.overview.img +
+    '" class="img-thumbnail img-responsive album"></td><td><img src="' +
+    ABOUT.interests.img +
+    '" class="img-thumbnail img-responsive album"></td></tr></table>';
 
   var smallContainer = document.getElementById("sm-about-container");
   smallContainer.innerHTML = smallContent;

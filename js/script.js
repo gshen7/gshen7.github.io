@@ -270,12 +270,13 @@ function PARTICLES_CONFIG(isBig) {
 }
 
 const WIDTH_THRESHOLD = 1150;
-const HEIGHT_THRESHOLD = 500;
+const HEIGHT_THRESHOLD = 600;
 
 var currentActive = "home";
 var selectedTags = Object.keys(TAGS);
 var searchKey = "";
 var size = "sm";
+var particles = "on";
 
 //allows for clicking of items to check and uncheck project tags
 $(document).ready(function() {
@@ -836,6 +837,17 @@ function resizeSmall() {
     containerSm.className = "";
     size = "sm";
   }
+}
+
+//show and hide particles
+function toggleParticles() {
+  var particles = document.getElementById("particles-js");
+  if (particles.className.length === 0) {
+    particles.className = "hidden";
+  } else {
+    particles.className = "";
+  }
+  particlesJS("particles-js", PARTICLES_CONFIG(size === "lg"));
 }
 
 //update appearance of tags checklist

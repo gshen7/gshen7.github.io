@@ -3,6 +3,16 @@
   padding-bottom: 5%;
 }
 
+.left-pad {
+  padding-left: 5px;
+  padding-top: 5px;
+}
+
+.on-top {
+  position: absolute;
+  z-index: 99;
+}
+
 span.badge.pull-left {
   margin-right: 0%;
 }
@@ -121,7 +131,7 @@ a > .img-thumbnail:hover {
 }
 
 .min-height {
-  min-height: 400px;
+  min-height: 500px;
 }
 
 #particles-js {

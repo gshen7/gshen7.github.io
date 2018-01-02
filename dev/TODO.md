@@ -3,5 +3,5 @@
 * Consider additional pages - skills, hobbies/interests, travel
 * Center pictures in hockey area
 * Go into methodology more in hockey area
-* About photo gallery - movies, books, shows, travel, etc..
-* turn off particles option - persist on refresh
+* Photo galleries - movies, books, shows, travel, etc..
+* option to turn off particles - persist on refresh

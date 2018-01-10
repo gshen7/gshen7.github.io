@@ -168,6 +168,13 @@ const HOCKEY = {
         "Playoff bracket prediction model for last year's playoffs (as of the end of the 2016-2017 regular season)." +
         " I used data from only the regular season of that same year to generate team strengths, then worked through the bracket, comparing teams to see which was more likely to advance.",
       img: "resources/hockey-bracket.png"
+    },
+    {
+      description:
+        "Plotted day by day fantasy hockey standings." +
+        " I built an API for ESPN fantasy hockey using scraped data and the plumber package." +
+        " It currently allows me to get day by day points earned by a team, divided into skater points and goalie points.",
+      img: "resources/hockey-fantasy.png"
     }
   ]
 };

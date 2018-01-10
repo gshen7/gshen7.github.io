@@ -449,7 +449,7 @@ function changeHockey(hockey) {
   var workContent = "";
   for (var i = 0; i < HOCKEY.work.length; i++) {
     workContent +=
-      '<div class = "border col-md-6 text-center center"><i>' +
+      '<div class = "border col-md-6 text-center center"><i><br/>' +
       HOCKEY.work[i].description +
       "</i><br/><br/><br/>" +
       '<img src="' +
@@ -482,9 +482,7 @@ function changeHockey(hockey) {
   smallContainer.innerHTML = smallContent;
 
   var smlinkContent =
-    '<a href="' +
-    HOCKEY.link +
-    '" target ="_blank"> Github Repository</a>';
+    '<a href="' + HOCKEY.link + '" target ="_blank"> Github Repository</a>';
   var smlinkContainer = document.getElementById("sm-hockey-link");
   smlinkContainer.innerHTML = smlinkContent;
 }

@@ -146,9 +146,10 @@ const HOCKEY = {
   link: "https://github.com/gshen7/tf-hockey",
   overview:
     "This is some of the work I've been doing relating to NHL data/stat analysis." +
-    " The models I'm using are neural nets built and trained using the <i>tfestimators</i> package in R." +
-    ' The datasets I used were either downloaded from <a href="naturalstattrick.com"> Natural Stat Trick</a> or scraped from <a href="hockey-reference.com">Hockey Reference</a>.' +
-    " This is still very much a work in progress, both in terms of improving the models and figuring out the best way to host and display my work but here's a preview of some of the results:",
+    ' I\'ve made a couple <a href="https://github.com/gshen7/tf-hockey">predictive models</a> for hockey prediction and a <a href="https://github.com/gshen7/fantasy-hockey">fantasy hockey data API</a>.' +
+    ' The models are neural nets built and trained using the <i>tfestimators</i> package in R with datasets either downloaded from <a href="naturalstattrick.com"> Natural Stat Trick</a> or scraped from <a href="hockey-reference.com">Hockey Reference</a>.' +
+    ' The API scrapes data from <a href="http://www.espn.com/fantasy/hockey/">ESPN fantasy hockey</a> and makes it available via an API using the <i>plumber</i> package in R.' +
+    " </br></br>This is still very much a work in progress, both in terms of improving the models/API and figuring out the best way to host and display my work but here's a preview of some of the results:",
   work: [
     {
       description:
@@ -459,13 +460,6 @@ function changeHockey(hockey) {
   var workContainer = document.getElementById("hockey-work");
   workContainer.innerHTML = workContent;
 
-  var linkContent =
-    '<hr/><a href="' +
-    HOCKEY.link +
-    '" target ="_blank"> Github Repository</a>';
-  var linkContainer = document.getElementById("hockey-link");
-  linkContainer.innerHTML = linkContent;
-
   var smallContent = HOCKEY.overview + "<hr/>";
 
   for (var i = 0; i < HOCKEY.work.length; i++) {
@@ -480,11 +474,6 @@ function changeHockey(hockey) {
 
   var smallContainer = document.getElementById("sm-hockey-container");
   smallContainer.innerHTML = smallContent;
-
-  var smlinkContent =
-    '<a href="' + HOCKEY.link + '" target ="_blank"> Github Repository</a>';
-  var smlinkContainer = document.getElementById("sm-hockey-link");
-  smlinkContainer.innerHTML = smlinkContent;
 }
 
 //handle mouseover of projects

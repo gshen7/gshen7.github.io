@@ -146,8 +146,8 @@ const HOCKEY = {
   link: "https://github.com/gshen7/tf-hockey",
   overview:
     "This is some of the work I've been doing relating to NHL data/stat analysis." +
-    ' I\'ve made a couple <a href="https://github.com/gshen7/tf-hockey">predictive models</a> for hockey prediction and a <a href="https://github.com/gshen7/fantasy-hockey">fantasy hockey data API</a>.' +
-    ' The models are neural nets built and trained using the <i>tfestimators</i> package in R with datasets either downloaded from <a href="naturalstattrick.com"> Natural Stat Trick</a> or scraped from <a href="hockey-reference.com">Hockey Reference</a>.' +
+    ' I\'ve made a couple <a href="https://github.com/gshen7/tf-hockey" target="_blank">predictive models <i class="fa fa-github"></i></a> for hockey prediction and a <a href="https://github.com/gshen7/fantasy-hockey" target="_blank">fantasy hockey data API <i class="fa fa-github"></i></a>.' +
+    ' The models are neural nets built and trained using the <i>tfestimators</i> package in R with datasets either downloaded from <a href="naturalstattrick.com" target="_blank"> Natural Stat Trick</a> or scraped from <a href="hockey-reference.com" target="_blank">Hockey Reference</a>.' +
     ' The API scrapes data from <a href="http://www.espn.com/fantasy/hockey/">ESPN fantasy hockey</a> and makes it available via an API using the <i>plumber</i> package in R.' +
     " </br></br>This is still very much a work in progress, both in terms of improving the models/API and figuring out the best way to host and display my work but here's a preview of some of the results:",
   work: [

@@ -13,7 +13,7 @@ const ABOUT = {
 };
 const TAGS = {
   Java: 3,
-  R: 2,
+  R: 3,
   Python: 1,
   Assembly: 1,
   SQL: 2,
@@ -25,9 +25,17 @@ const TAGS = {
   Android: 1,
   Tensorflow: 1,
   "Machine Learning": 2,
-  "Web Scraping": 1
+  "Web Scraping": 2
 };
 const PROJECTS = [
+  {
+    id: 9,
+    title:
+      'ESPN Fantasy Hockey API <a href="#hockey" onclick="navTo(\'hockey\')" class="fa fa-external-link-square"></a>',
+    tags: ["R", "Web Scraping"],
+    description:
+      "Scraped data from ESPN fantasy hockey and created a RESTful API using the plumber package in R. Allows for access to day by day stats, team rosters, league rules, and transactions."
+  },
   {
     id: 8,
     title: "LineApp",
@@ -146,7 +154,7 @@ const HOCKEY = {
   link: "https://github.com/gshen7/tf-hockey",
   overview:
     "This is some of the work I've been doing relating to NHL data/stat analysis." +
-    ' I\'ve made a couple <a href="https://github.com/gshen7/tf-hockey" target="_blank">predictive models <i class="fa fa-github"></i></a> for hockey prediction and a <a href="https://github.com/gshen7/fantasy-hockey" target="_blank">fantasy hockey data API <i class="fa fa-github"></i></a>.' +
+    ' I\'ve made a couple predictive models <a href="https://github.com/gshen7/tf-hockey" target="_blank" class="fa fa-github"></a> for hockey prediction and a fantasy hockey data API <a href="https://github.com/gshen7/fantasy-hockey" target="_blank" class="fa fa-github"></a>.' +
     ' The models are neural nets built and trained using the <i>tfestimators</i> package in R with datasets either downloaded from <a href="naturalstattrick.com" target="_blank"> Natural Stat Trick</a> or scraped from <a href="hockey-reference.com" target="_blank">Hockey Reference</a>.' +
     ' The API scrapes data from <a href="http://www.espn.com/fantasy/hockey/">ESPN fantasy hockey</a> and makes it available via an API using the <i>plumber</i> package in R.' +
     " </br></br>This is still very much a work in progress, both in terms of improving the models/API and figuring out the best way to host and display my work but here's a preview of some of the results:",
@@ -172,9 +180,8 @@ const HOCKEY = {
     },
     {
       description:
-        "Plotted day by day fantasy hockey standings." +
-        " I built an API for ESPN fantasy hockey using scraped data and the plumber package." +
-        " It currently allows me to get day by day points earned by a team, divided into skater points and goalie points.",
+        "Plotted day by day fantasy hockey standings (points) in my current fantasy hockey league." +
+        " It's hard to tell, but I'm currently struggling in 4th.",
       img: "resources/hockey-fantasy.png"
     }
   ]

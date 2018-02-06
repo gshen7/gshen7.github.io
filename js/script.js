@@ -180,6 +180,18 @@ const HOCKEY = {
     },
     {
       description:
+        "Teams ranked by xGoals percentages based on my model which assigns every shot/missed shot event in a game with a probability of going in based on the following:" +
+        "<li><ul>Time (both remaining in the game and period)</ul>" +
+        "<ul>Distance and angle from the net</ul>" +
+        "<ul>The type of shot (either slapshot, snapshot, backhand, wristshot, wraparound, deflection)</ul>" +
+        "<ul>The current score</ul>" +
+        "<ul>The shooter's team (home or away)</ul>" +
+        "<ul>The time and distance of the previous event</ul>" +
+        "<ul>The type of event prior to the shot (either hit, missed/blocked/on net shot, giveaway, takeaway, faceoff)</ul></li>",
+      img: "resources/hockey-xgoals.png"
+    },
+    {
+      description:
         "Plotted day by day fantasy hockey standings (points) in my current fantasy hockey league.",
       img: "resources/hockey-fantasy.png"
     }

@@ -30,8 +30,7 @@ const TAGS = {
 const PROJECTS = [
   {
     id: 9,
-    title:
-      'ESPN Fantasy Hockey API <a href="#hockey" onclick="navTo(\'hockey\')" class="fa fa-external-link-square"></a>',
+    title: "ESPN Fantasy Hockey API",
     tags: ["R", "Web Scraping"],
     description:
       "Scraped data from ESPN fantasy hockey and created a RESTful API using the plumber package in R. Allows for access to day by day stats, team rosters, league rules, and transactions."
@@ -179,11 +178,6 @@ const HOCKEY = {
         "Teams ranked by xGoals percentages based on my model which assigns every shot/missed shot event in a game with a probability of going in based on the following:" +
         "<br/><br/> Time (both remaining in the game and period), distance and angle from the net, type of shot (either slapshot, snapshot, backhand, wristshot, wraparound, deflection), current score, shooter's team (home or away), time and distance of the previous event, type of event prior to the shot (either hit, missed/blocked/on net shot, giveaway, takeaway, faceoff)",
       img: "resources/hockey-xgoals.png"
-    },
-    {
-      description:
-        "Plotted day by day fantasy hockey standings (points) in my current fantasy hockey league.",
-      img: "resources/hockey-fantasy.png"
     }
   ]
 };

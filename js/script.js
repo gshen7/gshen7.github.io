@@ -56,11 +56,7 @@ const PROJECTS = [
       'NHL Prediction Models <a href="#hockey" onclick="navTo(\'hockey\')" class="fa fa-external-link-square"></a>',
     tags: ["R", "Machine Learning", "Tensorflow", "Web Scraping"],
     description:
-      "Created models for predicting various aspects of NHL hockey including: <ul>" +
-      "<li>A model to predict a team's final point total based on various recent season stats. This model was supplemented with a Monte Carlo simulation to provide playoff chances at any given point in a season. Weightings from this model were also used to evaluate the performance of an individual player by creating a single number metric representing the player's contributions to the team's point total. </li>" +
-      "<li>A model to predict an individual player's fantasy point output on a game by game and season by season basis.</li>" +
-      "<li>A model to predict how far a team will make it in the playoffs based on stats from the current season.</li>" +
-      "</ul>"
+      'Created models for predicting various aspects of NHL hockey (<a href="#hockey" onclick="navTo(\'hockey\')">details</a>)'
   },
   {
     id: 5,

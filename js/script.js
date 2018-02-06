@@ -148,8 +148,8 @@ const EXPERIENCE = [
 const HOCKEY = {
   link: "https://github.com/gshen7/tf-hockey",
   overview:
-    "This is some of the work I've been doing relating to NHL data/stat analysis." +
-    ' I\'ve made a couple predictive models <a href="https://github.com/gshen7/tf-hockey" target="_blank" class="fa fa-github"></a> for hockey prediction.' +
+    ' <a href="https://github.com/gshen7/tf-hockey" target="_blank" class="fa fa-github"></a><br/><br/>' +
+    " These are the models that I've built for predicting various aspects of the NHL." +
     ' The models are neural nets built and trained using the <i>tfestimators</i> package in R with datasets either downloaded from <a href="naturalstattrick.com" target="_blank"> Natural Stat Trick</a>, scraped from <a href="hockey-reference.com" target="_blank">Hockey Reference</a>, or pulled using the NHL stats API.' +
     " </br></br>This is still very much a work in progress, both in terms of improving the models and figuring out the best way to host and display my work but here's a preview of some of the results:",
   work: [

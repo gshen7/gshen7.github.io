@@ -23,6 +23,7 @@ const TAGS = {
   MongoDB: 2,
   "React Native": 1,
   Android: 1,
+  Tableau: 1,
   Tensorflow: 1,
   "Machine Learning": 2,
   "Web Scraping": 2
@@ -53,7 +54,7 @@ const PROJECTS = [
     id: 6,
     title:
       'NHL Prediction Models <a href="#hockey" onclick="navTo(\'hockey\')" class="fa fa-external-link-square"></a>',
-    tags: ["R", "Machine Learning", "Tensorflow", "Web Scraping"],
+    tags: ["R", "Machine Learning", "Tensorflow", "Web Scraping", "Tableau"],
     description:
       'Created models for predicting various aspects of NHL hockey (<a href="#hockey" onclick="navTo(\'hockey\')">details</a>)'
   },
@@ -148,7 +149,7 @@ const EXPERIENCE = [
 const HOCKEY = {
   link: "https://github.com/gshen7/tf-hockey",
   overview:
-    ' <a href="https://github.com/gshen7/tf-hockey" target="_blank" class="fa fa-github"></a><br/><br/>' +
+    ' <a href="https://github.com/gshen7/tf-hockey" target="_blank">[GitHub]</a> <a href="https://public.tableau.com/profile/gary.shen#!/" target="_blank">[Tableau]</a><br/><br/>' +
     " These are the models that I've built for predicting/evaluating various aspects of the NHL." +
     ' The models are neural nets built and trained using the <i>tfestimators</i> package in R with datasets either downloaded from <a href="naturalstattrick.com" target="_blank"> Natural Stat Trick</a>, scraped from <a href="hockey-reference.com" target="_blank">Hockey Reference</a>, or pulled using the NHL stats API.' +
     " </br></br>This is still very much a work in progress, both in terms of improving the models and figuring out the best way to host and display my work but here's a preview of some of the results:",
@@ -175,7 +176,8 @@ const HOCKEY = {
     {
       description:
         "Teams ranked by xGoals percentages based on my model which assigns every shot/missed shot event in a game with a probability of going in based on the following:" +
-        "<br/><br/> Time (both remaining in the game and period), distance and angle from the net, type of shot (either slapshot, snapshot, backhand, wristshot, wraparound, deflection), current score, shooter's team (home or away), time and distance of the previous event, type of event prior to the shot (either hit, missed/blocked/on net shot, giveaway, takeaway, faceoff)",
+        "<br/><br/> Time (both remaining in the game and period), distance and angle from the net, type of shot (either slapshot, snapshot, backhand, wristshot, wraparound, deflection), current score, shooter's team (home or away), time and distance of the previous event, type of event prior to the shot (either hit, missed/blocked/on net shot, giveaway, takeaway, faceoff)" +
+        '<br/><br/> Game by game xGoals results can be found <a href="https://public.tableau.com/views/xGoals/Xgoals?:embed=y&:display_count=yes&publish=yes" target="_blank">here</a>',
       img: "resources/hockey-xgoals.png"
     }
   ]

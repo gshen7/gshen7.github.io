@@ -162,3 +162,7 @@ a > .img-thumbnail:hover {
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.link:hover {
+  opacity: 0.5;
+}

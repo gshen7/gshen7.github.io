@@ -176,7 +176,7 @@ const HOCKEY = {
       description:
         "Teams ranked by xGoals percentages based on my model which assigns every shot/missed shot event in a game with a probability of going in based on the following:" +
         "<br/><br/> Time (both remaining in the game and period), distance and angle from the net, type of shot (either slapshot, snapshot, backhand, wristshot, wraparound, deflection), current score, shooter's team (home or away), time and distance of the previous event, type of event prior to the shot (either hit, missed/blocked/on net shot, giveaway, takeaway, faceoff)" +
-        '<br/><br/> Game by game xGoals results can be found <a href="https://public.tableau.com/views/xGoals/Xgoals?:embed=y&:display_count=yes&publish=yes" target="_blank">here</a>',
+        '<br/><br/> Game by game xGoals results can be found <a href="https://public.tableau.com/profile/gary.shen#!/vizhome/xGoals/xG_1" target="_blank">here</a>',
       img: "resources/hockey-xgoals.png"
     }
   ]

@@ -148,9 +148,9 @@ const EXPERIENCE = [
 ];
 const HOCKEY = {
   overview:
-    ' <a href="https://github.com/gshen7/tf-hockey" class="link fab fa-github" target="_blank"></a> <a href="https://public.tableau.com/profile/gary.shen#!/" class="link fa fa-chart-bar" target="_blank"></a><br/><br/>' +
+    ' <a href="https://github.com/gshen7/tf-hockey" target="_blank"><i class="link fab fa-github"></i></a> <a href="https://public.tableau.com/profile/gary.shen#!" target="_blank"><i class="link fas fa-chart-bar"></i></a><br/><br/>' +
     " These are the models that I've built for predicting/evaluating various aspects of the NHL." +
-    ' The models are neural nets built and trained using the <i>tfestimators</i> package in R with datasets either downloaded from <a href="naturalstattrick.com" target="_blank"> Natural Stat Trick</a>, scraped from <a href="hockey-reference.com" target="_blank">Hockey Reference</a>, or pulled using the NHL stats API.' +
+    ' The models are neural nets built and trained using the <i>tfestimators</i> package in R with datasets either downloaded from <a href="http://naturalstattrick.com" target="_blank"> Natural Stat Trick</a>, scraped from <a href="https://hockey-reference.com" target="_blank">Hockey Reference</a>, or pulled using the NHL stats API.' +
     " </br></br>This is still very much a work in progress, both in terms of improving the models and figuring out the best way to host and display my work but here's a preview of some of the results:",
   work: [
     {

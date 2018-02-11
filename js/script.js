@@ -148,7 +148,7 @@ const EXPERIENCE = [
 ];
 const HOCKEY = {
   overview:
-    ' <a href="https://github.com/gshen7/tf-hockey" target="_blank"><i class="link fab fa-github"></i></a> <a href="https://public.tableau.com/profile/gary.shen#!" target="_blank"><i class="link fas fa-chart-bar"></i></a><br/><br/>' +
+    ' <a href="https://github.com/gshen7/tf-hockey" target="_blank"><i class="link fab fa-github"></i></a> <a href="https://public.tableau.com/profile/gshen7" target="_blank"><i class="link fas fa-chart-bar"></i></a><br/><br/>' +
     " These are the models that I've built for predicting/evaluating various aspects of the NHL." +
     ' The models are neural nets built and trained using the <i>tfestimators</i> package in R with datasets either downloaded from <a href="http://naturalstattrick.com" target="_blank"> Natural Stat Trick</a>, scraped from <a href="https://hockey-reference.com" target="_blank">Hockey Reference</a>, or pulled using the NHL stats API.' +
     " </br></br>This is still very much a work in progress, both in terms of improving the models and figuring out the best way to host and display my work but here's a preview of some of the results:",
@@ -176,7 +176,7 @@ const HOCKEY = {
       description:
         "Teams ranked by xGoals percentages based on my model which assigns every shot/missed shot event in a game with a probability of going in based on the following:" +
         "<br/><br/> Time (both remaining in the game and period), distance and angle from the net, type of shot (either slapshot, snapshot, backhand, wristshot, wraparound, deflection), current score, shooter's team (home or away), time and distance of the previous event, type of event prior to the shot (either hit, missed/blocked/on net shot, giveaway, takeaway, faceoff)" +
-        '<br/><br/> Game by game xGoals results can be found <a href="https://public.tableau.com/profile/gary.shen#!/vizhome/xGoals/xG_1" target="_blank">here</a>',
+        '<br/><br/> Game by game xGoals results can be found <a href="https://public.tableau.com/profile/gshen7#!/vizhome/xGoals/xG_1" target="_blank">here</a>',
       img: "resources/hockey-xgoals.png"
     }
   ]
@@ -280,8 +280,8 @@ function PARTICLES_CONFIG(isBig) {
   return obj;
 }
 
-const WIDTH_THRESHOLD = 1150;
-const HEIGHT_THRESHOLD = 600;
+const WIDTH_THRESHOLD = 1125;
+const HEIGHT_THRESHOLD = 475;
 
 var currentActive = "home";
 var selectedTags = Object.keys(TAGS);

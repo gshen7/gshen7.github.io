@@ -142,7 +142,7 @@ a > .img-thumbnail:hover {
 }
 
 .min-height {
-  min-height: 00px;
+  min-height: 450px;
 }
 
 #particles-js {

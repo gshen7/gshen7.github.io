@@ -150,13 +150,13 @@ const HOCKEY = {
   overview:
     ' <a href="https://github.com/gshen7/tf-hockey" target="_blank"><i class="link fab fa-github"></i></a> <a href="https://public.tableau.com/profile/gshen7" target="_blank"><i class="link fas fa-chart-bar"></i></a><br/><br/>' +
     " These are the outputs of models that I've built for predicting/evaluating various aspects of the NHL." +
-    ' The models are dynamic neural nets built and trained using the <i>tfestimators</i> package in R with datasets either downloaded from <a href="http://naturalstattrick.com" target="_blank"> Natural Stat Trick</a>, scraped from <a href="https://hockey-reference.com" target="_blank">Hockey Reference</a>, or pulled using the <a href="https://github.com/dword4/nhlapi">NHL stats API</a> (shoutout to <a href="https://github.com/dword4">dword4</a> for helpful documentation).' +
+    ' The models are dynamic neural nets built and trained using the <i>tfestimators</i> package in R with datasets either downloaded from <a href="http://naturalstattrick.com" target="_blank"> Natural Stat Trick</a>, scraped from <a href="https://hockey-reference.com" target="_blank">Hockey Reference</a>, or pulled using the <a href="https://github.com/dword4/nhlapi">NHL stats API</a>.' +
     " </br></br>This is still very much a work in progress, both in terms of improving the models and figuring out the best way to host and display my work but here's a preview of some of the results:",
   work: [
     {
       description:
-        "<a href=\"hockey/xGoals.html\"><i class=\"link fas fa-external-link-alt\"></i></a>" + 
-        "Expected goals model which assigns every shot/missed shot event in a game with a probability of going in." +
+        '<a href="hockey/xGoals.html"><i class="link fas fa-external-link-alt"></i></a>' +
+        "Expected goals model which assigns every shot/missed shot event in a game with a probability of going in. " +
         "The inputs mostly takes characteristics of the shot and situation into account and don't include shooter or goalie talent.",
       img: "resources/hockey-xgoals.png",
       link: "hockey/xGoals.html"
@@ -790,7 +790,7 @@ function initBig() {
   var containerSm = document.getElementById("container-sm");
   containerSm.className = "collapse";
   size = "lg";
-  particlesJS("particles-js", PARTICLES_CONFIG(true));
+  //particlesJS("particles-js", PARTICLES_CONFIG(true));
   var containerLg = document.getElementById("container-lg");
   containerLg.className = "";
 }
@@ -799,7 +799,7 @@ function initBig() {
 function initSmall() {
   var containerLg = document.getElementById("container-lg");
   containerLg.className = "collapse";
-  particlesJS("particles-js", PARTICLES_CONFIG(false));
+  //particlesJS("particles-js", PARTICLES_CONFIG(false));
   var containerSm = document.getElementById("container-sm");
   containerSm.className = "";
   size = "sm";
@@ -835,7 +835,7 @@ function resizeBig() {
   if (size != "lg") {
     var containerSm = document.getElementById("container-sm");
     containerSm.className = "collapse";
-    particlesJS("particles-js", PARTICLES_CONFIG(true));
+    //particlesJS("particles-js", PARTICLES_CONFIG(true));
     var containerLg = document.getElementById("container-lg");
     containerLg.className = "";
     size = "lg";
@@ -847,7 +847,7 @@ function resizeSmall() {
   if (size != "sm") {
     var containerLg = document.getElementById("container-lg");
     containerLg.className = "collapse";
-    particlesJS("particles-js", PARTICLES_CONFIG(false));
+    //particlesJS("particles-js", PARTICLES_CONFIG(false));
     var containerSm = document.getElementById("container-sm");
     containerSm.className = "";
     size = "sm";

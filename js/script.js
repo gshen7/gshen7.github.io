@@ -149,35 +149,39 @@ const EXPERIENCE = [
 const HOCKEY = {
   overview:
     ' <a href="https://github.com/gshen7/tf-hockey" target="_blank"><i class="link fab fa-github"></i></a> <a href="https://public.tableau.com/profile/gshen7" target="_blank"><i class="link fas fa-chart-bar"></i></a><br/><br/>' +
-    " These are the models that I've built for predicting/evaluating various aspects of the NHL." +
-    ' The models are neural nets built and trained using the <i>tfestimators</i> package in R with datasets either downloaded from <a href="http://naturalstattrick.com" target="_blank"> Natural Stat Trick</a>, scraped from <a href="https://hockey-reference.com" target="_blank">Hockey Reference</a>, or pulled using the NHL stats API.' +
+    " These are the outputs of models that I've built for predicting/evaluating various aspects of the NHL." +
+    ' The models are dynamic neural nets built and trained using the <i>tfestimators</i> package in R with datasets either downloaded from <a href="http://naturalstattrick.com" target="_blank"> Natural Stat Trick</a>, scraped from <a href="https://hockey-reference.com" target="_blank">Hockey Reference</a>, or pulled using the <a href="https://github.com/dword4/nhlapi">NHL stats API</a> (shoutout to <a href="https://github.com/dword4">dword4</a> for helpful documentation).' +
     " </br></br>This is still very much a work in progress, both in terms of improving the models and figuring out the best way to host and display my work but here's a preview of some of the results:",
   work: [
     {
       description:
+        "<a href=\"hockey/xGoals.html\"><i class=\"link fas fa-external-link-alt\"></i></a>" + 
+        "Expected goals model which assigns every shot/missed shot event in a game with a probability of going in." +
+        "The inputs mostly takes characteristics of the shot and situation into account and don't include shooter or goalie talent.",
+      img: "resources/hockey-xgoals.png",
+      link: "hockey/xGoals.html"
+    },
+    {
+      description:
         "Projected points for the 2017-2018 season (Vegas not included because predictions depend on stats from previous years)." +
         " Overall, these projections seemed pretty reasonable to me, with a few anomalies.",
-      img: "resources/hockey-points.png"
+      img: "resources/hockey-points.png",
+      link: "#"
     },
     {
       description:
         "Top 30 players based on my model (as of the start of the 2017-2018 season)." +
         ' The "score" is a wholistic metric that aims to capture everything a player does to contribute to team success.' +
         " These results are admittedly a little unexpected but it's promising that some of the names you'd expect are at least in the top 30 (Mcdavid, Crosby, Bergeron, Karlsson, Doughty, Burns).",
-      img: "resources/hockey-individual.png"
+      img: "resources/hockey-individual.png",
+      link: "#"
     },
     {
       description:
         "Playoff bracket prediction model for last year's playoffs (as of the end of the 2016-2017 regular season)." +
         " I used data from only the regular season of that same year to generate team strengths, then worked through the bracket, comparing teams to see which was more likely to advance.",
-      img: "resources/hockey-bracket.png"
-    },
-    {
-      description:
-        "Teams ranked by xGoals percentages based on my model which assigns every shot/missed shot event in a game with a probability of going in based on the following:" +
-        "<br/><br/> Time (both remaining in the game and period), distance and angle from the net, type of shot (either slapshot, snapshot, backhand, wristshot, wraparound, deflection), current score, shooter's team (home or away), time and distance of the previous event, type of event prior to the shot (either hit, missed/blocked/on net shot, giveaway, takeaway, faceoff)" +
-        '<br/><br/> Game by game xGoals results can be found <a href="https://public.tableau.com/profile/gshen7#!/vizhome/xGoals/xG_1" target="_blank">here</a>',
-      img: "resources/hockey-xgoals.png"
+      img: "resources/hockey-bracket.png",
+      link: "#"
     }
   ]
 };
@@ -455,9 +459,11 @@ function changeHockey(hockey) {
       '<div class = "border col-md-6 text-center center"><i><br/>' +
       HOCKEY.work[i].description +
       "</i><br/><br/><br/>" +
-      '<img src="' +
+      '<a href="' +
+      HOCKEY.work[i].link +
+      '"><img src="' +
       HOCKEY.work[i].img +
-      '" class="img-responsive"></div>';
+      '" class="img-responsive link"></a></div>';
   }
   var workContainer = document.getElementById("hockey-work");
   workContainer.innerHTML = workContent;

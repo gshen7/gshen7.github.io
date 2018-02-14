@@ -165,9 +165,10 @@ const HOCKEY = {
         "Predicts the final points total of a team as a whole depending on performance from the most recent two years."
     },
     {
-      title: "Player Evaluation Model",
+      title: "Player Value Model",
       description:
-        "Scores players based on a model that aims to capture all contributions a player makes towards the team success in terms of generating points."
+        "Scores players based on a model that aims to capture all contributions a player makes towards the team success in terms of generating points. " +
+        " This doesn't compare players in terms of ability but instead evaluates which players make the most positive impacts on their teams."
     },
     {
       title: "Playoff Bracket Prediction Model",
@@ -189,6 +190,13 @@ const HOCKEY = {
         " Actual vs Expected/Projected Performance",
       image: "resources/hockey-performance.png",
       link: "hockey/performance.html"
+    },
+    {
+      title:
+        '<a href="hockey/skaters.html"><i class="link fas fa-external-link-alt"></i></a>' +
+        " Player Contribution to Team",
+      image: "resources/hockey-skaters.png",
+      link: "hockey/skaters.html"
     }
   ]
 };

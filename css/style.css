@@ -166,8 +166,3 @@ body {
 .link:hover {
   opacity: 0.5;
 }
-
-#back > a {
-  position: fixed;
-  color: white;
-}

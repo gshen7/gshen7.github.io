@@ -152,36 +152,43 @@ const HOCKEY = {
     " These are the outputs of models that I've built for predicting/evaluating various aspects of the NHL." +
     ' The models are dynamic neural nets built and trained using the <i>tfestimators</i> package in R with datasets either downloaded from <a href="http://naturalstattrick.com" target="_blank"> Natural Stat Trick</a>, scraped from <a href="https://hockey-reference.com" target="_blank">Hockey Reference</a>, or pulled using the <a href="https://github.com/dword4/nhlapi">NHL stats API</a>.' +
     " </br></br>This is still very much a work in progress, both in terms of improving the models and figuring out the best way to host and display my work but here's a preview of some of the results:",
-  work: [
+  models: [
     {
+      title: "xGoals Model",
       description:
-        '<a href="hockey/xGoals.html"><i class="link fas fa-external-link-alt"></i></a>' +
-        "Expected goals model which assigns every shot/missed shot event in a game with a probability of going in. " +
-        "The inputs mostly takes characteristics of the shot and situation into account and don't include shooter or goalie talent.",
-      img: "resources/hockey-xgoals.png",
-      link: "hockey/xGoals.html"
+        "Model that assigns every shot/missed shot event in a game with the probability that it had of going in at the time of release." +
+        " The inputs are characteristics of the shot and situation and doesn't include shooter or goalie talent."
     },
     {
+      title: "Projected Points Model",
       description:
-        "Projected points for the 2017-2018 season (Vegas not included because predictions depend on stats from previous years)." +
-        " Overall, these projections seemed pretty reasonable to me, with a few anomalies.",
-      img: "resources/hockey-points.png",
-      link: "#"
+        "Predicts the final points total of a team as a whole depending on performance from the most recent two years."
     },
     {
+      title: "Player Evaluation Model",
       description:
-        "Top 30 players based on my model (as of the start of the 2017-2018 season)." +
-        ' The "score" is a wholistic metric that aims to capture everything a player does to contribute to team success.' +
-        " These results are admittedly a little unexpected but it's promising that some of the names you'd expect are at least in the top 30 (Mcdavid, Crosby, Bergeron, Karlsson, Doughty, Burns).",
-      img: "resources/hockey-individual.png",
-      link: "#"
+        "Scores players based on a model that aims to capture all contributions a player makes towards the team success in terms of generating points."
     },
     {
+      title: "Playoff Bracket Prediction Model",
       description:
-        "Playoff bracket prediction model for last year's playoffs (as of the end of the 2016-2017 regular season)." +
-        " I used data from only the regular season of that same year to generate team strengths, then worked through the bracket, comparing teams to see which was more likely to advance.",
-      img: "resources/hockey-bracket.png",
-      link: "#"
+        "Uses data from only the regular season of that same year to generate team strengths, then worked through the bracket, comparing teams to see which was more likely to advance."
+    }
+  ],
+  vizzes: [
+    {
+      title:
+        '<a href="hockey/results.html"><i class="link fas fa-external-link-alt"></i></a>' +
+        " xGoals Results",
+      image: "resources/hockey-results.png",
+      link: "hockey/results.html"
+    },
+    {
+      title:
+        '<a href="hockey/performance.html"><i class="link fas fa-external-link-alt"></i></a>' +
+        " Actual vs Expected/Projected Performance",
+      image: "resources/hockey-performance.png",
+      link: "hockey/performance.html"
     }
   ]
 };
@@ -453,31 +460,55 @@ function changeHockey(hockey) {
   var overviewContainer = document.getElementById("hockey-overview");
   overviewContainer.innerHTML = HOCKEY.overview + "<hr/>";
 
-  var workContent = "";
-  for (var i = 0; i < HOCKEY.work.length; i++) {
-    workContent +=
-      '<div class = "border col-md-6 text-center center"><i><br/>' +
-      HOCKEY.work[i].description +
-      "</i><br/><br/><br/>" +
-      '<a href="' +
-      HOCKEY.work[i].link +
+  var vizContent = "<h3>Visualizations</h3>";
+  for (var i = 0; i < HOCKEY.vizzes.length; i++) {
+    vizContent +=
+      '<div class = "border row text-center center"><br/><h4>' +
+      HOCKEY.vizzes[i].title +
+      '</h4><a href="' +
+      HOCKEY.vizzes[i].link +
       '"><img src="' +
-      HOCKEY.work[i].img +
+      HOCKEY.vizzes[i].image +
       '" class="img-responsive link"></a></div>';
   }
-  var workContainer = document.getElementById("hockey-work");
-  workContainer.innerHTML = workContent;
+  var vizContainer = document.getElementById("hockey-viz");
+  vizContainer.innerHTML = vizContent;
 
-  var smallContent = HOCKEY.overview + "<hr/>";
+  var modelContent = "<h3>Models</h3>";
+  for (var i = 0; i < HOCKEY.models.length; i++) {
+    modelContent +=
+      '<div class = "border row text-center center"><br/><h4>' +
+      HOCKEY.models[i].title +
+      "</h4><i>" +
+      HOCKEY.models[i].description +
+      "</i></div>";
+  }
+  var modelContainer = document.getElementById("hockey-model");
+  modelContainer.innerHTML = modelContent;
 
-  for (var i = 0; i < HOCKEY.work.length; i++) {
+  var smallContent = HOCKEY.overview + "<hr/><h3>Visualizations</h3>";
+
+  for (var i = 0; i < HOCKEY.vizzes.length; i++) {
     smallContent +=
+      '<div class = "border row text-center center"><br/><h4>' +
+      HOCKEY.vizzes[i].title +
+      '</h4><a href="' +
+      HOCKEY.vizzes[i].link +
+      '"><img src="' +
+      HOCKEY.vizzes[i].image +
+      '" class="img-responsive link"></a></div>';
+  }
+
+  smallContent += "<h3>Models</h3>";
+
+  for (var i = 0; i < HOCKEY.models.length; i++) {
+    smallContent +=
+      '<div class = "border row text-center center"><br/><h4>' +
+      HOCKEY.models[i].title +
+      "</h4><br/>" +
       "<i>" +
-      HOCKEY.work[i].description +
-      "</i><br/><br/><br/>" +
-      '<img src="' +
-      HOCKEY.work[i].img +
-      '" class="img-responsive"><hr/>';
+      HOCKEY.models[i].description +
+      "</i></div>";
   }
 
   var smallContainer = document.getElementById("sm-hockey-container");

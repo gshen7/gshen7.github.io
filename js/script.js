@@ -53,10 +53,9 @@ const PROJECTS = [
   {
     id: 6,
     title:
-      'NHL Prediction Models <a href="#hockey" onclick="navTo(\'hockey\')" class="link fas fa-external-link-alt"></a>',
+      'NHL Prediction Models <i onclick="navTo(\'hockey\')" class="link fas fa-external-link-alt"></i>',
     tags: ["R", "Machine Learning", "Tensorflow", "Web Scraping", "Tableau"],
-    description:
-      'Created models for predicting various aspects of NHL hockey (<a href="#hockey" onclick="navTo(\'hockey\')">details</a>)'
+    description: "Created models for predicting various aspects of NHL hockey."
   },
   {
     id: 5,
@@ -146,7 +145,8 @@ const EXPERIENCE = [
     logoSource: "resources/exp-magnet.png"
   }
 ];
-const HOCKEY = {
+
+var HOCKEY = {
   overview:
     ' <a href="https://github.com/gshen7/tf-hockey" target="_blank"><i class="link fab fa-github"></i></a> <a href="https://public.tableau.com/profile/gshen7" target="_blank"><i class="link fas fa-chart-bar"></i></a><br/><br/>' +
     " These are the outputs of models that I've built for predicting/evaluating various aspects of the NHL." +
@@ -178,135 +178,127 @@ const HOCKEY = {
   ],
   vizzes: [
     {
-      title:
-        '<a href="hockey/results.html"><i class="link fas fa-external-link-alt"></i></a>' +
-        " xGoals Results",
+      title: " xGoals Results",
       image: "resources/hockey-results.png",
       link: "hockey/results.html"
     },
     {
-      title:
-        '<a href="hockey/performance.html"><i class="link fas fa-external-link-alt"></i></a>' +
-        " Actual vs Expected/Projected Performance",
+      title: " Actual vs Expected/Projected Performance",
       image: "resources/hockey-performance.png",
       link: "hockey/performance.html"
     },
     {
-      title:
-        '<a href="hockey/skaters.html"><i class="link fas fa-external-link-alt"></i></a>' +
-        " Player Contribution to Team",
+      title: " Player Contribution to Team",
       image: "resources/hockey-skaters.png",
       link: "hockey/skaters.html"
     }
   ]
 };
 
-//returns configuration for particles background
-function PARTICLES_CONFIG(isBig) {
-  var obj = {
-    particles: {
-      number: {
-        value: isBig ? 100 : 25,
-        density: {
-          enable: false
-        }
-      },
-      color: {
-        value: "#000000"
-      },
-      shape: {
-        type: "circle",
-        stroke: {
-          width: 1,
-          color: "#ffffff"
-        }
-      },
-      size: {
-        value: 10,
-        random: true,
-        anim: {
-          enable: false
-        }
-      },
-      opacity: {
-        value: 0.25,
-        random: false,
-        anim: {
-          enable: false
-        }
-      },
-      line_linked: {
+// configuration for particles background
+const PARTICLES_CONFIG = {
+  particles: {
+    number: {
+      value: 50,
+      density: {
+        enable: false
+      }
+    },
+    color: {
+      value: "#fff8dc"
+    },
+    shape: {
+      type: "circle",
+      stroke: {
+        width: 1,
+        color: "#ffffff"
+      }
+    },
+    size: {
+      value: 10,
+      random: true,
+      anim: {
+        enable: false
+      }
+    },
+    opacity: {
+      value: 0.25,
+      random: false,
+      anim: {
+        enable: false
+      }
+    },
+    line_linked: {
+      enable: true,
+      distance: 100,
+      color: "#ffffff",
+      opacity: 0.75,
+      width: 1
+    },
+    move: {
+      enable: true,
+      speed: 10,
+      direction: "none",
+      random: true,
+      straight: false,
+      out_mode: "out",
+      bounce: false,
+      attract: {
+        enable: false
+      }
+    }
+  },
+  interactivity: {
+    detect_on: "window",
+    events: {
+      onhover: {
         enable: true,
+        mode: "bubble"
+      },
+      onclick: {
+        enable: true,
+        mode: "repulse"
+      },
+      resize: true
+    },
+    modes: {
+      grab: {
         distance: 100,
-        color: "#ffffff",
-        opacity: 0.75,
-        width: 1
-      },
-      move: {
-        enable: true,
-        speed: 10,
-        direction: "none",
-        random: true,
-        straight: false,
-        out_mode: "out",
-        bounce: false,
-        attract: {
-          enable: false
+        line_linked: {
+          opacity: 1
         }
-      }
-    },
-    interactivity: {
-      detect_on: "window",
-      events: {
-        onhover: {
-          enable: true,
-          mode: "bubble"
-        },
-        onclick: {
-          enable: true,
-          mode: "repulse"
-        },
-        resize: true
       },
-      modes: {
-        grab: {
-          distance: 100,
-          line_linked: {
-            opacity: 1
-          }
-        },
-        bubble: {
-          distance: isBig ? 300 : 150,
-          size: 10,
-          duration: 0.25,
-          opacity: 1,
-          speed: 500
-        },
-        repulse: {
-          distance: isBig ? 300 : 150,
-          duration: 1
-        },
-        push: {
-          particles_nb: 5
-        },
-        remove: {
-          particles_nb: 5
-        }
+      bubble: {
+        distance: 200,
+        size: 10,
+        duration: 0.25,
+        opacity: 1,
+        speed: 500
+      },
+      repulse: {
+        distance: 200,
+        duration: 1
+      },
+      push: {
+        particles_nb: 5
+      },
+      remove: {
+        particles_nb: 5
       }
-    },
-    retina_detect: true
-  };
-  return obj;
-}
+    }
+  },
+  retina_detect: true
+};
 
 const WIDTH_THRESHOLD = 1125;
 const HEIGHT_THRESHOLD = 475;
 
+var global_toggled = false;
 var currentActive = "home";
 var selectedTags = Object.keys(TAGS);
 var searchKey = "";
 var size = "sm";
-var particles = "on";
+var mode = "";
 
 //allows for clicking of items to check and uncheck project tags
 $(document).ready(function() {
@@ -350,10 +342,19 @@ $(window).on("load", function() {
   init();
   var width = $(window).width();
   var height = $(window).height();
+  var particles = document.getElementById("particles-js");
   if (width < WIDTH_THRESHOLD || height < HEIGHT_THRESHOLD) {
     initSmall();
   } else {
     initBig();
+  }
+  if (particles.className !== "hidden" && !global_toggled) {
+    particlesJS("particles-js", PARTICLES_CONFIG);
+    global_toggled = true;
+  }
+  if (mode == "&on") {
+    toggler = document.getElementById("toggler");
+    toggler.checked = true;
   }
 });
 
@@ -472,6 +473,9 @@ function changeHockey(hockey) {
   for (var i = 0; i < HOCKEY.vizzes.length; i++) {
     vizContent +=
       '<div class = "border row text-center center"><br/><h4>' +
+      '<a href="' +
+      HOCKEY.vizzes[i].link +
+      '"><i class="link fas fa-external-link-alt"></i></a>' +
       HOCKEY.vizzes[i].title +
       '</h4><a href="' +
       HOCKEY.vizzes[i].link +
@@ -817,10 +821,19 @@ function init() {
   updateTagsFilter(true);
   filterProjects();
   var anchor = window.location.hash.substr(1);
+  mode = anchor.includes("&on") ? "&on" : "";
+  if (mode == "&on") {
+    toggleParticles();
+  }
+  if (anchor.includes("&")) {
+    anchor = anchor.substr(0, anchor.indexOf("&"));
+  } else {
+    anchor = anchor.substr(0);
+  }
   if (CONTENT_KEYS.includes(anchor)) {
     navTo(anchor);
   } else {
-    history.pushState(null, null, "#");
+    history.pushState(null, null, "#" + currentActive + mode);
   }
 }
 
@@ -829,7 +842,6 @@ function initBig() {
   var containerSm = document.getElementById("container-sm");
   containerSm.className = "collapse";
   size = "lg";
-  //particlesJS("particles-js", PARTICLES_CONFIG(true));
   var containerLg = document.getElementById("container-lg");
   containerLg.className = "";
 }
@@ -838,7 +850,6 @@ function initBig() {
 function initSmall() {
   var containerLg = document.getElementById("container-lg");
   containerLg.className = "collapse";
-  //particlesJS("particles-js", PARTICLES_CONFIG(false));
   var containerSm = document.getElementById("container-sm");
   containerSm.className = "";
   size = "sm";
@@ -857,7 +868,7 @@ function navTo(newActive) {
 
   if (newActive === currentActive) {
     hideContent();
-    history.pushState(null, null, "#");
+    history.pushState(null, null, "#" + currentActive + mode);
   } else {
     var newPill = document.getElementById(newActive + "-pill");
     newPill.className = "active";
@@ -865,7 +876,7 @@ function navTo(newActive) {
     newSmallPill.className = "active";
 
     changeContent(newActive);
-    history.pushState(null, null, "#" + newActive);
+    history.pushState(null, null, "#" + newActive + mode);
   }
 }
 
@@ -874,10 +885,11 @@ function resizeBig() {
   if (size != "lg") {
     var containerSm = document.getElementById("container-sm");
     containerSm.className = "collapse";
-    //particlesJS("particles-js", PARTICLES_CONFIG(true));
     var containerLg = document.getElementById("container-lg");
     containerLg.className = "";
     size = "lg";
+    var containerToggle = document.getElementById("container-toggle");
+    containerToggle.className = "row left-pad on-top";
   }
 }
 
@@ -886,22 +898,27 @@ function resizeSmall() {
   if (size != "sm") {
     var containerLg = document.getElementById("container-lg");
     containerLg.className = "collapse";
-    //particlesJS("particles-js", PARTICLES_CONFIG(false));
     var containerSm = document.getElementById("container-sm");
     containerSm.className = "";
     size = "sm";
+    var containerToggle = document.getElementById("container-toggle");
+    containerToggle.className = "row left-pad";
   }
 }
 
 //show and hide particles
 function toggleParticles() {
   var particles = document.getElementById("particles-js");
-  if (particles.className.length === 0) {
-    particles.className = "hidden";
-  } else {
-    particles.className = "";
+  toggler = document.getElementById("toggler");
+  var switchOff = particles.className.length === 0;
+  particles.className = switchOff ? "hidden" : "";
+  mode = switchOff ? "" : "&on";
+  toggler.checked = !switchOff;
+  if (!global_toggled) {
+    particlesJS("particles-js", PARTICLES_CONFIG);
+    global_toggled = true;
   }
-  particlesJS("particles-js", PARTICLES_CONFIG(size === "lg"));
+  history.pushState(null, null, "#" + currentActive + mode);
 }
 
 //update appearance of tags checklist

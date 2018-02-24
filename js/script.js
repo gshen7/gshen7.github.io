@@ -1,3 +1,4 @@
+//constants for content
 const CONTENT_KEYS = ["about", "projects", "experience", "hockey"];
 const ABOUT = {
   overview: {
@@ -196,6 +197,8 @@ var HOCKEY = {
     }
   ]
 };
+
+//configuration for particles background
 const PARTICLES_CONFIG = {
   particles: {
     number: {
@@ -290,15 +293,17 @@ const PARTICLES_CONFIG = {
   retina_detect: true
 };
 
+//constants for responsiveness
 const WIDTH_THRESHOLD = 1125;
 const HEIGHT_THRESHOLD = 475;
 
+//global variables for tracking state
 var global_toggled = false;
 var currentActive = "home";
 var selectedTags = Object.keys(TAGS);
 var searchKey = "";
 var size = "sm";
-var mode = "&on";
+var mode = "";
 
 //allows for clicking of items to check and uncheck project tags
 $(document).ready(function() {
@@ -341,7 +346,7 @@ $(document).ready(function() {
 $(window).on("load", function() {
   init();
   toggler = document.getElementById("toggler");
-  toggler.checked = mode == "&on";
+  toggler.checked = mode == "";
   var width = $(window).width();
   var height = $(window).height();
   var particles = document.getElementById("particles-js");
@@ -815,6 +820,7 @@ function hideContent() {
   currentActive = "home";
 }
 
+//initial loading of content
 function init() {
   changeAbout(ABOUT);
   changePanels(PROJECTS);
@@ -823,8 +829,8 @@ function init() {
   updateTagsFilter(true);
   filterProjects();
   var anchor = window.location.hash.substr(1);
-  mode = anchor.includes("&on") ? "&on" : "";
-  if (mode == "&on") {
+  mode = anchor.includes("&off") ? "&off" : "";
+  if (mode == "&off") {
     toggleParticles();
   }
   if (anchor.includes("&")) {
@@ -915,7 +921,7 @@ function toggleParticles() {
   toggler = document.getElementById("toggler");
   var switchOff = particles.className.length === 0;
   particles.className = switchOff ? "hidden" : "";
-  mode = switchOff ? "" : "&on";
+  mode = switchOff ? "&off" : "";
   toggler.checked = !switchOff;
   if (!global_toggled) {
     particlesJS("particles-js", PARTICLES_CONFIG);

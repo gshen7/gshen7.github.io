@@ -1,6 +1,7 @@
+//constants for content
 const CONTENT_KEYS = ["about", "projects", "experience", "hockey"];
 
-// configuration for particles background
+//configuration for particles background
 const PARTICLES_CONFIG = {
   particles: {
     number: {
@@ -95,9 +96,11 @@ const PARTICLES_CONFIG = {
   retina_detect: true
 };
 
+//constants for responsiveness
 const WIDTH_THRESHOLD = 1125;
 const HEIGHT_THRESHOLD = 475;
 
+//global variables for state
 var global_toggled = false;
 var mode = "";
 
@@ -105,7 +108,7 @@ var mode = "";
 $(window).on("load", function() {
   init();
   toggler = document.getElementById("toggler");
-  toggler.checked = mode == "&on";
+  toggler.checked = mode == "";
   var width = $(window).width();
   var height = $(window).height();
   if (width < WIDTH_THRESHOLD || height < HEIGHT_THRESHOLD) {
@@ -143,8 +146,8 @@ function big() {
 
 function init() {
   var anchor = window.location.hash.substr(1);
-  mode = anchor.includes("&on") ? "&on" : "";
-  if (mode == "&on") {
+  mode = anchor.includes("&off") ? "&off" : "";
+  if (mode == "&off") {
     toggleParticles();
   }
   if (anchor.includes("&")) {
@@ -161,7 +164,7 @@ function toggleParticles() {
   toggler = document.getElementById("toggler");
   var switchOff = particles.className.length === 0;
   particles.className = switchOff ? "hidden" : "";
-  mode = switchOff ? "" : "&on";
+  mode = switchOff ? "&off" : "";
   toggler.checked = !switchOff;
   if (!global_toggled) {
     particlesJS("particles-js", PARTICLES_CONFIG);

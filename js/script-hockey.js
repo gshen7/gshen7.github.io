@@ -103,6 +103,10 @@ var mode = "";
 
 //initializes all the content
 $(window).on("load", function() {
+  if (mode == "&on") {
+    toggler = document.getElementById("toggler");
+    toggler.checked = true;
+  }
   init();
   var width = $(window).width();
   var height = $(window).height();
@@ -115,10 +119,6 @@ $(window).on("load", function() {
   if (particles.className !== "hidden" && !global_toggled) {
     particlesJS("particles-js", PARTICLES_CONFIG);
     global_toggled = true;
-  }
-  if (mode == "&on") {
-    toggler = document.getElementById("toggler");
-    toggler.checked = true;
   }
 });
 
@@ -140,7 +140,7 @@ function small() {
 
 function big() {
   var containerToggle = document.getElementById("container-toggle");
-  containerToggle.className = "row left-pad on-top";
+  containerToggle.className = "row left-pad on-top-fixed";
 }
 
 function init() {
@@ -174,4 +174,13 @@ function toggleParticles() {
 
 function goBack() {
   document.location.assign("../index.html#hockey" + mode);
+}
+
+function revealToggle(show) {
+  var toggler = document.getElementById("toggler");
+  if (show) {
+    toggler.className = "";
+  } else {
+    toggler.className = "hidden";
+  }
 }

@@ -12,9 +12,14 @@
   padding-top: 5px;
 }
 
-.on-top {
+.on-top-fixed {
   position: absolute;
   position: fixed;
+  z-index: 99;
+}
+
+.on-top {
+  position: relative;
   z-index: 99;
 }
 

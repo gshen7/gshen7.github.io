@@ -145,7 +145,6 @@ const EXPERIENCE = [
     logoSource: "resources/exp-magnet.png"
   }
 ];
-
 var HOCKEY = {
   overview:
     ' <a href="https://github.com/gshen7/tf-hockey" target="_blank"><i class="link fab fa-github"></i></a> <a href="https://public.tableau.com/profile/gshen7" target="_blank"><i class="link fas fa-chart-bar"></i></a><br/><br/>' +
@@ -180,22 +179,23 @@ var HOCKEY = {
     {
       title: " xGoals Results",
       image: "resources/hockey-results.png",
+      id: 0,
       link: "hockey/results.html"
     },
     {
       title: " Actual vs Expected/Projected Performance",
       image: "resources/hockey-performance.png",
+      id: 1,
       link: "hockey/performance.html"
     },
     {
       title: " Player Contribution to Team",
       image: "resources/hockey-skaters.png",
+      id: 2,
       link: "hockey/skaters.html"
     }
   ]
 };
-
-// configuration for particles background
 const PARTICLES_CONFIG = {
   particles: {
     number: {
@@ -298,7 +298,7 @@ var currentActive = "home";
 var selectedTags = Object.keys(TAGS);
 var searchKey = "";
 var size = "sm";
-var mode = "";
+var mode = "&on";
 
 //allows for clicking of items to check and uncheck project tags
 $(document).ready(function() {
@@ -339,6 +339,10 @@ $(document).ready(function() {
 
 //initializes all the content
 $(window).on("load", function() {
+  if (mode == "&on") {
+    toggler = document.getElementById("toggler");
+    toggler.checked = true;
+  }
   init();
   var width = $(window).width();
   var height = $(window).height();
@@ -351,10 +355,6 @@ $(window).on("load", function() {
   if (particles.className !== "hidden" && !global_toggled) {
     particlesJS("particles-js", PARTICLES_CONFIG);
     global_toggled = true;
-  }
-  if (mode == "&on") {
-    toggler = document.getElementById("toggler");
-    toggler.checked = true;
   }
 });
 
@@ -473,15 +473,15 @@ function changeHockey(hockey) {
   for (var i = 0; i < HOCKEY.vizzes.length; i++) {
     vizContent +=
       '<div class = "border row text-center center"><br/><h4>' +
-      '<a href="' +
-      HOCKEY.vizzes[i].link +
-      '"><i class="link fas fa-external-link-alt"></i></a>' +
+      '<i onclick="goViz(' +
+      HOCKEY.vizzes[i].id +
+      ')" color="cornflowerBlue" class="link fas fa-external-link-alt"></i></a>' +
       HOCKEY.vizzes[i].title +
-      '</h4><a href="' +
-      HOCKEY.vizzes[i].link +
-      '"><img src="' +
+      '</h4><img src="' +
       HOCKEY.vizzes[i].image +
-      '" class="img-responsive link"></a></div>';
+      '" class="img-responsive link" onclick="goViz(' +
+      HOCKEY.vizzes[i].id +
+      ')"></a></div>';
   }
   var vizContainer = document.getElementById("hockey-viz");
   vizContainer.innerHTML = vizContent;
@@ -504,11 +504,11 @@ function changeHockey(hockey) {
     smallContent +=
       '<div class = "border row text-center center"><br/><h4>' +
       HOCKEY.vizzes[i].title +
-      '</h4><a href="' +
-      HOCKEY.vizzes[i].link +
-      '"><img src="' +
+      '</h4><img src="' +
       HOCKEY.vizzes[i].image +
-      '" class="img-responsive link"></a></div>';
+      '" class="img-responsive link" onclick="goViz(' +
+      HOCKEY.vizzes[i].id +
+      ')"></a></div>';
   }
 
   smallContent += "<h3>Models</h3>";
@@ -788,6 +788,10 @@ function filterProjects(small) {
   changePanels(filteredProjects);
 }
 
+function goViz(linkID) {
+  document.location.assign(HOCKEY.vizzes[linkID].link + "#" + mode);
+}
+
 //hide middle panel
 function hideContent() {
   var oldContentDiv = document.getElementById("content-div-" + currentActive);
@@ -902,7 +906,6 @@ function resizeSmall() {
     containerSm.className = "";
     size = "sm";
     var containerToggle = document.getElementById("container-toggle");
-    containerToggle.className = "row left-pad";
   }
 }
 

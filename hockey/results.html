@@ -29,16 +29,16 @@
 
 <body>
     <div id="particles-js" class="hidden"></div>
-    <div id="container-toggle" class="row left-pad on-top">
-        <input id="toggler" type="checkbox" onclick="toggleParticles()">
-        <font color="grey" size="1pt">particles</font>
+    <div id="container-toggle" class="row left-pad on-top-fixed" onmouseover="revealToggle(true)" onmouseout="revealToggle(false)">
+        <input id="toggler" class="hidden" type="checkbox" onclick="toggleParticles()">
+        <font color="lightgrey" size="1pt">toggle particles</font>
     </div>
 
     <div class="row padded">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel transform animated zoomIn">
-                <font size="5em" class="left-pad">
-                    <i class="link fas fa-chevron-circle-left return" onclick="goBack()"></i>
+                <font size="5em" color="cornflowerBlue" class="left-pad">
+                    <i class="link fas fa-chevron-circle-left" onclick="goBack()"></i>
                 </font>
                 <center>
                     <h1>xGoals Game results</h1>

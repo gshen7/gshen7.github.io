@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/animate.css">
-    <link rel="stylesheet" href="css/animate.css">
 
     <!-- Icon -->
     <link rel="shortcut icon" type="image/x-icon" href="../resources/-pageico.png" />
@@ -23,16 +22,23 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="../js/script-hockey.js"></script>
+    <script src="../js/particles.min.js"></script>
+
 </head>
 
 <body>
+    <div id="particles-js" class="hidden"></div>
+    <div id="container-toggle" class="row left-pad on-top">
+        <input id="toggler" type="checkbox" onclick="toggleParticles()">
+        <font color="grey" size="1pt">particles</font>
+    </div>
+
     <div class="row padded">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel transform animated zoomIn">
                 <font size="5em" class="left-pad">
-                    <a href=" ../index.html#hockey ">
-                        <i class="fas fa-chevron-circle-left return "></i>
-                    </a>
+                    <i class="link fas fa-chevron-circle-left return" onclick="goBack()"></i>
                 </font>
                 <center>
                     <h1>xGoals Game results</h1>

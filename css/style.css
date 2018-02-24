@@ -166,3 +166,7 @@ body {
 .link:hover {
   opacity: 0.5;
 }
+
+.return {
+  color: cornflowerblue;
+}

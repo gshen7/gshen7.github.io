@@ -166,7 +166,7 @@ function toggleParticles() {
   particles.className = switchOff ? "hidden" : "";
   mode = switchOff ? "&off" : "";
   toggler.checked = !switchOff;
-  if (!global_toggled) {
+  if (!global_toggled && mode != "&off") {
     particlesJS("particles-js", PARTICLES_CONFIG);
     global_toggled = true;
   }

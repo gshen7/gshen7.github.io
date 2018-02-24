@@ -103,11 +103,9 @@ var mode = "";
 
 //initializes all the content
 $(window).on("load", function() {
-  if (mode == "&on") {
-    toggler = document.getElementById("toggler");
-    toggler.checked = true;
-  }
   init();
+  toggler = document.getElementById("toggler");
+  toggler.checked = mode == "&on";
   var width = $(window).width();
   var height = $(window).height();
   if (width < WIDTH_THRESHOLD || height < HEIGHT_THRESHOLD) {

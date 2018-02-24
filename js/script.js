@@ -339,11 +339,9 @@ $(document).ready(function() {
 
 //initializes all the content
 $(window).on("load", function() {
-  if (mode == "&on") {
-    toggler = document.getElementById("toggler");
-    toggler.checked = true;
-  }
   init();
+  toggler = document.getElementById("toggler");
+  toggler.checked = mode == "&on";
   var width = $(window).width();
   var height = $(window).height();
   var particles = document.getElementById("particles-js");

@@ -845,9 +845,11 @@ function init() {
 function initBig() {
   var containerSm = document.getElementById("container-sm");
   containerSm.className = "collapse";
-  size = "lg";
   var containerLg = document.getElementById("container-lg");
   containerLg.className = "";
+  var containerToggle = document.getElementById("container-toggle");
+  containerToggle.className = "row left-pad on-top-fixed";
+  size = "lg";
 }
 
 //initialize small display
@@ -856,6 +858,8 @@ function initSmall() {
   containerLg.className = "collapse";
   var containerSm = document.getElementById("container-sm");
   containerSm.className = "";
+  var containerToggle = document.getElementById("container-toggle");
+  containerToggle.className = "row left-pad on-top";
   size = "sm";
 }
 
@@ -887,25 +891,23 @@ function navTo(newActive) {
 //handle resizing
 function resizeBig() {
   if (size != "lg") {
-    var containerSm = document.getElementById("container-sm");
-    containerSm.className = "collapse";
-    var containerLg = document.getElementById("container-lg");
-    containerLg.className = "";
-    size = "lg";
-    var containerToggle = document.getElementById("container-toggle");
-    containerToggle.className = "row left-pad on-top";
+    initBig();
   }
 }
 
 //handle resizing
 function resizeSmall() {
   if (size != "sm") {
-    var containerLg = document.getElementById("container-lg");
-    containerLg.className = "collapse";
-    var containerSm = document.getElementById("container-sm");
-    containerSm.className = "";
-    size = "sm";
-    var containerToggle = document.getElementById("container-toggle");
+    initSmall();
+  }
+}
+
+function revealToggle(show) {
+  var toggler = document.getElementById("toggler");
+  if (show) {
+    toggler.className = "";
+  } else {
+    toggler.className = "hidden";
   }
 }
 

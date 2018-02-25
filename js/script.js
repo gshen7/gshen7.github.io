@@ -144,6 +144,15 @@ const EXPERIENCE = [
       "Winforms FlexNet Licensing Tool Development." +
       "<ul><li>Multithreaded requests to FlexNet API to create a more robust process for pulling data.</li><li>Designed and implemented previewing functionality to display a customer's existing licenses, improving license renewal and removal process.</li></ul>",
     logoSource: "resources/exp-magnet.png"
+  },
+  {
+    key: "microsoft",
+    company: "Microsoft",
+    position: "Incoming Software Engineering Intern",
+    location: "Redmond, WA, USA",
+    date: "May 2018-Aug 2018",
+    description: "Interning on the cloud and enterprise team.",
+    logoSource: "resources/exp-microsoft.png"
   }
 ];
 var HOCKEY = {

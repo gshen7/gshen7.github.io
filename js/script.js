@@ -208,13 +208,13 @@ const PARTICLES_CONFIG = {
       }
     },
     color: {
-      value: "#fff8dc"
+      value: "#9da8bd"
     },
     shape: {
       type: "circle",
       stroke: {
         width: 1,
-        color: "#ffffff"
+        color: "#9da8bd"
       }
     },
     size: {
@@ -225,7 +225,7 @@ const PARTICLES_CONFIG = {
       }
     },
     opacity: {
-      value: 0.25,
+      value: 0.5,
       random: false,
       anim: {
         enable: false
@@ -233,8 +233,8 @@ const PARTICLES_CONFIG = {
     },
     line_linked: {
       enable: true,
-      distance: 100,
-      color: "#ffffff",
+      distance: 150,
+      color: "#9da8bd",
       opacity: 0.75,
       width: 1
     },

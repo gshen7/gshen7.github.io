@@ -151,7 +151,7 @@ const EXPERIENCE = [
     position: "Incoming Software Engineering Intern",
     location: "Redmond, WA, USA",
     date: "May 2018-Aug 2018",
-    description: "Interning on the cloud and enterprise team.",
+    description: "Interning in the Cloud and Enterprise organization.",
     logoSource: "resources/exp-microsoft.png"
   }
 ];

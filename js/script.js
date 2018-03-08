@@ -314,8 +314,8 @@ var searchKey = "";
 var size = "sm";
 var mode = "";
 
-//allows for clicking of items to check and uncheck project tags
 $(document).ready(function() {
+  //allows for clicking of items to check and uncheck project tags
   $("#projects-tag-filter, #sm-projects-tag-filter").on("click", function(
     event
   ) {
@@ -332,6 +332,8 @@ $(document).ready(function() {
       changeAllCheck(true);
     } else if (tag.innerText === "Select None") {
       changeAllCheck(false);
+    } else if (tag.localName === "input") {
+      changeSelectedTags();
     } else if (tag.className !== "divider") {
       tag = tag.innerText.trim();
       tag = tag.substring(0, tag.indexOf(" "));
@@ -339,7 +341,7 @@ $(document).ready(function() {
     }
     event.stopPropagation();
   });
-
+  //responsive resizing
   $(window).on("resize", function() {
     var win = $(this);
     var width = $(window).width();
@@ -589,11 +591,14 @@ function changePanels(filteredProjects) {
 function changeSelectedTags() {
   selectedTags = [];
   for (var i = 0; i < Object.keys(TAGS).length; i++) {
-    var tagCheck = document.getElementById(Object.keys(TAGS)[i] + "-check");
+    var tagCheck = document.getElementById(
+      (size == "sm" ? "sm-" : "") + Object.keys(TAGS)[i] + "-check"
+    );
     if (tagCheck.checked) {
       selectedTags.push(Object.keys(TAGS)[i]);
     }
   }
+
   updateTagsFilter();
   filterProjects();
 }

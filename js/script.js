@@ -333,7 +333,8 @@ $(document).ready(function() {
     } else if (tag.innerText === "Select None") {
       changeAllCheck(false);
     } else if (tag.className !== "divider") {
-      tag = tag.childNodes[1].nodeValue.trim();
+      tag = tag.innerText.trim();
+      tag = tag.substring(0, tag.indexOf(" "));
       changeCheck(tag);
     }
     event.stopPropagation();
@@ -410,11 +411,11 @@ function changeAbout(about) {
 function changeAllCheck(checked) {
   for (var i = 0; i < Object.keys(TAGS).length; i++) {
     var tagCheck = document.getElementById(Object.keys(TAGS)[i] + "-check");
-    tagCheck.className = "fa fa-" + (checked ? "check-" : "") + "square-o";
+    tagCheck.checked = !tagCheck.checked;
     var smallTagCheck = document.getElementById(
       "sm-" + Object.keys(TAGS)[i] + "-check"
     );
-    smallTagCheck.className = "fa fa-" + (checked ? "check-" : "") + "square-o";
+    smallTagCheck.checked = !smallTagCheck.checked;
   }
 
   changeSelectedTags();
@@ -423,15 +424,9 @@ function changeAllCheck(checked) {
 //handle click on tag
 function changeCheck(tag) {
   var tagCheck = document.getElementById(tag + "-check");
-  tagCheck.className =
-    "fa fa-" +
-    (tagCheck.className.includes("check") ? "" : "check-") +
-    "square-o";
+  tagCheck.checked = !tagCheck.checked;
   var smallTagCheck = document.getElementById("sm-" + tag + "-check");
-  smallTagCheck.className =
-    "fa fa-" +
-    (smallTagCheck.className.includes("check") ? "" : "check-") +
-    "square-o";
+  smallTagCheck.checked = !smallTagCheck.checked;
   changeSelectedTags();
 }
 
@@ -595,7 +590,7 @@ function changeSelectedTags() {
   selectedTags = [];
   for (var i = 0; i < Object.keys(TAGS).length; i++) {
     var tagCheck = document.getElementById(Object.keys(TAGS)[i] + "-check");
-    if (tagCheck.className.includes("check")) {
+    if (tagCheck.checked) {
       selectedTags.push(Object.keys(TAGS)[i]);
     }
   }
@@ -942,16 +937,12 @@ function toggleParticles() {
 //update appearance of tags checklist
 function updateTagsFilter(first) {
   var tagOptions = Object.keys(TAGS).map(function(t) {
-    var out = '<li class="keep-open"><a><i id="' + t + '-check" class="fa fa-';
+    var out =
+      '<li class="keep-open"><a><input type="checkbox" id="' + t + '-check" ';
     if (selectedTags.includes(t) && !first) {
-      out += "check-";
+      out += "checked";
     }
-    out +=
-      'square-o"></i> ' +
-      t +
-      ' <span class="badge">' +
-      TAGS[t] +
-      "</span></a></li>";
+    out += "/> " + t + ' <span class="badge"> ' + TAGS[t] + "</span></a></li>";
     return out;
   });
 
@@ -962,16 +953,13 @@ function updateTagsFilter(first) {
 
   var tagOptions = Object.keys(TAGS).map(function(t) {
     var out =
-      '<li class="keep-open"><a><i id="sm-' + t + '-check" class="fa fa-';
-    if (selectedTags.includes(t) && !first) {
-      out += "check-";
-    }
-    out +=
-      'square-o"></i>' +
+      '<li class="keep-open"><a><input type="checkbox" id="sm-' +
       t +
-      ' <span class="badge">' +
-      TAGS[t] +
-      "</span></a></li>";
+      '-check" ';
+    if (selectedTags.includes(t) && !first) {
+      out += "checked";
+    }
+    out += "/>" + t + ' <span class="badge"> ' + TAGS[t] + "</span></a></li>";
     return out;
   });
 

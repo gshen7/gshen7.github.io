@@ -133,7 +133,7 @@ const EXPERIENCE = [
   {
     key: "magnet",
     company: "Magnet Forensics",
-    position: "Software Developer Co-op",
+    position: "Software Developer Intern",
     location: "Waterloo, ON, Canada",
     date: "May 2017-Aug 2017",
     description:

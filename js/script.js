@@ -31,6 +31,12 @@ const TAGS = {
 };
 const PROJECTS = [
   {
+    id: 10,
+    title: "Google Cloud & NCAA ML 2018-Men's March Madness Bracket Prediction Competition",
+    tags: ["R", "Machine Learning"],
+    description:
+      "Created a model for predicting win probabilities for all possible matchups for the NCAA 2018 Mens Basketball Tournament."
+  },{
     id: 9,
     title: "ESPN Fantasy Hockey API",
     tags: ["R", "Web Scraping"],

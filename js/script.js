@@ -14,7 +14,7 @@ const ABOUT = {
 };
 const TAGS = {
   Java: 3,
-  R: 3,
+  R: 4,
   Python: 1,
   Assembly: 1,
   SQL: 2,
@@ -26,7 +26,7 @@ const TAGS = {
   Android: 1,
   Tableau: 1,
   Tensorflow: 1,
-  "Machine Learning": 2,
+  "Machine Learning": 3,
   "Web Scraping": 2
 };
 const PROJECTS = [

@@ -26,6 +26,7 @@ const TAGS = {
   Android: 1,
   Tableau: 1,
   Tensorflow: 1,
+  Weka: 1,
   "Machine Learning": 3,
   "Web Scraping": 2
 };
@@ -99,7 +100,7 @@ const PROJECTS = [
   {
     id: 1,
     title: "Smart Bed Monitoring System",
-    tags: ["Java", "SQL", "Machine Learning"],
+    tags: ["Java", "SQL", "Weka", "Machine Learning"],
     description:
       "A machine learning based system for detecting bed-related scenarios and monitoring sleep patterns and sending alerts for certain situations. Used simple, non-intrusive piezoelectric force sensors transmitting readings via ZigBee nodes in real time. Stored historical data in a SQL database for use in trending health history."
   },

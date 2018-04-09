@@ -121,8 +121,11 @@ const EXPERIENCE = [
     date: "Nov 2015-Aug 2016",
     description:
       "Research and development in the field of communications/computing technologies and associated applications" +
-      '<ul><li>Designed a novel indoor locationing technique based on WiFi signal strength propagation. Developed model for propagation and prototyped system using Android. (Publication: <a target="_blank" href="http://ieeexplore.ieee.org/document/8066713/">A novel Wifi-based indoor localization system</a>).</li>' +
-      '<li>Researched methods of improving human activity recognition apps through machine learning methods. (Publication: <a target="_blank" href="http://ieeexplore.ieee.org/document/7844783/">Mitigating sensor differences for phone-based human activity recognition</a>).</li></ul>',
+      '<ul><li>Designed a novel indoor locationing technique based on WiFi signal strength propagation. ' +
+      "Developed model for propagation and prototyped system using Android. " +
+      '(Publication: <a target="_blank" href="http://ieeexplore.ieee.org/document/8066713/">A novel Wifi-based indoor localization system</a>).</li>' +
+      '<li>Conducted research on improvements for machine learning based human activity recognition apps and created a model using Weka to improve recall and precision by mitigating the impact of smart phone sensor differences. ' +
+      '(Publication: <a target="_blank" href="http://ieeexplore.ieee.org/document/7844783/">Mitigating sensor differences for phone-based human activity recognition</a>).</li></ul>',
     logoSource: "resources/exp-uwo.png"
   },
   {

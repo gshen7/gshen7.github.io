@@ -942,10 +942,15 @@ function revealToggle(show) {
 function toggleParticles() {
   var particles = document.getElementById("particles-js");
   toggler = document.getElementById("toggler");
-  var switchOff = particles.className.length === 0;
-  particles.className = switchOff ? "hidden" : "";
-  mode = switchOff ? "&off" : "";
-  toggler.checked = !switchOff;
+  mode = toggler.checked ? "" : "&off";
+  if (mode == "&off") {
+    cancelRequestAnimFrame(pJSDom[0].pJS.fn.checkAnimFrame);
+    cancelRequestAnimFrame(pJSDom[0].pJS.fn.drawAnimFrame);
+    pJSDom[0].pJS.fn.particlesEmpty();
+    pJSDom[0].pJS.fn.canvasClear();
+  } else {
+    pJSDom[0].pJS.fn.vendors.start();
+  }
   if (!global_toggled && mode != "&off") {
     particlesJS("particles-js", PARTICLES_CONFIG);
     global_toggled = true;

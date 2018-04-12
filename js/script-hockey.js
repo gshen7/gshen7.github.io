@@ -116,11 +116,6 @@ $(window).on("load", function() {
   } else {
     big();
   }
-  var particles = document.getElementById("particles-js");
-  if (particles.className !== "hidden" && !global_toggled) {
-    particlesJS("particles-js", PARTICLES_CONFIG);
-    global_toggled = true;
-  }
 });
 
 $(window).on("resize", function() {
@@ -147,7 +142,11 @@ function big() {
 function init() {
   var anchor = window.location.hash.substr(1);
   mode = anchor.includes("&off") ? "&off" : "";
-  if (mode == "&off") {
+  if (mode !== "&off") {
+    if (!global_toggled) {
+      particlesJS("particles-js", PARTICLES_CONFIG);
+      global_toggled = true;
+    }
     toggleParticles();
   }
   if (anchor.includes("&")) {
@@ -160,17 +159,23 @@ function init() {
 
 //show and hide particles
 function toggleParticles() {
-  var particles = document.getElementById("particles-js");
   toggler = document.getElementById("toggler");
-  var switchOff = particles.className.length === 0;
-  particles.className = switchOff ? "hidden" : "";
-  mode = switchOff ? "&off" : "";
-  toggler.checked = !switchOff;
-  if (!global_toggled && mode != "&off") {
-    particlesJS("particles-js", PARTICLES_CONFIG);
-    global_toggled = true;
+  mode = toggler.checked ? "" : "&off";
+  if (mode == "&off") {
+    if (pJSDom) {
+      cancelRequestAnimFrame(pJSDom[0].pJS.fn.checkAnimFrame);
+      cancelRequestAnimFrame(pJSDom[0].pJS.fn.drawAnimFrame);
+      pJSDom[0].pJS.fn.particlesEmpty();
+      pJSDom[0].pJS.fn.canvasClear();
+    }
+  } else {
+    if (!global_toggled) {
+      particlesJS("particles-js", PARTICLES_CONFIG);
+      global_toggled = true;
+    }
+    pJSDom[0].pJS.fn.vendors.start();
   }
-  history.pushState(null, null, "#" + mode);
+  history.pushState(null, null, "#" + currentActive + mode);
 }
 
 function goBack() {

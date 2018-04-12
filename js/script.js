@@ -379,10 +379,6 @@ $(window).on("load", function() {
   } else {
     initBig();
   }
-  if (particles.className !== "hidden" && !global_toggled) {
-    particlesJS("particles-js", PARTICLES_CONFIG);
-    global_toggled = true;
-  }
 });
 
 //fill about content
@@ -852,7 +848,11 @@ function init() {
   filterProjects();
   var anchor = window.location.hash.substr(1);
   mode = anchor.includes("&off") ? "&off" : "";
-  if (mode == "&off") {
+  if (mode !== "&off") {
+    if (!global_toggled) {
+      particlesJS("particles-js", PARTICLES_CONFIG);
+      global_toggled = true;
+    }
     toggleParticles();
   }
   if (anchor.includes("&")) {
@@ -940,20 +940,21 @@ function revealToggle(show) {
 
 //show and hide particles
 function toggleParticles() {
-  var particles = document.getElementById("particles-js");
   toggler = document.getElementById("toggler");
   mode = toggler.checked ? "" : "&off";
   if (mode == "&off") {
-    cancelRequestAnimFrame(pJSDom[0].pJS.fn.checkAnimFrame);
-    cancelRequestAnimFrame(pJSDom[0].pJS.fn.drawAnimFrame);
-    pJSDom[0].pJS.fn.particlesEmpty();
-    pJSDom[0].pJS.fn.canvasClear();
+    if (pJSDom) {
+      cancelRequestAnimFrame(pJSDom[0].pJS.fn.checkAnimFrame);
+      cancelRequestAnimFrame(pJSDom[0].pJS.fn.drawAnimFrame);
+      pJSDom[0].pJS.fn.particlesEmpty();
+      pJSDom[0].pJS.fn.canvasClear();
+    }
   } else {
+    if (!global_toggled) {
+      particlesJS("particles-js", PARTICLES_CONFIG);
+      global_toggled = true;
+    }
     pJSDom[0].pJS.fn.vendors.start();
-  }
-  if (!global_toggled && mode != "&off") {
-    particlesJS("particles-js", PARTICLES_CONFIG);
-    global_toggled = true;
   }
   history.pushState(null, null, "#" + currentActive + mode);
 }

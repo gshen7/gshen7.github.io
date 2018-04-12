@@ -33,11 +33,13 @@ const TAGS = {
 const PROJECTS = [
   {
     id: 10,
-    title: "Google Cloud & NCAA ML 2018-Men's March Madness Bracket Prediction Competition",
+    title:
+      "Google Cloud & NCAA ML 2018-Men's March Madness Bracket Prediction Competition",
     tags: ["R", "Machine Learning"],
     description:
       "Created a model for predicting win probabilities for all possible matchups for the NCAA 2018 Mens Basketball Tournament."
-  },{
+  },
+  {
     id: 9,
     title: "ESPN Fantasy Hockey API",
     tags: ["R", "Web Scraping"],
@@ -121,10 +123,10 @@ const EXPERIENCE = [
     date: "Nov 2015-Aug 2016",
     description:
       "Research and development in the field of communications/computing technologies and associated applications" +
-      '<ul><li>Designed a novel indoor locationing technique based on WiFi signal strength propagation. ' +
+      "<ul><li>Designed a novel indoor locationing technique based on WiFi signal strength propagation. " +
       "Developed model for propagation and prototyped system using Android. " +
       '(Publication: <a target="_blank" href="http://ieeexplore.ieee.org/document/8066713/">A novel Wifi-based indoor localization system</a>).</li>' +
-      '<li>Conducted research on improvements for machine learning based human activity recognition apps and created a model using Weka to improve recall and precision by mitigating the impact of smart phone sensor differences. ' +
+      "<li>Conducted research on improvements for machine learning based human activity recognition apps and created a model using Weka to improve recall and precision by mitigating the impact of smart phone sensor differences. " +
       '(Publication: <a target="_blank" href="http://ieeexplore.ieee.org/document/7844783/">Mitigating sensor differences for phone-based human activity recognition</a>).</li></ul>',
     logoSource: "resources/exp-uwo.png"
   },
@@ -810,6 +812,7 @@ function filterProjects(small) {
   changePanels(filteredProjects);
 }
 
+//navigate to hockey viz pages
 function goViz(linkID) {
   document.location.assign(HOCKEY.vizzes[linkID].link + "#" + mode);
 }
@@ -925,6 +928,7 @@ function resizeSmall() {
   }
 }
 
+//handle mouseover of particles toggle
 function revealToggle(show) {
   var toggler = document.getElementById("toggler");
   if (show) {

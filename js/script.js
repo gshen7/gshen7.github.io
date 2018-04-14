@@ -1,17 +1,12 @@
 //constants for content
 const CONTENT_KEYS = ["about", "projects", "experience", "hockey"];
 const ABOUT = {
-  overview: {
-    description:
-      '<p align="justify">I\'m a <font color="blue">computer engineering and business administration</font> student at the Ivey School of Business at the University of Western Ontario with software development experience in agile, test-driven, and research environments.' +
-      '<br/><br/><font color="blue">Interests</font> include travelling, hiking, camping, weightlifting, playing and watching sports (particularly hockey), and playing board/card games.</p>',
-    img: "resources/about-overview.png"
-  },
-  interests: {
-    description:
-      '<p align="justify">Two <font color="blue">causes</font> I\'m currently involved with include helping to build out the tech atmosphere within my school community as the co-president of the Ivey Technology Club and helping foster a future generation of scientists, engineers, and innovators within Canada as a member of the sponsorship committee and judge for my regional science fair.</p>',
-    img: "resources/about-interests.png"
-  },
+  overview:
+    '<p align="justify">I\'m a <font color="blue">computer engineering and business administration</font> student at the Ivey School of Business at the University of Western Ontario with software development experience in agile, test-driven, and research environments.</p>',
+  interests:
+    '<p align="justify"><font color="blue">Interests</font> include travelling, hiking, camping, weightlifting, playing and watching sports (particularly hockey), and playing board/card games.</p>',
+  causes:
+    '<p align="justify">Two <font color="blue">causes</font> I\'m currently involved with include helping to build out the tech atmosphere within my school community as the co-president of the Ivey Technology Club and helping foster a future generation of scientists, engineers, and innovators within Canada as a member of the sponsorship committee and judge for my regional science fair.</p>',
   slides: [
     {
       src: "resources/slides/hawaii.jpeg",
@@ -59,7 +54,7 @@ const ABOUT = {
       src: "resources/slides/christmas.jpeg",
       image: true,
       caption:
-        "Celebrating the holidays with pizza at Western's Undergraduate Engineering Society, 2016"
+        "Celebrating the holidays with pizza with Western's Undergraduate Engineering Society, 2016"
     }
   ]
 };
@@ -434,25 +429,21 @@ $(window).on("load", function() {
 
 //fill about content
 function changeAbout(about) {
-  var overviewContent =
-    '<img src="' +
-    ABOUT.overview.img +
-    '" class="img-circle img-responsive portrait"><hr/>' +
-    ABOUT.overview.description +
-    "</div>";
+  var leftContent = ABOUT.overview + ABOUT.interests + "</div>";
 
-  var overviewContainer = document.getElementById("about-overview");
-  overviewContainer.innerHTML = overviewContent;
+  var leftContainer = document.getElementById("about-left");
+  leftContainer.innerHTML = leftContent;
 
-  var interestsContent =
-    '<img src="' +
-    ABOUT.interests.img +
-    '" class="img-circle img-responsive portrait"><hr/>' +
-    ABOUT.interests.description +
-    "</div>";
+  var rightContent = ABOUT.causes + "</div>";
 
-  var interestsContainer = document.getElementById("about-interests");
-  interestsContainer.innerHTML = interestsContent;
+  var rightContainer = document.getElementById("about-right");
+  rightContainer.innerHTML = rightContent;
+
+  var smallContent =
+    ABOUT.overview + "<br/>" + ABOUT.interests + "<br/>" + ABOUT.causes;
+
+  var smallContainer = document.getElementById("sm-about-container");
+  smallContainer.innerHTML = smallContent;
 
   var slidesContent = "";
   for (var i = 0; i < ABOUT.slides.length; i++) {
@@ -471,19 +462,8 @@ function changeAbout(about) {
 
   var slidesContainer = document.getElementById("slidesWrapper");
   slidesContainer.innerHTML = slidesContent;
-
-  var smallContent =
-    ABOUT.overview.description +
-    "<br/><br/>" +
-    ABOUT.interests.description +
-    '<br/><br/><table><tr><td><img src="' +
-    ABOUT.overview.img +
-    '" class="img-thumbnail img-responsive album"></td><td><img src="' +
-    ABOUT.interests.img +
-    '" class="img-thumbnail img-responsive album"></td></tr></table>';
-
-  var smallContainer = document.getElementById("sm-about-container");
-  smallContainer.innerHTML = smallContent;
+  slidesContainer = document.getElementById("sm-slidesWrapper");
+  slidesContainer.innerHTML = slidesContent;
 }
 
 //handle select all or select none click
@@ -974,9 +954,9 @@ function navTo(newActive) {
     history.pushState(null, null, "#" + currentActive + mode);
   } else {
     var newPill = document.getElementById(newActive + "-pill");
-    newPill.className = "activePill";
+    newPill.className = "active";
     var newSmallPill = document.getElementById("sm-" + newActive + "-pill");
-    newSmallPill.className = "activePill";
+    newSmallPill.className = "active";
 
     changeContent(newActive);
     history.pushState(null, null, "#" + newActive + mode);

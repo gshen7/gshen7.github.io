@@ -99,6 +99,20 @@
                             <div class="row padded hidden" id="sm-content-div-about">
                                 <div class="col-xs-12">
                                     <h4>About</h4>
+                                    <div class="row">
+                                        <div class="col-md-10 col-md-offset-1 text-center">
+                                            <div id="sm-aboutCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                                                <div class="carousel-inner" id="sm-slidesWrapper">
+                                                </div>
+                                                <a class="carousel-control leftControl" onclick="pauseAll()" href="#sm-aboutCarousel" data-slide="prev">
+                                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                                </a>
+                                                <a class="carousel-control rightControl" onclick="pauseAll()" href="#sm-aboutCarousel" data-slide="next">
+                                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div id="sm-about-container"></div>
                                 </div>
                             </div>
@@ -187,10 +201,6 @@
                 <div class="panel panel-info" id="content-panel-about">
                     <div class="panel-body min-height">
                         <div class="row">
-                            <div class="col-md-6 text-center" id="about-overview"></div>
-                            <div class="col-md-6 text-center" id="about-interests"></div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-10 col-md-offset-1 text-center">
                                 <div id="aboutCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
                                     <div class="carousel-inner" id="slidesWrapper">
@@ -203,6 +213,11 @@
                                     </a>
                                 </div>
                             </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-6 text-center" id="about-left"></div>
+                            <div class="col-md-6 text-center" id="about-right"></div>
                         </div>
                     </div>
                 </div>

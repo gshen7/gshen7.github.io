@@ -69,7 +69,20 @@ body {
 }
 
 .carousel-caption {
-  opacity: 0.5 !important;
+  position: relative;
+  left: auto;
+  right: auto;
+  color: lightgrey;
+  text-shadow: none;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+#aboutCarousel {
+  min-height: 250px;
+  max-height: 250px;
 }
 
 .portrait {
@@ -184,10 +197,6 @@ a > .img-thumbnail:hover {
   background-position: center center;
   background-repeat: no-repeat;
   position: fixed;
-}
-
-.activePill {
-  background: blue;
 }
 
 body {

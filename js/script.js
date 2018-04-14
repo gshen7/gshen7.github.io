@@ -7,7 +7,7 @@ const ABOUT = {
     '<p align="justify"><font color="blue">Interests</font> include travelling, hiking, camping, weightlifting, playing and watching sports (particularly hockey), and playing board/card games.</p>',
   causes:
     '<p align="justify">Two <font color="blue">causes</font> I\'m currently involved with include helping to build out the tech atmosphere within my school community as the co-president of the Ivey Technology Club.' +
-    "I'm also hoping to foster a future generation of scientists, engineers, and innovators within Canada as a member of the sponsorship committee and judge for my regional science fair.</p>",
+    " I'm also hoping to foster a future generation of scientists, engineers, and innovators within Canada as a member of the sponsorship committee and judge for my regional science fair.</p>",
   slides: [
     {
       src: "resources/slides/hawaii.jpeg",

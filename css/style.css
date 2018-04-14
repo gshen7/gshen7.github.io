@@ -55,17 +55,43 @@ body {
   opacity: 0.9;
 }
 
-.left {
+.leftBar {
   padding-left: 50px;
 }
 
-.right {
+.rightBar {
   padding-right: 50px;
+}
+
+.carousel-control.rightControl {
+  left: auto;
+  right: 0;
+}
+
+.carousel-caption {
+  opacity: 0.5 !important;
 }
 
 .portrait {
   margin: 0px auto 0px;
   width: 150px;
+}
+
+.item img {
+  min-height: 200px;
+  max-height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.item video {
+  min-height: 200px;
+  max-height: 200px;
+  max-width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 .album {
@@ -160,7 +186,7 @@ a > .img-thumbnail:hover {
   position: fixed;
 }
 
-.active {
+.activePill {
   background: blue;
 }
 

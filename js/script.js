@@ -3,14 +3,65 @@ const CONTENT_KEYS = ["about", "projects", "experience", "hockey"];
 const ABOUT = {
   overview: {
     description:
-      'I\'m a <font color="blue">computer engineering and business administration</font> student at the Ivey School of Business at the University of Western Ontario with software development experience in agile, test-driven, and research environments.',
+      '<p align="justify">I\'m a <font color="blue">computer engineering and business administration</font> student at the Ivey School of Business at the University of Western Ontario with software development experience in agile, test-driven, and research environments.' +
+      '<br/><br/><font color="blue">Interests</font> include travelling, hiking, camping, weightlifting, playing and watching sports (particularly hockey), and playing board/card games.</p>',
     img: "resources/about-overview.png"
   },
   interests: {
     description:
-      '<font color="blue">Interests</font> include travelling, playing and watching sports (particularly hockey), and playing board/card games.',
+      '<p align="justify">Two <font color="blue">causes</font> I\'m currently involved with include helping to build out the tech atmosphere within my school community as the co-president of the Ivey Technology Club and helping foster a future generation of scientists, engineers, and innovators within Canada as a member of the sponsorship committee and judge for my regional science fair.</p>',
     img: "resources/about-interests.png"
-  }
+  },
+  slides: [
+    {
+      src: "resources/slides/hawaii.png",
+      image: true,
+      caption: "Reading week trip to Hawaii, 2018"
+    },
+    {
+      src: "resources/slides/newZealand.png",
+      image: true,
+      caption: "Presented a publication at a conference in New Zealand, 2017"
+    },
+    {
+      src: "resources/slides/scandinavia.png",
+      image: true,
+      caption: "Family trip to Scandinavia, 2016"
+    },
+    {
+      src: "resources/slides/sectionHockey.png",
+      image: true,
+      caption:
+        "Played in an Ivey Section 1 vs Section 2 hockey game to raise money for charity, 2017"
+    },
+    {
+      src: "resources/slides/hsHockey.mov",
+      image: false,
+      caption:
+        "One of the most memorable moments from high school was scoring a triple overtime goal to win the playoff series, 2014"
+    },
+    {
+      src: "resources/slides/camping.png",
+      image: true,
+      caption: "Camping at the Pinery Provincial Park, 2016"
+    },
+    {
+      src: "resources/slides/spikeball.mov",
+      image: false,
+      caption: "Playing a game of spikeball while camping, 2016"
+    },
+    {
+      src: "resources/slides/elora.mov",
+      image: false,
+      caption: "Jumping off a cliff in Elora, 2016"
+    },
+    {
+      src: "resources/slides/christmas.png",
+      image: true,
+      caption:
+        "Celebrating the holidays with pizza at Western's Undergraduate Engineering Society, 2016"
+    }
+  ]
 };
 const TAGS = {
   Java: 3,
@@ -402,6 +453,24 @@ function changeAbout(about) {
 
   var interestsContainer = document.getElementById("about-interests");
   interestsContainer.innerHTML = interestsContent;
+
+  var slidesContent = "";
+  for (var i = 0; i < ABOUT.slides.length; i++) {
+    slidesContent += '<div class="item' + (i == 0 ? ' active"' : '"') + ">";
+    if (ABOUT.slides[i].image) {
+      slidesContent += '<img src="' + ABOUT.slides[i].src + '">';
+    } else {
+      slidesContent +=
+        '<video controls><source src="' + ABOUT.slides[i].src + '"></video>';
+    }
+    slidesContent +=
+      '<div class="carousel-caption">' +
+      ABOUT.slides[i].caption +
+      "</div></div>";
+  }
+
+  var slidesContainer = document.getElementById("slidesWrapper");
+  slidesContainer.innerHTML = slidesContent;
 
   var smallContent =
     ABOUT.overview.description +
@@ -905,9 +974,9 @@ function navTo(newActive) {
     history.pushState(null, null, "#" + currentActive + mode);
   } else {
     var newPill = document.getElementById(newActive + "-pill");
-    newPill.className = "active";
+    newPill.className = "activePill";
     var newSmallPill = document.getElementById("sm-" + newActive + "-pill");
-    newSmallPill.className = "active";
+    newSmallPill.className = "activePill";
 
     changeContent(newActive);
     history.pushState(null, null, "#" + newActive + mode);
@@ -992,4 +1061,12 @@ function updateTagsFilter(first) {
   projectsTagFilter.innerHTML =
     '<li class="keep-open"><a>Select All</a></li><li class="keep-open"><a>Select None</a></li><li class="divider"/>' +
     tagOptions.join(" ");
+}
+
+//pause all playing videos
+function pauseAll() {
+  videos = document.getElementsByTagName("video");
+  for (var i = 0; i < videos.length; i++) {
+    videos[i].pause();
+  }
 }

@@ -161,7 +161,7 @@
     <div class=" collapse" id="container-lg">
         <div class="row padded">
             <!-- Left panel -->
-            <div class="col-md-3 col-md-offset-3 left side transform animated slideInLeft" id="left-sidebar">
+            <div class="col-md-3 col-md-offset-3 leftBar side transform animated slideInLeft" id="left-sidebar">
                 <div class="panel panel-info">
                     <div class="panel-body min-height">
                         <ul class="nav nav-pills nav-stacked">
@@ -190,17 +190,30 @@
                             <div class="col-md-6 text-center" id="about-overview"></div>
                             <div class="col-md-6 text-center" id="about-interests"></div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1 text-center">
+                                <div id="aboutCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                                    <div class="carousel-inner" id="slidesWrapper">
+                                    </div>
+                                    <a class="carousel-control leftControl" onclick="pauseAll()" href="#aboutCarousel" data-slide="prev">
+                                        <span class="glyphicon glyphicon-chevron-left"></span>
+                                    </a>
+                                    <a class="carousel-control rightControl" onclick="pauseAll()" href="#aboutCarousel" data-slide="next">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <!-- Projects -->
-            <div class="col-md-6 col-md-offset-3 hidden transform animated zoomIn" id="content-div-projects">
+            <div class=" col-md-6 col-md-offset-3 hidden transform animated zoomIn" id="content-div-projects">
                 <div class="panel panel-info" id="content-panel-projects">
                     <div class="panel-body min-height">
                         <div class="row">
                             <div class="col-md-6">
-                                <input type="text" placeholder="Search by Title or Description" class="form-control
-                                       " id="proj-search" onkeyup="filterProjects()">
+                                <input type="text" placeholder="Search by Title or Description" class="form-control" id="proj-search" onkeyup="filterProjects()">
                             </div>
                             <div class="col-md-6">
                                 <div class="dropdown">
@@ -246,13 +259,13 @@
                 </div>
             </div>
             <!-- Right panel -->
-            <div class="col-md-3 col-md-offset-6 text-center right side animated slideInRight transform" id="right-sidebar">
+            <div class="col-md-3 col-md-offset-6 text-center rightBar side animated slideInRight transform" id="right-sidebar">
                 <div class="panel panel-info">
                     <div class="panel-body min-height">
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
                                 <img src="resources/-portrait.png" class="img-circle img-responsive padded portrait
-                                       " alt="portrait">
+                                   " alt="portrait">
                             </div>
                         </div>
                         <div class="row padded">
@@ -278,7 +291,8 @@
                                             <i class="fab fa-github"></i>
                                         </span>
                                     </a>
-                                    <a href="https://public.tableau.com/profile/gshen7/" target="_blank" class="btn btn-default">
+                                    <a href="https://public.tableau.com/profile/gshen7/" target="_blank" class="btn
+                                    btn-default">
                                         <span class="badge pull-left">
                                             <i class="fa fa-chart-bar"></i>
                                         </span>

@@ -14,22 +14,22 @@ const ABOUT = {
   },
   slides: [
     {
-      src: "resources/slides/hawaii.png",
+      src: "resources/slides/hawaii.jpeg",
       image: true,
       caption: "Reading week trip to Hawaii, 2018"
     },
     {
-      src: "resources/slides/newZealand.png",
+      src: "resources/slides/newZealand.jpeg",
       image: true,
       caption: "Presented a publication at a conference in New Zealand, 2017"
     },
     {
-      src: "resources/slides/scandinavia.png",
+      src: "resources/slides/scandinavia.jpeg",
       image: true,
       caption: "Family trip to Scandinavia, 2016"
     },
     {
-      src: "resources/slides/sectionHockey.png",
+      src: "resources/slides/sectionHockey.jpeg",
       image: true,
       caption:
         "Played in an Ivey Section 1 vs Section 2 hockey game to raise money for charity, 2017"
@@ -41,7 +41,7 @@ const ABOUT = {
         "One of the most memorable moments from high school was scoring a triple overtime goal to win the playoff series, 2014"
     },
     {
-      src: "resources/slides/camping.png",
+      src: "resources/slides/camping.jpeg",
       image: true,
       caption: "Camping at the Pinery Provincial Park, 2016"
     },
@@ -56,7 +56,7 @@ const ABOUT = {
       caption: "Jumping off a cliff in Elora, 2016"
     },
     {
-      src: "resources/slides/christmas.png",
+      src: "resources/slides/christmas.jpeg",
       image: true,
       caption:
         "Celebrating the holidays with pizza at Western's Undergraduate Engineering Society, 2016"

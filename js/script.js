@@ -463,8 +463,22 @@ function changeAbout(about) {
 
   var slidesContainer = document.getElementById("slidesWrapper");
   slidesContainer.innerHTML = slidesContent;
-  slidesContainer = document.getElementById("sm-slidesWrapper");
-  slidesContainer.innerHTML = slidesContent;
+
+  var smalSlidesContent = "";
+  for (var i = 0; i < ABOUT.slides.length; i++) {
+    smalSlidesContent += '<div class="item' + (i == 0 ? ' active"' : '"') + ">";
+    if (ABOUT.slides[i].image) {
+      smalSlidesContent += '<img src="' + ABOUT.slides[i].src + '">';
+    } else {
+      smalSlidesContent +=
+        '<video controls><source src="' + ABOUT.slides[i].src + '"></video>';
+    }
+    smalSlidesContent +=
+      '</div>';
+  }
+
+  var smallSlidesContainer = document.getElementById("sm-slidesWrapper");
+  smallSlidesContainer.innerHTML = smalSlidesContent;
 }
 
 //handle select all or select none click

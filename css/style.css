@@ -70,6 +70,7 @@ body {
 
 .carousel-caption {
   opacity: 0.25;
+  max-width: 75%;
 }
 .carousel-caption:hover {
   opacity: 1;

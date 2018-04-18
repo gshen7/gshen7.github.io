@@ -270,7 +270,7 @@ var HOCKEY = {
 const PARTICLES_CONFIG = {
   particles: {
     number: {
-      value: 50,
+      value: 25,
       density: {
         enable: false
       }
@@ -308,7 +308,7 @@ const PARTICLES_CONFIG = {
     },
     move: {
       enable: true,
-      speed: 10,
+      speed: 5,
       direction: "none",
       random: true,
       straight: false,

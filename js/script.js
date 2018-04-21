@@ -2,7 +2,7 @@
 const CONTENT_KEYS = ["about", "projects", "experience", "hockey"];
 const ABOUT = {
   overview:
-    '<p align="justify">I\'m a <font color="blue">computer engineering and business administration</font> student at the Ivey School of Business at the University of Western Ontario with software development experience in agile, test-driven, and research environments.</p>',
+    '<p align="justify">I\'m a <font color="blue">software engineering and business administration</font> student at the Ivey School of Business at the University of Western Ontario with software development experience in agile, test-driven, and research environments.</p>',
   interests:
     '<p align="justify"><font color="blue">Interests</font> include travelling, hiking, camping, weightlifting, playing and watching sports (particularly hockey), and playing board/card games.' +
     ' In terms of <font color="blue">technology</font> interests, I\'m excited about the future of human technology interaction, food production, and fintech (particularly focused on increasing access to capital).</p>',

@@ -171,7 +171,7 @@ const EXPERIENCE = [
     date: "Nov 2015-Aug 2016",
     description:
       "Research and development in the field of communications/computing technologies and associated applications" +
-      "<ul><li>Designed a novel indoor locationing technique based on WiFi signal strength propagation. " +
+      "<ul><li>Designed a novel indoor locationing model based on WiFi signal strength propagation. " +
       "Developed model for propagation and prototyped system using Android. " +
       '(Publication: <a target="_blank" href="http://ieeexplore.ieee.org/document/8066713/">A novel Wifi-based indoor localization system</a>).</li>' +
       "<li>Conducted research on improvements for machine learning based human activity recognition apps and created a model using Weka to improve recall and precision by mitigating the impact of smart phone sensor differences. " +
@@ -187,7 +187,7 @@ const EXPERIENCE = [
     description:
       "Modernized suite of brain games used for cognitive tests." +
       "<ul><li>Ported games from flash player to more modernized technology stack (Ruby/Rails and ReactJS/Redux).</li><li>Developed model for standardizing scores of old tests so that past data remained relevant and comparable to new results.</li>" +
-      "<li>Built automated test suite in Ruby/Rails using RSpec and contributed to behaviour testing of modern version of games, ensuring behaviour replicated old version.</li></ul>",
+      "<li>Built automated test suite in Ruby/Rails using RSpec.</li></ul>",
     logoSource: "resources/exp-cbs.png"
   },
   {
@@ -197,21 +197,16 @@ const EXPERIENCE = [
     location: "Waterloo, ON, Canada",
     date: "May 2017-Aug 2017",
     description:
-      "Full-stack development of metric dashboard aggregating testing data from various sources. Used React.JS/Redux for the frontend UI connected to C# REST API endpoints to access a SQL database." +
-      "<ul><li>Created dashboard page for viewing results of automated regression tests using Jenkins API.</li><li>Added ability to mark certain automated test runs as outliers and a view to display metric deltas between runs.</li>" +
-      "<li>Designed and implemented view to show health of product features over a history of code changes.</li><li>Integrated dashboard with Jira API to track expected hit counts to ease process of maintaining a golden baseline.</li>" +
-      "<li>Created widget to display status of installer and expect new files into the known installer files.</li></ul>" +
-      "Winforms FlexNet Licensing Tool Development." +
-      "<ul><li>Multithreaded requests to FlexNet API to create a more robust process for pulling data.</li><li>Designed and implemented previewing functionality to display a customer's existing licenses, improving license renewal and removal process.</li></ul>",
+      "Full-stack development of metric dashboard aggregating and visualizing data from various sourceso of forensic evidence. Used React.JS/Redux for the frontend UI connected to C# REST API endpoints to access a SQL database.",
     logoSource: "resources/exp-magnet.png"
   },
   {
     key: "microsoft",
     company: "Microsoft",
-    position: "Incoming Software Engineering Intern",
+    position: "Software Engineering Intern",
     location: "Redmond, WA, USA",
-    date: "May 2018-Aug 2018",
-    description: "Interning in the Cloud and Enterprise organization.",
+    date: "May 2018-Present",
+    description: "Interning on the Azure Cloud team.",
     logoSource: "resources/exp-microsoft.png"
   }
 ];

@@ -5,7 +5,7 @@ const ABOUT = {
     '<p align="justify">I\'m a <font color="blue">software engineering and business administration</font> student at the Ivey School of Business at the University of Western Ontario with software development experience in agile, test-driven, and research environments.</p>',
   interests:
     '<p align="justify"><font color="blue">Interests</font> include travelling, hiking, camping, weightlifting, playing and watching sports (particularly hockey), and playing board/card games.' +
-    ' In terms of <font color="blue">technology</font> interests, I\'m excited about the future of human technology interaction, food production, and fintech (particularly focused on increasing access to capital).</p>',
+    ' In terms of <font color="blue">technology</font> interests, I\'m excited about the future of human technology interaction, and fintech (particularly focused on increasing access to capital).</p>',
   causes:
     '<p align="justify">Two <font color="blue">causes</font> I\'m currently involved with include helping to build out the tech atmosphere within my school community as the co-president of the Ivey Technology Club.' +
     " I'm also hoping to foster a future generation of scientists, engineers, and innovators within Canada as a member of the sponsorship committee and judge for my regional science fair.</p>",

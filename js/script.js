@@ -165,7 +165,7 @@ const PROJECTS = [
 const EXPERIENCE = [
   {
     key: "uwo",
-    company: "Western University ECE Research Group",
+    company: "Western University Innovation Centre for Information Engineering",
     position: "Undergraduate Researcher",
     location: "London, ON, Canada",
     date: "Nov 2015-Aug 2016",

@@ -206,7 +206,7 @@ const EXPERIENCE = [
     position: "Software Engineering Intern",
     location: "Redmond, WA, USA",
     date: "May 2018-Present",
-    description: "Interning on the Azure Cloud team.",
+    description: "Created end to end service to allow for designated response individuals to configure automation workflows. Used Knockout and Kendo Components to build a frontend UI wrapper connected to a serverless Azure Logic Apps based backend that allowed for manual workflows to be automated to custom specifications.",
     logoSource: "resources/exp-microsoft.png"
   }
 ];

@@ -11,6 +11,21 @@ const ABOUT = {
     " I'm also hoping to foster a future generation of scientists, engineers, and innovators within Canada as a member of the sponsorship committee and judge for my regional science fair.</p>",
   slides: [
     {
+      src: "resources/slides/oregoncoast.jpg",
+      image: true,
+      caption: "Long weekend trip to the Oregon coast, 2018"
+    },
+    {
+      src: "resources/slides/stormking.jpg",
+      image: true,
+      caption: "At the summit of Mt. Storm King, overlooking Lake Crescent in the Olympic National Park, 2018"
+    },
+    {
+      src: "resources/slides/mailbox.png",
+      image: true,
+      caption: "At the summit of Mailbox Peak, 2018"
+    },
+    {
       src: "resources/slides/hawaii.jpeg",
       image: true,
       caption: "Reading week trip to Hawaii, 2018"

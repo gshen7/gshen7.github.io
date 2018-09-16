@@ -16,9 +16,10 @@ const ABOUT = {
       caption: "Long weekend trip to the Oregon coast, 2018"
     },
     {
-      src: "resources/slides/stormking.jpg",
+      src: "resources/slides/stormking.JPG",
       image: true,
-      caption: "At the summit of Mt. Storm King, overlooking Lake Crescent in the Olympic National Park, 2018"
+      caption:
+        "At the summit of Mt. Storm King, overlooking Lake Crescent in the Olympic National Park, 2018"
     },
     {
       src: "resources/slides/mailbox.png",
@@ -221,7 +222,8 @@ const EXPERIENCE = [
     position: "Software Engineering Intern",
     location: "Redmond, WA, USA",
     date: "May 2018-Present",
-    description: "Created end to end service to allow for designated response individuals to configure automation workflows. Used Knockout and Kendo Components to build a frontend UI wrapper connected to a serverless Azure Logic Apps based backend that allowed for manual workflows to be automated to custom specifications.",
+    description:
+      "Created end to end service to allow for designated response individuals to configure automation workflows. Used Knockout and Kendo Components to build a frontend UI wrapper connected to a serverless Azure Logic Apps based backend that allowed for manual workflows to be automated to custom specifications.",
     logoSource: "resources/exp-microsoft.png"
   }
 ];

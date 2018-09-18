@@ -11,6 +11,40 @@ const ABOUT = {
     " I'm also hoping to foster a future generation of scientists, engineers, and innovators within Canada as a member of the sponsorship committee and judge for my regional science fair.</p>",
   slides: [
     {
+      src: "resources/slides/matterhorn.JPG",
+      image: true,
+      caption: "The Matterhorn aka the Toblerone logo in the Swiss Alps, 2018"
+    },
+    {
+      src: "resources/slides/eiger.png",
+      image: true,
+      caption:
+        "A waterfall down the north face of the Eiger in the Swiss Alps, 2018"
+    },
+    {
+      src: "resources/slides/lavaredo.png",
+      image: true,
+      caption:
+        "Practicing my tree pose in front of the Tre Cime di Lavaredo in the Italian Alps, 2018"
+    },
+    {
+      src: "resources/slides/venice.JPG",
+      image: true,
+      caption: "A bridge over the main canal in Venice, 2018"
+    },
+    {
+      src: "resources/slides/castle.png",
+      image: true,
+      caption:
+        "Getting squished on a very crowded bridge overlooking a castle that looks like it came straight from Disney in Germany, 2018"
+    },
+    {
+      src: "resources/slides/sloth.JPG",
+      image: true,
+      caption:
+        "Some fun in the sun during a camping trip at the Pinery Provincial Park, 2018"
+    },
+    {
       src: "resources/slides/oregoncoast.jpg",
       image: true,
       caption: "Long weekend trip to the Oregon coast, 2018"
@@ -48,25 +82,9 @@ const ABOUT = {
         "Played in an Ivey Section 1 vs Section 2 hockey game to raise money for charity, 2017"
     },
     {
-      src: "resources/slides/hsHockey.mov",
-      image: false,
-      caption:
-        "One of the most memorable moments from high school was scoring a triple overtime goal to win the playoff series, 2014"
-    },
-    {
       src: "resources/slides/camping.jpeg",
       image: true,
       caption: "Camping at the Pinery Provincial Park, 2016"
-    },
-    {
-      src: "resources/slides/spikeball.mov",
-      image: false,
-      caption: "Playing a game of spikeball while camping, 2016"
-    },
-    {
-      src: "resources/slides/elora.mov",
-      image: false,
-      caption: "Jumping off a cliff in Elora, 2016"
     },
     {
       src: "resources/slides/christmas.jpeg",

@@ -231,7 +231,7 @@ const EXPERIENCE = [
     location: "Waterloo, ON, Canada",
     date: "May 2017-Aug 2017",
     description:
-      "Full-stack development of metric dashboard aggregating and visualizing data from various sourceso of forensic evidence. Used React.JS/Redux for the frontend UI connected to C# REST API endpoints to access a SQL database.",
+      "Full-stack development of metric dashboard aggregating and visualizing data from various sources of forensic evidence. Used React.JS/Redux for the frontend UI connected to C# REST API endpoints to access a SQL database.",
     logoSource: "resources/exp-magnet.png"
   },
   {

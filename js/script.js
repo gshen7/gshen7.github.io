@@ -239,10 +239,20 @@ const EXPERIENCE = [
     company: "Microsoft",
     position: "Software Engineering Intern",
     location: "Redmond, WA, USA",
-    date: "May 2018-Present",
+    date: "May 2018-Jul 2018",
     description:
       "Created end to end service to allow for designated response individuals to configure automation workflows. Used Knockout and Kendo Components to build a frontend UI wrapper connected to a serverless Azure Logic Apps based backend that allowed for manual workflows to be automated to custom specifications.",
     logoSource: "resources/exp-microsoft.png"
+  },
+  {
+    key: "ivey",
+    company: "Ivey Business School",
+    position: "Research Assistant",
+    location: "London, ON, Canada",
+    date: "Aug 2018-Present",
+    description:
+      "Writing python scripts to transpose and aggregate unstructured financial data into more human-readable tables/visualizations.",
+    logoSource: "resources/exp-ivey.png"
   }
 ];
 var HOCKEY = {

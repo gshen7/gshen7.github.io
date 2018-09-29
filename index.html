@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animate.css">
+    <noscript>
+        <link rel="stylesheet" href="css/noscript.css"></noscript>
 
     <!-- Icon -->
     <link rel="shortcut icon" type="image/x-icon" href="resources/-pageico.png" />
@@ -27,10 +29,12 @@
 </head>
 
 <body>
+    <noscript>Hey! I recommend visiting my site in a javascript-enabled browser to experience the full functionality!
+        Otherwise, you can take a look at my resume <a href="resources/-resume.pdf">here</a>!</noscript>
     <div id="particles-js" class=""></div>
     <div class="row left-pad on-top-fixed" onmouseover="revealToggle(true)" onmouseout="revealToggle(false)" id="container-toggle">
         <input id="toggler" checked class="hidden" type="checkbox" onclick="toggleParticles()">
-        <font color="lightgrey" size="1pt" onclick="toggleParticles()">toggle particles</font>
+        <font class="onlyWithJS" color="lightgrey" size="1pt" onclick="toggleParticles()">toggle particles</font>
     </div>
     <!-- Mobile -->
     <div class="collapse" id="container-sm">
@@ -42,14 +46,16 @@
                             <!-- Picture -->
                             <div class="row">
                                 <div class="col-xs-8 col-xs-offset-2">
-                                    <img src="resources/-portrait.png" class="img-circle img-responsive padded portrait" alt="portrait">
+                                    <img src="resources/-portrait.png" class="img-circle img-responsive padded portrait"
+                                        alt="portrait">
                                 </div>
                             </div>
                             <!-- Dropdown button -->
                             <div class="row">
                                 <div class="col-xs-10 col-xs-offset-1">
                                     <div class="dropdown text-center">
-                                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Gary Shen
+                                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Gary
+                                            Shen
                                             <span class="caret"></span>
                                         </button>
                                         <ul class="dropdown-menu">
@@ -63,7 +69,8 @@
                                                 <a class="text-center text-small" onclick="navTo('experience')">Experience</a>
                                             </li>
                                             <li id="sm-hockey-pill">
-                                                <a class="text-center text-small" onclick="navTo('hockey')">Hockey Analytics</a>
+                                                <a class="text-center text-small" onclick="navTo('hockey')">Hockey
+                                                    Analytics</a>
                                             </li>
                                             <li class="divider" />
                                             <li>
@@ -74,26 +81,31 @@
                                                 <a class="text-center text-small" href="mailto:gshen7@uwo.ca" target="_blank">Email</a>
                                             </li>
                                             <li>
-                                                <a class="text-center text-small" href="https://www.linkedin.com/in/gshen7" target="_blank">LinkedIn</a>
+                                                <a class="text-center text-small" href="https://www.linkedin.com/in/gshen7"
+                                                    target="_blank">LinkedIn</a>
                                             </li>
                                             <li>
-                                                <a class="text-center text-small" href="https://www.github.com/gshen7" target="_blank">GitHub</a>
+                                                <a class="text-center text-small" href="https://www.github.com/gshen7"
+                                                    target="_blank">GitHub</a>
                                             </li>
                                             <li>
-                                                <a class="text-center text-small" href="https://public.tableau.com/profile/gshen7" target="_blank">Tableau</a>
+                                                <a class="text-center text-small" href="https://public.tableau.com/profile/gshen7"
+                                                    target="_blank">Tableau</a>
                                             </li>
                                             <li class="divider" />
                                             <li>
-                                                <a class="text-center text-small" href="https://www.twitter.com/gshen98" target="_blank">Twitter</a>
+                                                <a class="text-center text-small" href="https://www.twitter.com/gshen98"
+                                                    target="_blank">Twitter</a>
                                             </li>
                                             <li>
-                                                <a class="text-center text-small" href="https://www.instagram.com/gshen98" target="_blank">Instagram</a>
+                                                <a class="text-center text-small" href="https://www.instagram.com/gshen98"
+                                                    target="_blank">Instagram</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-                            <hr/>
+                            <hr />
                             <!-- Content -->
                             <!-- About -->
                             <div class="row padded hidden" id="sm-content-div-about">
@@ -101,13 +113,16 @@
                                     <h4>About</h4>
                                     <div class="row">
                                         <div class="col-md-10 col-md-offset-1 text-center">
-                                            <div id="sm-aboutCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                                            <div id="sm-aboutCarousel" class="carousel slide" data-ride="carousel"
+                                                data-interval="false">
                                                 <div class="carousel-inner" id="sm-slidesWrapper">
                                                 </div>
-                                                <a class="carousel-control leftControl" onclick="pauseAll()" href="#sm-aboutCarousel" data-slide="prev">
+                                                <a class="carousel-control leftControl" onclick="pauseAll()" href="#sm-aboutCarousel"
+                                                    data-slide="prev">
                                                     <span class="glyphicon glyphicon-chevron-left"></span>
                                                 </a>
-                                                <a class="carousel-control rightControl" onclick="pauseAll()" href="#sm-aboutCarousel" data-slide="next">
+                                                <a class="carousel-control rightControl" onclick="pauseAll()" href="#sm-aboutCarousel"
+                                                    data-slide="next">
                                                     <span class="glyphicon glyphicon-chevron-right"></span>
                                                 </a>
                                             </div>
@@ -123,20 +138,22 @@
                                         <h4>Projects</h4>
                                         <div class="row padded">
                                             <div class="col-xs-12">
-                                                <input type="text" placeholder="Search by Title or Description" class="form-control" id="sm-proj-search" onkeyup="filterProjects(true)">
+                                                <input type="text" placeholder="Search by Title or Description" class="form-control"
+                                                    id="sm-proj-search" onkeyup="filterProjects(true)">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-xs-12">
                                                 <div class="dropdown">
-                                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Filter By Technologies
+                                                    <button class="btn btn-default dropdown-toggle" type="button"
+                                                        data-toggle="dropdown">Filter By Technologies
                                                         <span class="caret"></span>
                                                     </button>
                                                     <ul class="dropdown-menu" id="sm-projects-tag-filter"></ul>
                                                 </div>
                                             </div>
                                         </div>
-                                        <hr/>
+                                        <hr />
                                         <div class="col-md-12" id="sm-projects-container"></div>
                                     </div>
                                 </div>
@@ -205,16 +222,18 @@
                                 <div id="aboutCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
                                     <div class="carousel-inner" id="slidesWrapper">
                                     </div>
-                                    <a class="carousel-control leftControl" onclick="pauseAll()" href="#aboutCarousel" data-slide="prev">
+                                    <a class="carousel-control leftControl" onclick="pauseAll()" href="#aboutCarousel"
+                                        data-slide="prev">
                                         <span class="glyphicon glyphicon-chevron-left"></span>
                                     </a>
-                                    <a class="carousel-control rightControl" onclick="pauseAll()" href="#aboutCarousel" data-slide="next">
+                                    <a class="carousel-control rightControl" onclick="pauseAll()" href="#aboutCarousel"
+                                        data-slide="next">
                                         <span class="glyphicon glyphicon-chevron-right"></span>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <hr/>
+                        <hr />
                         <div class="row">
                             <div class="col-md-6 text-center" id="about-left"></div>
                             <div class="col-md-6 text-center" id="about-right"></div>
@@ -228,18 +247,20 @@
                     <div class="panel-body min-height">
                         <div class="row">
                             <div class="col-md-6">
-                                <input type="text" placeholder="Search by Title or Description" class="form-control" id="proj-search" onkeyup="filterProjects()">
+                                <input type="text" placeholder="Search by Title or Description" class="form-control" id="proj-search"
+                                    onkeyup="filterProjects()">
                             </div>
                             <div class="col-md-6">
                                 <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Filter By Technologies
+                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Filter
+                                        By Technologies
                                         <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu" id="projects-tag-filter"></ul>
                                 </div>
                             </div>
                         </div>
-                        <hr/>
+                        <hr />
                         <div class="col-md-12" id="projects-container"></div>
                     </div>
                 </div>
@@ -280,7 +301,8 @@
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
                                 <img src="resources/-portrait.png" class="img-circle img-responsive padded portrait
-                                   " alt="portrait">
+                                   "
+                                    alt="portrait">
                             </div>
                         </div>
                         <div class="row padded">

@@ -85,12 +85,6 @@ const ABOUT = {
       src: "resources/slides/camping.jpeg",
       image: true,
       caption: "Camping at the Pinery Provincial Park, 2016"
-    },
-    {
-      src: "resources/slides/christmas.jpeg",
-      image: true,
-      caption:
-        "Celebrating the holidays with pizza with Western's Undergraduate Engineering Society, 2016"
     }
   ]
 };

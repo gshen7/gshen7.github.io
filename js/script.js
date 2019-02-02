@@ -579,7 +579,7 @@ function changeContent(newActive) {
   currentActive = newActive;
 }
 
-//fill hockey content
+//fill hockey content -- ARCHIVED
 function changeHockey(hockey) {
   var overviewContainer = document.getElementById("hockey-overview");
   overviewContainer.innerHTML = HOCKEY.overview + "<hr/>";
@@ -941,7 +941,8 @@ function init() {
   changeAbout(ABOUT);
   changePanels(PROJECTS);
   changeWells(EXPERIENCE);
-  changeHockey(HOCKEY);
+  //ARCHIVED
+  //changeHockey(HOCKEY);
   updateTagsFilter(true);
   filterProjects();
   var anchor = window.location.hash.substr(1);

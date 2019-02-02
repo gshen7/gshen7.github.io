@@ -138,8 +138,7 @@ const PROJECTS = [
   },
   {
     id: 6,
-    title:
-      'NHL Prediction Models <i onclick="navTo(\'hockey\')" class="link fas fa-external-link-alt"></i>',
+    title: "NHL Prediction Models",
     tags: ["R", "Machine Learning", "Tensorflow", "Web Scraping", "Tableau"],
     description: "Created models for predicting various aspects of NHL hockey."
   },
@@ -243,7 +242,7 @@ const EXPERIENCE = [
     company: "Ivey Business School",
     position: "Research Assistant",
     location: "London, ON, Canada",
-    date: "Aug 2018-Present",
+    date: "Sep 2018-Dec 2018",
     description:
       "Writing python scripts to transpose and aggregate unstructured financial data into more human-readable tables/visualizations.",
     logoSource: "resources/exp-ivey.png"

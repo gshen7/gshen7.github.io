@@ -189,6 +189,7 @@ const PROJECTS = [
       "A system for locating items with RFID tags attached to them using an RFID scanner. Tracked item-tag pairings in a SQL database to allow for only specific items selected in JavaFX frontend to be tracked."
   }
 ];
+/*
 const EXPERIENCE = [
   {
     key: "uwo",
@@ -299,7 +300,7 @@ var HOCKEY = {
     }
   ]
 };
-
+*/
 //configuration for particles background
 const PARTICLES_CONFIG = {
   particles: {
@@ -454,7 +455,6 @@ $(window).on("load", function() {
   toggler.checked = mode == "";
   var width = $(window).width();
   var height = $(window).height();
-  var particles = document.getElementById("particles-js");
   if (width < WIDTH_THRESHOLD || height < HEIGHT_THRESHOLD) {
     initSmall();
   } else {
@@ -578,7 +578,8 @@ function changeContent(newActive) {
   currentActive = newActive;
 }
 
-//fill hockey content -- ARCHIVED
+//fill hockey content
+/*
 function changeHockey(hockey) {
   var overviewContainer = document.getElementById("hockey-overview");
   overviewContainer.innerHTML = HOCKEY.overview + "<hr/>";
@@ -640,7 +641,7 @@ function changeHockey(hockey) {
   var smallContainer = document.getElementById("sm-hockey-container");
   smallContainer.innerHTML = smallContent;
 }
-
+*/
 //handle mouseover of projects
 function changePanels(filteredProjects) {
   var panels = filteredProjects.map(function(p) {
@@ -709,6 +710,7 @@ function changeSelectedTags() {
 }
 
 //change which experience is showing
+/*
 function changeWells(experience) {
   var thumbs = experience.map(function(e) {
     return (
@@ -815,7 +817,7 @@ function expandExperience(key) {
     }
   }
 }
-
+*/
 //show project details
 function expandProject(id) {
   for (var i = 0; i < PROJECTS.length; i++) {
@@ -906,9 +908,11 @@ function filterProjects(small) {
 }
 
 //navigate to hockey viz pages
+/*
 function goViz(linkID) {
   document.location.assign(HOCKEY.vizzes[linkID].link + "#" + mode);
 }
+*/
 
 //hide middle panel
 function hideContent() {
@@ -939,8 +943,7 @@ function hideContent() {
 function init() {
   changeAbout(ABOUT);
   changePanels(PROJECTS);
-  changeWells(EXPERIENCE);
-  //ARCHIVED
+  //changeWells(EXPERIENCE);
   //changeHockey(HOCKEY);
   updateTagsFilter(true);
   filterProjects();

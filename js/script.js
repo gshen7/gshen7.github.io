@@ -2,13 +2,15 @@
 const CONTENT_KEYS = ["about", "projects", "experience", "hockey"];
 const ABOUT = {
   overview:
-    '<p align="justify">I\'m a <font color="blue">software engineering and business administration</font> student at the Ivey School of Business at the University of Western Ontario with software development experience in agile, test-driven, and research environments.</p>',
+    '<p align="justify">I\'m a <font color="blue">software engineering and business administration</font> student at the Ivey School of Business at the University of Western Ontario.</p>',
   interests:
     '<p align="justify"><font color="blue">Interests</font> include travelling, hiking, camping, weightlifting, playing and watching sports (particularly hockey), and playing board/card games.' +
     ' In terms of <font color="blue">technology</font> interests, I\'m excited about the future of human technology interaction, and fintech (particularly focused on increasing access to capital).</p>',
-  causes:
-    '<p align="justify">Two <font color="blue">causes</font> I\'m currently involved with include helping to build out the tech atmosphere within my school community as the co-president of the Ivey Technology Club.' +
-    " I'm also hoping to foster a future generation of scientists, engineers, and innovators within Canada as a member of the sponsorship committee and judge for my regional science fair.</p>",
+  media:
+    '<p align="justify">I consume a lot of <font color="blue">media</font>, but here\'s some content I\'ve aggregated that I particularly enjoy:</p>' +
+    '<table border="0"><tr><td><a target="_blank" href="https://www.youtube.com/playlist?list=PLW9B6SPNng3uIoAOT1Th9eOgP7W3Z4TcO">live on <i class="fab fa-youtube"></i></a> (nature vids)<hr/></td></tr>' +
+    '<tr><td><a target="_blank" href="https://open.spotify.com/user/gshen098/playlist/2RpeW41ejgMk2dhdAskqRH?si=YCu7z398SsGRzcH3ichV-Q">\\ on <i class="fab fa-spotify"></i></a> (slower tunes)<hr/></td></tr>'+
+    '<tr><td><a target="_blank" href="https://open.spotify.com/user/gshen098/playlist/7bIWJkcZl39U1EBEMxs1rb?si=epd4Q7fyROyX7B4Jo9dPHw">/ on <i class="fab fa-spotify"></i></a> (faster tunes)</td></tr></table>',
   slides: [
     {
       src: "resources/slides/matterhorn.JPG",
@@ -469,13 +471,13 @@ function changeAbout(about) {
   var leftContainer = document.getElementById("about-left");
   leftContainer.innerHTML = leftContent;
 
-  var rightContent = ABOUT.causes + "</div>";
+  var rightContent = ABOUT.media + "</div>";
 
   var rightContainer = document.getElementById("about-right");
   rightContainer.innerHTML = rightContent;
 
   var smallContent =
-    ABOUT.overview + "<br/>" + ABOUT.interests + "<br/>" + ABOUT.causes;
+    ABOUT.overview + "<br/>" + ABOUT.interests + "<br/>" + ABOUT.media;
 
   var smallContainer = document.getElementById("sm-about-container");
   smallContainer.innerHTML = smallContent;

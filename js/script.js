@@ -201,9 +201,9 @@ const EXPERIENCE = [
       "Research and development in the field of communications/computing technologies and associated applications" +
       "<ul><li>Designed a novel indoor locationing model based on WiFi signal strength propagation. " +
       "Developed model for propagation and prototyped system using Android. " +
-      '(Publication: <a target="_blank" href="http://ieeexplore.ieee.org/document/8066713/">A novel Wifi-based indoor localization system</a>).</li>' +
+      '(Publication: <a target="_blank" href="https://ieeexplore.ieee.org/document/8066713/">A novel Wifi-based indoor localization system</a>).</li>' +
       "<li>Conducted research on improvements for machine learning based human activity recognition apps and created a model using Weka to improve recall and precision by mitigating the impact of smart phone sensor differences. " +
-      '(Publication: <a target="_blank" href="http://ieeexplore.ieee.org/document/7844783/">Mitigating sensor differences for phone-based human activity recognition</a>).</li></ul>',
+      '(Publication: <a target="_blank" href="https://ieeexplore.ieee.org/document/7844783/">Mitigating sensor differences for phone-based human activity recognition</a>).</li></ul>',
     logoSource: "resources/exp-uwo.png"
   },
   {
@@ -253,7 +253,7 @@ var HOCKEY = {
   overview:
     ' <a href="https://github.com/gshen7/tf-hockey" target="_blank"><i class="link fab fa-github"></i></a> <a href="https://public.tableau.com/profile/gshen7" target="_blank"><i class="link fas fa-chart-bar"></i></a><br/><br/>' +
     " These are the outputs of models that I've built for predicting/evaluating various aspects of the NHL." +
-    ' The models are dynamic neural nets built and trained using the <i>tfestimators</i> package in R with datasets either downloaded from <a href="http://naturalstattrick.com" target="_blank"> Natural Stat Trick</a>, scraped from <a href="https://hockey-reference.com" target="_blank">Hockey Reference</a>, or pulled using the <a href="https://github.com/dword4/nhlapi">NHL stats API</a>.' +
+    ' The models are dynamic neural nets built and trained using the <i>tfestimators</i> package in R with datasets either downloaded from <a href="https://naturalstattrick.com" target="_blank"> Natural Stat Trick</a>, scraped from <a href="https://hockey-reference.com" target="_blank">Hockey Reference</a>, or pulled using the <a href="https://github.com/dword4/nhlapi">NHL stats API</a>.' +
     " </br></br>This is still very much a work in progress, both in terms of improving the models and figuring out the best way to host and display my work but here's a preview of some of the results:",
   models: [
     {

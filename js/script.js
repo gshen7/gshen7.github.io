@@ -27,7 +27,7 @@ const ABOUT = {
       src: "resources/slides/lavaredo.png",
       image: true,
       caption:
-        "Practicing my tree pose in front of the Tre Cime di Lavaredo in the Italian Alps, 2018"
+        "Posing in front of the Tre Cime di Lavaredo in the Italian Alps, 2018"
     },
     {
       src: "resources/slides/venice.JPG",
@@ -65,23 +65,23 @@ const ABOUT = {
     {
       src: "resources/slides/hawaii.jpeg",
       image: true,
-      caption: "Reading week trip to Hawaii, 2018"
+      caption: "On the rim of the Diamond Head Crater in Hawaii, 2018"
     },
     {
       src: "resources/slides/newZealand.jpeg",
       image: true,
-      caption: "Presented a publication at a conference in New Zealand, 2017"
+      caption: "Walking the shores of New Zealand, 2017"
     },
     {
       src: "resources/slides/scandinavia.jpeg",
       image: true,
-      caption: "Family trip to Scandinavia, 2016"
+      caption: "The rocky edge of Scandinavia, 2016"
     },
     {
       src: "resources/slides/sectionHockey.jpeg",
       image: true,
       caption:
-        "Played in an Ivey Section 1 vs Section 2 hockey game to raise money for charity, 2017"
+        "Played in an Ivey charity hockey game, 2017"
     },
     {
       src: "resources/slides/camping.jpeg",

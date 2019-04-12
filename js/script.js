@@ -9,7 +9,7 @@ const ABOUT = {
   media:
     '<p align="justify">I consume a lot of <font color="blue">media</font>, but here\'s some content I\'ve aggregated that I particularly enjoy:</p>' +
     '<table border="0"><tr><td><a target="_blank" href="https://www.youtube.com/playlist?list=PLW9B6SPNng3uIoAOT1Th9eOgP7W3Z4TcO">live on <i class="fab fa-youtube"></i></a> (nature vids)<hr/></td></tr>' +
-    '<tr><td><a target="_blank" href="https://open.spotify.com/user/gshen098/playlist/2RpeW41ejgMk2dhdAskqRH?si=YCu7z398SsGRzcH3ichV-Q">\\ on <i class="fab fa-spotify"></i></a> (slower tunes)<hr/></td></tr>'+
+    '<tr><td><a target="_blank" href="https://open.spotify.com/user/gshen098/playlist/2RpeW41ejgMk2dhdAskqRH?si=YCu7z398SsGRzcH3ichV-Q">\\ on <i class="fab fa-spotify"></i></a> (slower tunes)<hr/></td></tr>' +
     '<tr><td><a target="_blank" href="https://open.spotify.com/user/gshen098/playlist/7bIWJkcZl39U1EBEMxs1rb?si=epd4Q7fyROyX7B4Jo9dPHw">/ on <i class="fab fa-spotify"></i></a> (faster tunes)</td></tr></table>',
   slides: [
     {
@@ -92,11 +92,12 @@ const ABOUT = {
 };
 const TAGS = {
   Java: 3,
-  R: 4,
+  R: 3,
   Python: 1,
   Assembly: 1,
   SQL: 2,
   NodeJS: 3,
+  JS: 1,
   Meteor: 1,
   Express: 1,
   MongoDB: 2,
@@ -105,24 +106,16 @@ const TAGS = {
   Tableau: 1,
   Tensorflow: 1,
   Weka: 1,
-  "Machine Learning": 3,
+  "Machine Learning": 2,
   "Web Scraping": 2
 };
 const PROJECTS = [
   {
-    id: 10,
-    title:
-      "Google Cloud & NCAA ML 2018-Men's March Madness Bracket Prediction Competition",
-    tags: ["R", "Machine Learning"],
-    description:
-      "Created a model for predicting win probabilities for all possible matchups for the NCAA 2018 Mens Basketball Tournament."
-  },
-  {
     id: 9,
     title: "ESPN Fantasy Hockey API",
-    tags: ["R", "Web Scraping"],
+    tags: ["R", "JS", "Web Scraping",],
     description:
-      "Scraped data from ESPN fantasy hockey and created a RESTful API using the plumber package in R. Allows for access to day by day stats, team rosters, league rules, and transactions."
+      "Scraped data from ESPN fantasy hockey and created a RESTful API using the plumber package in R. Allows for access to day by day stats, team rosters, league rules, and transactions. Additionally, created JS console script to automatically set lineup for the next 5 days."
   },
   {
     id: 8,
@@ -410,9 +403,9 @@ var searchKey = "";
 var size = "sm";
 var mode = "";
 
-$(document).ready(function() {
+$(document).ready(function () {
   //allows for clicking of items to check and uncheck project tags
-  $("#projects-tag-filter, #sm-projects-tag-filter").on("click", function(
+  $("#projects-tag-filter, #sm-projects-tag-filter").on("click", function (
     event
   ) {
     var tag;
@@ -438,7 +431,7 @@ $(document).ready(function() {
     event.stopPropagation();
   });
   //responsive resizing
-  $(window).on("resize", function() {
+  $(window).on("resize", function () {
     var win = $(this);
     var width = $(window).width();
     var height = $(window).height();
@@ -451,7 +444,7 @@ $(document).ready(function() {
 });
 
 //initializes all the content
-$(window).on("load", function() {
+$(window).on("load", function () {
   init();
   toggler = document.getElementById("toggler");
   toggler.checked = mode == "";
@@ -646,7 +639,7 @@ function changeHockey(hockey) {
 */
 //handle mouseover of projects
 function changePanels(filteredProjects) {
-  var panels = filteredProjects.map(function(p) {
+  var panels = filteredProjects.map(function (p) {
     var out =
       '<div class="panel panel-default" id="project-' +
       p.id +
@@ -670,7 +663,7 @@ function changePanels(filteredProjects) {
   var projectsContainer = document.getElementById("projects-container");
   projectsContainer.innerHTML = panels.join(" ");
 
-  panels = filteredProjects.map(function(p) {
+  panels = filteredProjects.map(function (p) {
     var out =
       '<div class="panel panel-default" id="sm-project-' +
       p.id +
@@ -891,13 +884,13 @@ function filterProjects(small) {
     !small ? "sm-proj-search" : "proj-search"
   );
   otherInput.value = searchKey;
-  var filteredProjects = PROJECTS.filter(function(p) {
+  var filteredProjects = PROJECTS.filter(function (p) {
     return (
       p.title.toUpperCase().includes(searchKey.toUpperCase()) ||
       p.description.toUpperCase().includes(searchKey.toUpperCase())
     );
   });
-  filteredProjects = filteredProjects.filter(function(p) {
+  filteredProjects = filteredProjects.filter(function (p) {
     for (var i = 0; i < selectedTags.length; i++) {
       if (p.tags.includes(selectedTags[i])) {
         return true;
@@ -1064,7 +1057,7 @@ function toggleParticles() {
 
 //update appearance of tags checklist
 function updateTagsFilter(first) {
-  var tagOptions = Object.keys(TAGS).map(function(t) {
+  var tagOptions = Object.keys(TAGS).map(function (t) {
     var out =
       '<li class="keep-open"><a><input type="checkbox" id="' + t + '-check" ';
     if (selectedTags.includes(t) && !first) {
@@ -1079,7 +1072,7 @@ function updateTagsFilter(first) {
     '<li class="keep-open"><a>Select All</a></li><li class="keep-open"><a>Select None</a></li><li class="divider"/>' +
     tagOptions.join(" ");
 
-  var tagOptions = Object.keys(TAGS).map(function(t) {
+  var tagOptions = Object.keys(TAGS).map(function (t) {
     var out =
       '<li class="keep-open"><a><input type="checkbox" id="sm-' +
       t +

@@ -1,3 +1,7 @@
+p, .collapse, td {
+  color: whitesmoke;
+}
+
 .padded {
   padding-top: 5%;
   padding-bottom: 5%;
@@ -34,7 +38,6 @@ span.badge.pull-left {
 }
 
 body {
-  background: whitesmoke;
   background-position: center center;
   background-size: cover;
   height: 100%;
@@ -53,6 +56,7 @@ body {
 
 .panel {
   opacity: 0.9;
+  background-color: #888888;
 }
 
 .leftBar {
@@ -123,10 +127,6 @@ body {
   font-size: 18px;
 }
 
-b {
-  color: black;
-}
-
 .img-small {
   width: 50px !important;
 }
@@ -142,6 +142,11 @@ td {
 
 a {
   text-decoration: none !important;
+  color: #81b8d6
+}
+
+li > a {
+  color: whitesmoke;
 }
 
 .fa-external-link-square {
@@ -149,7 +154,7 @@ a {
 }
 
 a:hover {
-  color: lightgrey !important;
+  color: #080808 !important;
   text-decoration: none;
 }
 
@@ -171,7 +176,7 @@ a > .img-thumbnail:hover {
   width: 100%;
 }
 
-.text-small {
+a.text-small {
   font-size: 12px;
 }
 
@@ -186,7 +191,7 @@ a > .img-thumbnail:hover {
 #particles-js {
   width: 100%;
   height: 100%;
-  background-color: whitesmoke;
+  background-color: #585858;
   background-image: url("");
   background-position: center center;
   background-repeat: no-repeat;

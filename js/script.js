@@ -1,13 +1,10 @@
 //constants for content
-const CONTENT_KEYS = ["about", "projects", "experience", "hockey"];
+const CONTENT_KEYS = ["about", "projects"];
 const ABOUT = {
   overview:
-    '<p align="justify">I\'m a <font color="blue">software engineering and business administration</font> student at the Ivey School of Business at the University of Western Ontario.</p>',
-  interests:
-    '<p align="justify"><font color="blue">Interests</font> include travelling, hiking, camping, weightlifting, playing and watching sports (particularly hockey), and playing board/card games.' +
-    ' In terms of <font color="blue">technology</font> interests, I\'m excited about the future of human technology interaction, and fintech (particularly focused on increasing access to capital).</p>',
+    '<p align="justify">I\'m a <b>software engineering and business administration</b> student at the Ivey School of Business at the University of Western Ontario.<b> Interests</b> include travelling, hiking, camping, weightlifting, playing and watching sports (particularly hockey), and playing board/card games.</p>',
   media:
-    '<p align="justify">I consume a lot of <font color="blue">media</font>, but here\'s some content I\'ve aggregated that I particularly enjoy:</p>' +
+    '<p align="center">Here\'s some <b>content</b> I\'ve aggregated that I particularly enjoy:</p>' +
     '<table border="0"><tr><td><a target="_blank" href="https://www.youtube.com/playlist?list=PLW9B6SPNng3uIoAOT1Th9eOgP7W3Z4TcO">live on <i class="fab fa-youtube"></i></a> (nature vids)<hr/></td></tr>' +
     '<tr><td><a target="_blank" href="https://open.spotify.com/user/gshen098/playlist/2RpeW41ejgMk2dhdAskqRH?si=YCu7z398SsGRzcH3ichV-Q">\\ on <i class="fab fa-spotify"></i></a> (slower tunes)<hr/></td></tr>' +
     '<tr><td><a target="_blank" href="https://open.spotify.com/user/gshen098/playlist/7bIWJkcZl39U1EBEMxs1rb?si=epd4Q7fyROyX7B4Jo9dPHw">/ on <i class="fab fa-spotify"></i></a> (faster tunes)</td></tr></table>',
@@ -311,8 +308,7 @@ const PARTICLES_CONFIG = {
     shape: {
       type: "circle",
       stroke: {
-        width: 1,
-        color: "#9da8bd"
+        width: 1
       }
     },
     size: {
@@ -459,7 +455,7 @@ $(window).on("load", function () {
 
 //fill about content
 function changeAbout(about) {
-  var leftContent = ABOUT.overview + ABOUT.interests + "</div>";
+  var leftContent = ABOUT.overview+"</div>";
 
   var leftContainer = document.getElementById("about-left");
   leftContainer.innerHTML = leftContent;
@@ -470,7 +466,7 @@ function changeAbout(about) {
   rightContainer.innerHTML = rightContent;
 
   var smallContent =
-    ABOUT.overview + "<br/>" + ABOUT.interests + "<br/>" + ABOUT.media;
+    ABOUT.overview + "<br/>" + ABOUT.media;
 
   var smallContainer = document.getElementById("sm-about-container");
   smallContainer.innerHTML = smallContent;
@@ -649,7 +645,7 @@ function changePanels(filteredProjects) {
       p.title +
       '</div><div class="panel-body">';
     for (var i = 0; i < p.tags.length; i++) {
-      out += '  <span class="label label-default">' + p.tags[i] + "</span>";
+      out += '  <span class="label label-primary">' + p.tags[i] + "</span>";
     }
     out +=
       '<div class="collapse" id="project-' +
@@ -673,7 +669,7 @@ function changePanels(filteredProjects) {
       p.title +
       '</div><div class="panel-body">';
     for (var i = 0; i < p.tags.length; i++) {
-      out += '  <span class="label label-default">' + p.tags[i] + "</span>";
+      out += '  <span class="label label-primary">' + p.tags[i] + "</span>";
     }
     out +=
       '<div class="collapse" id="sm-project-' +

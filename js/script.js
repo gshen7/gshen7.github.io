@@ -108,34 +108,27 @@ const TAGS = {
 };
 const PROJECTS = [
   {
-    id: 9,
+    id: 7,
     title: "ESPN Fantasy Hockey API",
     tags: ["R", "JS", "Web Scraping",],
     description:
       "Scraped data from ESPN fantasy hockey and created a RESTful API using the plumber package in R. Allows for access to day by day stats, team rosters, league rules, and transactions. Additionally, created JS console script to automatically set lineup for the next 5 days."
   },
   {
-    id: 8,
+    id: 6,
     title: "LineApp",
     tags: ["React Native", "NodeJS", "MongoDB", "Express"],
     description:
       "A proof of concept mobile application for crowd sourcing the lengths of lines. Users check in to a line to receive a promotional offer that is scanned upon checkout, which automatically checks them out of the line."
   },
   {
-    id: 7,
-    title: "IOU",
-    tags: ["NodeJS", "Meteor", "MongoDB"],
-    description:
-      "A web application simplifying the process for collecting money from friends using the PayPal API. Allows users to request, track and make payments."
-  },
-  {
-    id: 6,
+    id: 5,
     title: "NHL Prediction Models",
     tags: ["R", "Machine Learning", "Tensorflow", "Web Scraping", "Tableau"],
     description: "Created models for predicting various aspects of NHL hockey."
   },
   {
-    id: 5,
+    id: 4,
     title: "Group Tools Chatbot",
     tags: ["NodeJS"],
     description:
@@ -146,39 +139,32 @@ const PROJECTS = [
       "</ul>"
   },
   {
-    id: 4,
+    id: 3,
     title: "Bike Alarm",
     tags: ["Assembly"],
     description:
-      "An HC12 microcontroller attachment to a stationary exercise bicycle that plays an alarm sound until a certain distance measured by wheel rotations is travelled. Created to address the alarming trend of decreasing physical activity and to be used in conjunction with a timed electrical outlet to serve as an alarm clock that promotes physical activity as a part of the waking routine."
+      "An HC12 microcontroller attachment to a stationary exercise bicycle that plays an alarm sound until a certain distance measured by wheel rotations is travelled."
   },
   {
-    id: 3,
+    id: 2,
     title: "Support and Resistance Line Generator",
     tags: ["R"],
     description:
       "An algorithm to determine and plot support and resistance lines onto stock charts."
   },
   {
-    id: 2,
-    title: "BikeSafe for V2V",
-    tags: ["Java", "Python", "Android"],
-    description:
-      "A proof of concept smartwatch app to detect cyclists' hand signals for the purpose of allowing cyclists to integrate into vehicle to vehicle communication protocols of the future."
-  },
-  {
     id: 1,
     title: "Smart Bed Monitoring System",
     tags: ["Java", "SQL", "Weka", "Machine Learning"],
     description:
-      "A machine learning based system for detecting bed-related scenarios and monitoring sleep patterns and sending alerts for certain situations. Used simple, non-intrusive piezoelectric force sensors transmitting readings via ZigBee nodes in real time. Stored historical data in a SQL database for use in trending health history."
+      "A machine learning based system for detecting bed-related scenarios and monitoring sleep patterns and sending alerts for certain situations. Used simple, non-intrusive piezoelectric force sensors transmitting readings via ZigBee nodes in real time. Stored historical data for sleep health history."
   },
   {
     id: 0,
     title: "RFID Object Locator",
     tags: ["Java", "SQL"],
     description:
-      "A system for locating items with RFID tags attached to them using an RFID scanner. Tracked item-tag pairings in a SQL database to allow for only specific items selected in JavaFX frontend to be tracked."
+      "A system for locating items with RFID tags attached to them using an RFID scanner."
   }
 ];
 /*
@@ -455,7 +441,7 @@ $(window).on("load", function () {
 
 //fill about content
 function changeAbout(about) {
-  var leftContent = ABOUT.overview+"</div>";
+  var leftContent = ABOUT.overview + "</div>";
 
   var leftContainer = document.getElementById("about-left");
   leftContainer.innerHTML = leftContent;

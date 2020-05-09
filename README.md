@@ -1,3 +1,5 @@
-# <a href="https://gshen7.github.io/">garyshen.me or gshen7.github.io</a>
+# My personal page has been migrated to <a href="https://garyshen.me/">garyshen.me</a>
+I am now using notion with a cloudflare worker setup based on instructions from (fruitionsite)[fruitionsite.com]
 
-Archived versions of personal website - now using Notion as CMS 
+
+This repository contains archived versions of my personal page

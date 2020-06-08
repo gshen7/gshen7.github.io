@@ -2,6 +2,7 @@
 
 /* Step 1: enter your domain name like fruitionsite.com */
 const MY_DOMAIN = 'garyshen.me';
+const MY_NOTION_EMAIL = 'gshen7@uwo.ca'
 
 /*
  * Step 2: enter your URL slug to page ID mapping
@@ -107,6 +108,13 @@ async function fetchAndApply(request) {
             },
             method: 'POST',
         });
+
+        if (url.pathname.includes("loadPageChunk")) {
+            if (!response.body.includes(MY_NOTION_EMAIL)) {
+                throw new Error('notion page not one of mine')
+            }
+        }
+        
         response = new Response(response.body, response);
         response.headers.set('Access-Control-Allow-Origin', '*');
     } else if (slugs.indexOf(url.pathname.slice(1)) > -1) {

@@ -393,6 +393,9 @@ class WixBodyRewriter {
         let observer = new MutationObserver(function (mutations) {
             mutations.forEach(function (mutation) {
                 hideElement("#WIX_ADS")
+                hideElement("#comp-kb5umtl8")
+                hideElement("#comp-kb5umtl81")
+                hideElement("#comp-kb5wt8qb")
                 shiftElement("#SITE_ROOT")
 
                 var anchors = document.getElementsByTagName("a");
@@ -417,8 +420,6 @@ class WixBodyRewriter {
         });
     }
 }
-
-
 
 async function wixAppendJavascript(res, ID_TO_ANCHOR, DISABLE_IDS) {
     return new HTMLRewriter()

@@ -72,7 +72,6 @@ function handleOptions(request) {
 }
 
 async function fetchAndApply(request) {
-    console.log(request.url)
     if (request.method === 'OPTIONS') {
         return handleOptions(request);
     }

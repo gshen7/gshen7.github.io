@@ -78,6 +78,20 @@ async function fetchAndApply(request) {
     let url = new URL(request.url);
     const notionUrl = 'https://www.notion.so' + url.pathname;
     let response;
+
+    const wixUrl = 'https://stepupvirtual.wixsite.com/' + url.pathname.slice(4);
+    if (url.pathname.startsWith("/wix")) {
+        response = await fetch(wixUrl, {
+            body: request.body,
+            headers: request.headers,
+            method: request.method,
+        });
+        response = new Response(response.body, response);
+        response.headers.delete('Content-Security-Policy');
+        response.headers.delete('X-Content-Security-Policy');
+        return wixAppendJavascript(response)
+    }
+
     if (url.pathname.startsWith('/app') && url.pathname.endsWith('js')) {
         response = await fetch(notionUrl);
         let body = await response.text();
@@ -289,3 +303,90 @@ async function appendJavascript(res, SLUG_TO_PAGE) {
         .on('body', new BodyRewriter(SLUG_TO_PAGE))
         .transform(res);
 }
+
+/* Step 3: enter your page title and description for SEO purposes */
+const WIX_PAGE_TITLE = 'Step Up Virtual';
+const WIX_PAGE_DESCRIPTION = 'Virtual summer camp';
+
+class WixMetaRewriter {
+    element(element) {
+        if (WIX_PAGE_TITLE !== '') {
+            if (element.getAttribute('property') === 'og:title'
+                || element.getAttribute('name') === 'twitter:title') {
+                element.setAttribute('content', WIX_PAGE_TITLE);
+            }
+            if (element.tagName === 'title') {
+                element.setInnerContent(WIX_PAGE_TITLE);
+            }
+        }
+        if (WIX_PAGE_DESCRIPTION !== '') {
+            if (element.getAttribute('name') === 'description'
+                || element.getAttribute('property') === 'og:description'
+                || element.getAttribute('name') === 'twitter:description') {
+                element.setAttribute('content', WIX_PAGE_DESCRIPTION);
+            }
+        }
+        if (element.getAttribute('property') === 'og:url'
+            || element.getAttribute('name') === 'twitter:url') {
+            element.setAttribute('content', MY_DOMAIN);
+        }
+        if (element.getAttribute('name') === 'apple-itunes-app') {
+            element.remove();
+        }
+    }
+}
+
+class WixHeadRewriter {
+    element(element) {
+        element.append(`
+        <script>
+        var links = document.getElementsByTagName("link");
+        for (var i = 0; i < links.length; i++) {
+            console.log(links[i].href)
+            if (links[i].href.includes("/_partials")) {
+                links[i].href = links[i].href.replace("https://${MY_DOMAIN}","https://stepupvirtual.wixsite.com")
+            } 
+            console.log(links[i].href)
+        }
+        </script>
+        `, {
+            html: true
+        });
+    }
+}
+
+class WixBodyRewriter {
+    element(element) {
+        element.append(`
+      <script>
+      const pushState = window.history.pushState;
+      window.history.pushState = function(state) {
+        const dest = new URL(location.protocol + location.host + arguments[2]);
+        arguments[2] = '/' + dest.pathname;
+        return pushState.apply(window.history, arguments);
+      };
+      const open = window.XMLHttpRequest.prototype.open;
+      window.XMLHttpRequest.prototype.open = function() {
+        return open.apply(this, [].slice.call(arguments));
+      };
+      window.onload = function() {
+        var anchors = document.getElementsByTagName("a");
+        for (var i = 0; i < anchors.length; i++) {
+            anchors[i].href = anchors[i].href.replace("https://stepupvirtual.wixsite.com/",'https://${MY_DOMAIN}/wix/')
+        }
+      }</script>
+        `, {
+            html: true
+        });
+    }
+}
+
+async function wixAppendJavascript(res) {
+    return new HTMLRewriter()
+        .on('title', new WixMetaRewriter())
+        .on('meta', new WixMetaRewriter())
+        .on('head', new WixHeadRewriter())
+        .on('body', new WixBodyRewriter())
+        .transform(res);
+}
+

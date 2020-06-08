@@ -2,7 +2,7 @@
 
 /* Step 1: enter your domain name like fruitionsite.com */
 const MY_DOMAIN = 'garyshen.me';
-const MY_NOTION_EMAIL = 'gshen7@uwo.ca'
+const MY_NOTION_EMAIL = 'gshen7@uwo.ca';
 
 /*
  * Step 2: enter your URL slug to page ID mapping
@@ -114,7 +114,7 @@ async function fetchAndApply(request) {
                 throw new Error('notion page not one of mine')
             }
         }
-        
+
         response = new Response(response.body, response);
         response.headers.set('Access-Control-Allow-Origin', '*');
     } else if (slugs.indexOf(url.pathname.slice(1)) > -1) {
@@ -382,7 +382,26 @@ class WixBodyRewriter {
         for (var i = 0; i < anchors.length; i++) {
             anchors[i].href = anchors[i].href.replace("https://stepupvirtual.wixsite.com/",'https://${MY_DOMAIN}/wix/')
         }
-      }</script>
+      }
+
+        function hideElement(qs) {
+            let eles = document.querySelectorAll(qs)
+            eles && eles.forEach(ele => ele.style.display = "none")
+        }
+        function shiftElement(qs) {
+            let eles = document.querySelectorAll(qs)
+            eles && eles.forEach(ele => ele.style.top = "0px")
+        }
+        let MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+        let body = document.querySelector('body');
+        let observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+                hideElement("#WIX_ADS")
+                shiftElement("#SITE_ROOT")
+            });
+        });
+        observer.observe(body, { subtree: true, childList: true });  
+        </script>
         `, {
             html: true
         });

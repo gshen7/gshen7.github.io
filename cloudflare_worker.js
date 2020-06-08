@@ -90,7 +90,7 @@ async function fetchAndApply(request) {
         response = new Response(response.body, response);
         response.headers.delete('Content-Security-Policy');
         response.headers.delete('X-Content-Security-Policy');
-        return wixAppendJavascript(response)
+        return wixAppendJavascript(response, ID_TO_ANCHOR, DISABLE_IDS)
     }
 
     if (url.pathname.startsWith('/app') && url.pathname.endsWith('js')) {
@@ -316,6 +316,29 @@ async function appendJavascript(res, SLUG_TO_PAGE) {
 const WIX_PAGE_TITLE = 'Step Up Virtual';
 const WIX_PAGE_DESCRIPTION = 'Virtual summer camp';
 
+const ID_TO_ANCHOR = {
+    "comp-kb5wa2d52linkElement": "comp-kb5wfgzn", //mission
+    "comp-kb5wa2d53linkElement": "comp-kb5vjzt9", //program structure
+    "comp-kb5wa2d5moreContainer3linkElement": "comp-kb5vjzt9", //program structure
+    "comp-kb5wa2d54linkElement": "comp-kb5vjzta", //innovation challenge
+    "comp-kb5wa2d5moreContainer4linkElement": "comp-kb5vjzta", //program structure
+    "comp-kb5wa2d55linkElement": "comp-kb5w5xz2", //meet the team
+    "comp-kb5wa2d5moreContainer5linkElement": "comp-kb5w5xz2", //program structure
+    "comp-kb5wa2d56linkElement": "comp-kb5wlxwa", //FAQ
+    "comp-kb5wa2d5moreContainer6linkElement": "comp-kb5wlxwa", //program structure
+    "comp-kb5wa2d57linkElement": "comp-kb5wuniw", //Contact
+    "comp-kb5wa2d5moreContainer7linkElement": "comp-kb5wuniw", //program structure
+};
+const DISABLE_IDS = [
+    "comp-kb5wa2d5__more__linkElement" //more
+]
+
+class WixHtmlRewriter {
+    element(element) {
+        element.setAttribute('style', 'scroll-behavior:smooth;')
+    }
+}
+
 class WixMetaRewriter {
     element(element) {
         if (WIX_PAGE_TITLE !== '') {
@@ -344,45 +367,17 @@ class WixMetaRewriter {
     }
 }
 
-class WixHeadRewriter {
-    element(element) {
-        element.append(`
-        <script>
-        var links = document.getElementsByTagName("link");
-        for (var i = 0; i < links.length; i++) {
-            console.log(links[i].href)
-            if (links[i].href.includes("/_partials")) {
-                links[i].href = links[i].href.replace("https://${MY_DOMAIN}","https://stepupvirtual.wixsite.com")
-            } 
-            console.log(links[i].href)
-        }
-        </script>
-        `, {
-            html: true
-        });
-    }
-}
-
 class WixBodyRewriter {
+    constructor(ID_TO_ANCHOR, DISABLE_IDS) {
+        this.ID_TO_ANCHOR = ID_TO_ANCHOR;
+        this.DISABLE_IDS = DISABLE_IDS;
+    }
     element(element) {
         element.append(`
       <script>
-      const pushState = window.history.pushState;
-      window.history.pushState = function(state) {
-        const dest = new URL(location.protocol + location.host + arguments[2]);
-        arguments[2] = '/' + dest.pathname;
-        return pushState.apply(window.history, arguments);
-      };
-      const open = window.XMLHttpRequest.prototype.open;
-      window.XMLHttpRequest.prototype.open = function() {
-        return open.apply(this, [].slice.call(arguments));
-      };
-      window.onload = function() {
-        var anchors = document.getElementsByTagName("a");
-        for (var i = 0; i < anchors.length; i++) {
-            anchors[i].href = anchors[i].href.replace("https://stepupvirtual.wixsite.com/",'https://${MY_DOMAIN}/wix/')
-        }
-      }
+        const DISABLE_IDS = ${JSON.stringify(this.DISABLE_IDS)};
+
+        const ID_TO_ANCHOR = ${JSON.stringify(this.ID_TO_ANCHOR)};
 
         function hideElement(qs) {
             let eles = document.querySelectorAll(qs)
@@ -392,12 +387,27 @@ class WixBodyRewriter {
             let eles = document.querySelectorAll(qs)
             eles && eles.forEach(ele => ele.style.top = "0px")
         }
+
         let MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
         let body = document.querySelector('body');
         let observer = new MutationObserver(function (mutations) {
             mutations.forEach(function (mutation) {
                 hideElement("#WIX_ADS")
                 shiftElement("#SITE_ROOT")
+
+                var anchors = document.getElementsByTagName("a");
+                for (var i = 0; i < anchors.length; i++) {
+                    anchors[i].href = anchors[i].href.replace("https://stepupvirtual.wixsite.com/",'https://${MY_DOMAIN}/wix/')
+                    if(Object.keys(ID_TO_ANCHOR).includes(anchors[i].id)){
+                        let anchor = ID_TO_ANCHOR[anchors[i].id]
+                        let base = anchors[i].href.indexOf("#") > -1 ? anchors[i].href.substring(0,anchors[i].href.indexOf("#")) : anchors[i].href
+                        anchors[i].href = base + "#" + anchor
+                    }
+                    if(DISABLE_IDS.includes(anchors[i].id)) {
+                        anchors[i].href=""
+                        anchors[i].setAttribute("onclick", "return false;")
+                    }
+                }
             });
         });
         observer.observe(body, { subtree: true, childList: true });  
@@ -408,12 +418,15 @@ class WixBodyRewriter {
     }
 }
 
-async function wixAppendJavascript(res) {
+
+
+async function wixAppendJavascript(res, ID_TO_ANCHOR, DISABLE_IDS) {
     return new HTMLRewriter()
+        .on('html', new WixHtmlRewriter())
         .on('title', new WixMetaRewriter())
         .on('meta', new WixMetaRewriter())
-        .on('head', new WixHeadRewriter())
-        .on('body', new WixBodyRewriter())
+        // .on('head', new WixHeadRewriter())
+        .on('body', new WixBodyRewriter(ID_TO_ANCHOR, DISABLE_IDS))
         .transform(res);
 }
 

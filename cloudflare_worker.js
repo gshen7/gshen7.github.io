@@ -16,8 +16,8 @@ const SLUG_TO_PAGE = {
     'collections/podcasts': "724c3f079a984764827af3b4cf56d4a3",
     'collections/reading': "83b479d188174ef9959498621073a481",
     'collections/shows-movies': "356ff575c7d34555a25683b7224e6486",
-    'excel-ribbon-keys': 'a00a21aa2a3c436ea188ac45ef2b0584',
-    'excel-ribbon-keys/feedback': '1f7be4d9332d4cac84ed32883abbb2a1',
+    'ribbon-keys-excel': 'a00a21aa2a3c436ea188ac45ef2b0584',
+    'ribbon-keys-excel/feedback': '1f7be4d9332d4cac84ed32883abbb2a1',
     'isolation-desktop': '85c66375a78344e0a2a77ac170428a55',
     "knowledge-base": "c9d38a3493a14bedae56b206a71ad9db",
 };

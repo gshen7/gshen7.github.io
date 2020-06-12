@@ -80,19 +80,6 @@ async function fetchAndApply(request) {
     const notionUrl = 'https://www.notion.so' + url.pathname;
     let response;
 
-    const wixUrl = 'https://stepupvirtual.wixsite.com/' + url.pathname.slice(4);
-    if (url.pathname.startsWith("/wix")) {
-        response = await fetch(wixUrl, {
-            body: request.body,
-            headers: request.headers,
-            method: request.method,
-        });
-        response = new Response(response.body, response);
-        response.headers.delete('Content-Security-Policy');
-        response.headers.delete('X-Content-Security-Policy');
-        return wixAppendJavascript(response, ID_TO_ANCHOR, DISABLE_IDS)
-    }
-
     if (url.pathname.startsWith('/app') && url.pathname.endsWith('js')) {
         response = await fetch(notionUrl);
         let body = await response.text();
@@ -108,12 +95,6 @@ async function fetchAndApply(request) {
             },
             method: 'POST',
         });
-
-        if (url.pathname.includes("loadPageChunk")) {
-            if (!response.body.includes(MY_NOTION_EMAIL)) {
-                throw new Error('notion page not one of mine')
-            }
-        }
 
         response = new Response(response.body, response);
         response.headers.set('Access-Control-Allow-Origin', '*');
@@ -311,123 +292,3 @@ async function appendJavascript(res, SLUG_TO_PAGE) {
         .on('body', new BodyRewriter(SLUG_TO_PAGE))
         .transform(res);
 }
-
-/* Step 3: enter your page title and description for SEO purposes */
-const WIX_PAGE_TITLE = 'Step Up Virtual';
-const WIX_PAGE_DESCRIPTION = 'Virtual summer camp';
-
-const ID_TO_ANCHOR = {
-    "comp-kb5wa2d52linkElement": "comp-kb5wfgzn", //mission
-    "comp-kb5wa2d53linkElement": "comp-kb5vjzt9", //program structure
-    "comp-kb5wa2d5moreContainer3linkElement": "comp-kb5vjzt9", //program structure
-    "comp-kb5wa2d54linkElement": "comp-kb5vjzta", //innovation challenge
-    "comp-kb5wa2d5moreContainer4linkElement": "comp-kb5vjzta", //program structure
-    "comp-kb5wa2d55linkElement": "comp-kb5w5xz2", //meet the team
-    "comp-kb5wa2d5moreContainer5linkElement": "comp-kb5w5xz2", //program structure
-    "comp-kb5wa2d56linkElement": "comp-kb5wlxwa", //FAQ
-    "comp-kb5wa2d5moreContainer6linkElement": "comp-kb5wlxwa", //program structure
-    "comp-kb5wa2d57linkElement": "comp-kb5wuniw", //Contact
-    "comp-kb5wa2d5moreContainer7linkElement": "comp-kb5wuniw", //program structure
-};
-const DISABLE_IDS = [
-    "comp-kb5wa2d5__more__linkElement" //more
-]
-
-class WixHtmlRewriter {
-    element(element) {
-        element.setAttribute('style', 'scroll-behavior:smooth;')
-    }
-}
-
-class WixMetaRewriter {
-    element(element) {
-        if (WIX_PAGE_TITLE !== '') {
-            if (element.getAttribute('property') === 'og:title'
-                || element.getAttribute('name') === 'twitter:title') {
-                element.setAttribute('content', WIX_PAGE_TITLE);
-            }
-            if (element.tagName === 'title') {
-                element.setInnerContent(WIX_PAGE_TITLE);
-            }
-        }
-        if (WIX_PAGE_DESCRIPTION !== '') {
-            if (element.getAttribute('name') === 'description'
-                || element.getAttribute('property') === 'og:description'
-                || element.getAttribute('name') === 'twitter:description') {
-                element.setAttribute('content', WIX_PAGE_DESCRIPTION);
-            }
-        }
-        if (element.getAttribute('property') === 'og:url'
-            || element.getAttribute('name') === 'twitter:url') {
-            element.setAttribute('content', MY_DOMAIN);
-        }
-        if (element.getAttribute('name') === 'apple-itunes-app') {
-            element.remove();
-        }
-    }
-}
-
-class WixBodyRewriter {
-    constructor(ID_TO_ANCHOR, DISABLE_IDS) {
-        this.ID_TO_ANCHOR = ID_TO_ANCHOR;
-        this.DISABLE_IDS = DISABLE_IDS;
-    }
-    element(element) {
-        element.append(`
-      <script>
-        const DISABLE_IDS = ${JSON.stringify(this.DISABLE_IDS)};
-
-        const ID_TO_ANCHOR = ${JSON.stringify(this.ID_TO_ANCHOR)};
-
-        function hideElement(qs) {
-            let eles = document.querySelectorAll(qs)
-            eles && eles.forEach(ele => ele.style.display = "none")
-        }
-        function shiftElement(qs) {
-            let eles = document.querySelectorAll(qs)
-            eles && eles.forEach(ele => ele.style.top = "0px")
-        }
-
-        let MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
-        let body = document.querySelector('body');
-        let observer = new MutationObserver(function (mutations) {
-            mutations.forEach(function (mutation) {
-                hideElement("#WIX_ADS")
-                hideElement("#comp-kb5umtl8")
-                hideElement("#comp-kb5umtl81")
-                hideElement("#comp-kb5wt8qb")
-                shiftElement("#SITE_ROOT")
-
-                var anchors = document.getElementsByTagName("a");
-                for (var i = 0; i < anchors.length; i++) {
-                    anchors[i].href = anchors[i].href.replace("https://stepupvirtual.wixsite.com/",'https://${MY_DOMAIN}/wix/')
-                    if(Object.keys(ID_TO_ANCHOR).includes(anchors[i].id)){
-                        let anchor = ID_TO_ANCHOR[anchors[i].id]
-                        let base = anchors[i].href.indexOf("#") > -1 ? anchors[i].href.substring(0,anchors[i].href.indexOf("#")) : anchors[i].href
-                        anchors[i].href = base + "#" + anchor
-                    }
-                    if(DISABLE_IDS.includes(anchors[i].id)) {
-                        anchors[i].href=""
-                        anchors[i].setAttribute("onclick", "return false;")
-                    }
-                }
-            });
-        });
-        observer.observe(body, { subtree: true, childList: true });  
-        </script>
-        `, {
-            html: true
-        });
-    }
-}
-
-async function wixAppendJavascript(res, ID_TO_ANCHOR, DISABLE_IDS) {
-    return new HTMLRewriter()
-        .on('html', new WixHtmlRewriter())
-        .on('title', new WixMetaRewriter())
-        .on('meta', new WixMetaRewriter())
-        // .on('head', new WixHeadRewriter())
-        .on('body', new WixBodyRewriter(ID_TO_ANCHOR, DISABLE_IDS))
-        .transform(res);
-}
-

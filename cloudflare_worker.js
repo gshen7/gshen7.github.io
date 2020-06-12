@@ -3,6 +3,7 @@
 /* Step 1: enter your domain name like fruitionsite.com */
 const MY_DOMAIN = 'garyshen.me';
 const MY_NOTION_EMAIL = 'gshen7@uwo.ca';
+const MY_NOTION_USER_ID = 'dc3b7792-89e8-4a1e-a241-c8548683b2f4'
 
 /*
  * Step 2: enter your URL slug to page ID mapping
@@ -96,7 +97,16 @@ async function fetchAndApply(request) {
             method: 'POST',
         });
 
-        response = new Response(response.body, response);
+        let body = await response.text()
+
+        // PREVENT OTHER USERS' URLS
+        if (url.pathname.includes("loadPageChunk")) {
+            if (!body.includes('notion_user":{"' + MY_NOTION_USER_ID)) {
+                throw new Error('False domain!')
+            }
+        }
+
+        response = new Response(body, response);
         response.headers.set('Access-Control-Allow-Origin', '*');
     } else if (slugs.indexOf(url.pathname.slice(1)) > -1) {
         const pageId = SLUG_TO_PAGE[url.pathname.slice(1)];

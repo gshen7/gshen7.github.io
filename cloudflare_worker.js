@@ -1,15 +1,8 @@
 /* CONFIGURATION STARTS HERE */
 
-/* Step 1: enter your domain name like fruitionsite.com */
 const MY_DOMAIN = 'garyshen.me';
-const MY_NOTION_EMAIL = 'gshen7@uwo.ca';
-const MY_NOTION_USER_ID = 'dc3b7792-89e8-4a1e-a241-c8548683b2f4'
+const NOTION_EMAILS = ['gshen7@uwo.ca'];
 
-/*
- * Step 2: enter your URL slug to page ID mapping
- * The key on the left is the slug (without the slash)
- * The value on the right is the Notion page ID
- */
 const SLUG_TO_PAGE = {
     '': '486a836e6add478f83d45ea92c7d1e2d',
     'bio': '905c15817f084cd0abd5d46670d6e946',
@@ -17,21 +10,15 @@ const SLUG_TO_PAGE = {
     'collections/podcasts': "724c3f079a984764827af3b4cf56d4a3",
     'collections/reading': "83b479d188174ef9959498621073a481",
     'collections/shows-movies': "356ff575c7d34555a25683b7224e6486",
+    'notion-forms': 'e2c9976a93164bf086834f72ed838bc8',
     'ribbon-keys-excel': 'a00a21aa2a3c436ea188ac45ef2b0584',
-    'ribbon-keys-excel/feedback': '1f7be4d9332d4cac84ed32883abbb2a1',
     'isolation-desktop': '85c66375a78344e0a2a77ac170428a55',
     "knowledge-base": "c9d38a3493a14bedae56b206a71ad9db",
 };
 
-/* Step 3: enter your page title and description for SEO purposes */
 const PAGE_TITLE = 'Gary Shen';
 const PAGE_DESCRIPTION = 'Public personal Notion page for Gary Shen.';
-
-/* Step 4: enter a Google Font name, you can choose from https://fonts.google.com */
 const GOOGLE_FONT = 'Amiri';
-
-/* Step 5: enter any custom scripts you'd like */
-const CUSTOM_SCRIPT = ``;
 
 /* CONFIGURATION ENDS HERE */
 
@@ -48,6 +35,17 @@ Object.keys(SLUG_TO_PAGE).forEach(slug => {
 addEventListener('fetch', event => {
     event.respondWith(fetchAndApply(event.request));
 });
+
+function generateSitemap() {
+    let sitemap = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+    slugs.forEach(
+        (slug) =>
+            (sitemap +=
+                "<url><loc>https://" + MY_DOMAIN + "/" + slug + "</loc></url>")
+    );
+    sitemap += "</urlset>";
+    return sitemap;
+}
 
 const corsHeaders = {
     'Access-Control-Allow-Origin': '*',
@@ -78,6 +76,15 @@ async function fetchAndApply(request) {
         return handleOptions(request);
     }
     let url = new URL(request.url);
+    if (url.pathname === "/robots.txt") {
+        return new Response("Sitemap: https://" + MY_DOMAIN + "/sitemap.xml");
+    }
+    if (url.pathname === "/sitemap.xml") {
+        let response = new Response(generateSitemap());
+        response.headers.set("content-type", "application/xml");
+        return response;
+    }
+
     const notionUrl = 'https://www.notion.so' + url.pathname;
     let response;
 
@@ -86,6 +93,7 @@ async function fetchAndApply(request) {
         let body = await response.text();
         response = new Response(body.replace(/www.notion.so/g, MY_DOMAIN).replace(/notion.so/g, MY_DOMAIN), response);
         response.headers.set('Content-Type', 'application/x-javascript');
+        return response
     } else if ((url.pathname.startsWith('/api'))) {
         // Forward API
         response = await fetch(notionUrl, {
@@ -101,13 +109,15 @@ async function fetchAndApply(request) {
 
         // PREVENT OTHER USERS' URLS
         if (url.pathname.includes("loadPageChunk")) {
-            if (!body.includes('notion_user":{"' + MY_NOTION_USER_ID)) {
+            const data = JSON.parse(body);
+            if (!NOTION_EMAILS.includes(data.recordMap.notion_user[Object.keys(data.recordMap.notion_user)[0]].value.email)) {
                 throw new Error('False domain!')
             }
         }
 
         response = new Response(body, response);
         response.headers.set('Access-Control-Allow-Origin', '*');
+        return response
     } else if (slugs.indexOf(url.pathname.slice(1)) > -1) {
         const pageId = SLUG_TO_PAGE[url.pathname.slice(1)];
         return Response.redirect('https://' + MY_DOMAIN + '/' + pageId, 301);
@@ -288,7 +298,7 @@ class BodyRewriter {
         arguments[1] = arguments[1].replace('${MY_DOMAIN}', 'www.notion.so');
         return open.apply(this, [].slice.call(arguments));
       };
-    </script>${CUSTOM_SCRIPT}`, {
+    </script>`, {
             html: true
         });
     }

@@ -10,7 +10,7 @@ const SLUG_TO_PAGE = {
     'collections/podcasts': "724c3f079a984764827af3b4cf56d4a3",
     'collections/reading': "83b479d188174ef9959498621073a481",
     'collections/shows-movies': "356ff575c7d34555a25683b7224e6486",
-    'notion-forms': 'e2c9976a93164bf086834f72ed838bc8',
+    'notion-forms':'e2c9976a93164bf086834f72ed838bc8',
     'ribbon-keys-excel': 'a00a21aa2a3c436ea188ac45ef2b0584',
     'isolation-desktop': '85c66375a78344e0a2a77ac170428a55',
     "knowledge-base": "c9d38a3493a14bedae56b206a71ad9db",
@@ -37,14 +37,14 @@ addEventListener('fetch', event => {
 });
 
 function generateSitemap() {
-    let sitemap = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
-    slugs.forEach(
-        (slug) =>
-            (sitemap +=
-                "<url><loc>https://" + MY_DOMAIN + "/" + slug + "</loc></url>")
-    );
-    sitemap += "</urlset>";
-    return sitemap;
+  let sitemap = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+  slugs.forEach(
+    (slug) =>
+      (sitemap +=
+        "<url><loc>https://" + MY_DOMAIN + "/" + slug + "</loc></url>")
+  );
+  sitemap += "</urlset>";
+  return sitemap;
 }
 
 const corsHeaders = {
@@ -84,7 +84,7 @@ async function fetchAndApply(request) {
         response.headers.set("content-type", "application/xml");
         return response;
     }
-
+    
     const notionUrl = 'https://www.notion.so' + url.pathname;
     let response;
 
@@ -106,7 +106,7 @@ async function fetchAndApply(request) {
         });
 
         let body = await response.text()
-
+    
         // PREVENT OTHER USERS' URLS
         if (url.pathname.includes("loadPageChunk")) {
             const data = JSON.parse(body);
@@ -121,6 +121,8 @@ async function fetchAndApply(request) {
     } else if (slugs.indexOf(url.pathname.slice(1)) > -1) {
         const pageId = SLUG_TO_PAGE[url.pathname.slice(1)];
         return Response.redirect('https://' + MY_DOMAIN + '/' + pageId, 301);
+    } else if (url.pathname.slice(1)==='ribbon-keys-excel/feedback') {
+        return Response.redirect("http://notion-forms.com/form/5ef61ec51f5faa8747e7c822", 301)
     } else {
         response = await fetch(notionUrl, {
             body: request.body,

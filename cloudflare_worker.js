@@ -6,14 +6,15 @@ const NOTION_EMAILS = ['gshen7@uwo.ca'];
 const SLUG_TO_PAGE = {
     '': '486a836e6add478f83d45ea92c7d1e2d',
     'bio': '905c15817f084cd0abd5d46670d6e946',
-    'collections': 'b938fe571817484ea0c506c49875e8fb',
-    'collections/podcasts': "724c3f079a984764827af3b4cf56d4a3",
-    'collections/reading': "83b479d188174ef9959498621073a481",
-    'collections/shows-movies': "356ff575c7d34555a25683b7224e6486",
+    "collections": "b938fe571817484ea0c506c49875e8fb",
+    "knowledge": "c9d38a3493a14bedae56b206a71ad9db",
+    "thoughts": "385325b37a214733881e3ca04e11f8a9",
+    'listening': "724c3f079a984764827af3b4cf56d4a3",
+    'reading': "4367320dbb3e4a8b80c3b3540dae4d93",
+    'watching': "a144d36956ad47e4b6ffe85a332367b1",
     'notion-forms':'e2c9976a93164bf086834f72ed838bc8',
     'ribbon-keys-excel': 'a00a21aa2a3c436ea188ac45ef2b0584',
     'isolation-desktop': '85c66375a78344e0a2a77ac170428a55',
-    "knowledge-base": "c9d38a3493a14bedae56b206a71ad9db",
 };
 
 const PAGE_TITLE = 'Gary Shen';

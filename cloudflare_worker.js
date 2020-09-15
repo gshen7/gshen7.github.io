@@ -4,17 +4,17 @@ const MY_DOMAIN = 'garyshen.me';
 const NOTION_EMAILS = ['gshen7@uwo.ca'];
 
 const SLUG_TO_PAGE = {
-    '': '486a836e6add478f83d45ea92c7d1e2d',
-    'bio': '905c15817f084cd0abd5d46670d6e946',
-    "collections": "b938fe571817484ea0c506c49875e8fb",
-    "knowledge": "c9d38a3493a14bedae56b206a71ad9db",
-    "thoughts": "385325b37a214733881e3ca04e11f8a9",
-    'listening': "724c3f079a984764827af3b4cf56d4a3",
-    'reading': "4367320dbb3e4a8b80c3b3540dae4d93",
-    'watching': "a144d36956ad47e4b6ffe85a332367b1",
-    'notion-forms':'e2c9976a93164bf086834f72ed838bc8',
-    'ribbon-keys-excel': 'a00a21aa2a3c436ea188ac45ef2b0584',
-    'isolation-desktop': '85c66375a78344e0a2a77ac170428a55',
+  '': '486a836e6add478f83d45ea92c7d1e2d',
+  'bio': '905c15817f084cd0abd5d46670d6e946',
+  "collections": "b938fe571817484ea0c506c49875e8fb",
+  "knowledge": "c9d38a3493a14bedae56b206a71ad9db",
+  "thoughts": "385325b37a214733881e3ca04e11f8a9",
+  'listening': "724c3f079a984764827af3b4cf56d4a3",
+  'reading': "4367320dbb3e4a8b80c3b3540dae4d93",
+  'watching': "a144d36956ad47e4b6ffe85a332367b1",
+  'notion-forms': 'e2c9976a93164bf086834f72ed838bc8',
+  'ribbon-keys-excel': 'a00a21aa2a3c436ea188ac45ef2b0584',
+  'isolation-desktop': '85c66375a78344e0a2a77ac170428a55',
 };
 
 const PAGE_TITLE = 'Gary Shen';
@@ -27,14 +27,14 @@ const PAGE_TO_SLUG = {};
 const slugs = [];
 const pages = [];
 Object.keys(SLUG_TO_PAGE).forEach(slug => {
-    const page = SLUG_TO_PAGE[slug];
-    slugs.push(slug);
-    pages.push(page);
-    PAGE_TO_SLUG[page] = slug;
+  const page = SLUG_TO_PAGE[slug];
+  slugs.push(slug);
+  pages.push(page);
+  PAGE_TO_SLUG[page] = slug;
 });
 
 addEventListener('fetch', event => {
-    event.respondWith(fetchAndApply(event.request));
+  event.respondWith(fetchAndApply(event.request));
 });
 
 function generateSitemap() {
@@ -49,137 +49,138 @@ function generateSitemap() {
 }
 
 const corsHeaders = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, HEAD, POST, PUT, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET, HEAD, POST, PUT, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
 };
 
 function handleOptions(request) {
-    if (request.headers.get('Origin') !== null &&
-        request.headers.get('Access-Control-Request-Method') !== null &&
-        request.headers.get('Access-Control-Request-Headers') !== null) {
-        // Handle CORS pre-flight request.
-        return new Response(null, {
-            headers: corsHeaders
-        });
-    } else {
-        // Handle standard OPTIONS request.
-        return new Response(null, {
-            headers: {
-                'Allow': 'GET, HEAD, POST, PUT, OPTIONS',
-            }
-        });
-    }
+  if (request.headers.get('Origin') !== null &&
+    request.headers.get('Access-Control-Request-Method') !== null &&
+    request.headers.get('Access-Control-Request-Headers') !== null) {
+    // Handle CORS pre-flight request.
+    return new Response(null, {
+      headers: corsHeaders
+    });
+  } else {
+    // Handle standard OPTIONS request.
+    return new Response(null, {
+      headers: {
+        'Allow': 'GET, HEAD, POST, PUT, OPTIONS',
+      }
+    });
+  }
 }
 
 async function fetchAndApply(request) {
-    if (request.method === 'OPTIONS') {
-        return handleOptions(request);
-    }
-    let url = new URL(request.url);
-    url.hostname = 'www.notion.so';
-    if (url.pathname === "/robots.txt") {
-        return new Response("Sitemap: https://" + MY_DOMAIN + "/sitemap.xml");
-    }
-    if (url.pathname === "/sitemap.xml") {
-        let response = new Response(generateSitemap());
-        response.headers.set("content-type", "application/xml");
-        return response;
-    }
-    
-    let response;
+  if (request.method === 'OPTIONS') {
+    return handleOptions(request);
+  }
+  let url = new URL(request.url);
+  if (url.pathname === "/robots.txt") {
+    return new Response("Sitemap: https://" + MY_DOMAIN + "/sitemap.xml");
+  }
+  if (url.pathname === "/sitemap.xml") {
+    let response = new Response(generateSitemap());
+    response.headers.set("content-type", "application/xml");
+    return response;
+  }
 
-    if (url.pathname.startsWith('/app') && url.pathname.endsWith('js')) {
-        response = await fetch(url.toString());
-        let body = await response.text();
-        response = new Response(body.replace(/www.notion.so/g, MY_DOMAIN).replace(/notion.so/g, MY_DOMAIN), response);
-        response.headers.set('Content-Type', 'application/x-javascript');
-        return response
-    } else if ((url.pathname.startsWith('/api'))) {
-        // Forward API
-        response = await fetch(url.toString(), {
-            body: request.body,
-            headers: {
-                'content-type': 'application/json;charset=UTF-8',
-                'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36'
-            },
-            method: 'POST',
-        });
+  const notionUrl = 'https://www.notion.so' + url.pathname;
+  let response;
 
-        let body = await response.text()
-    
-        // PREVENT OTHER USERS' URLS
-        if (url.pathname.includes("loadPageChunk")) {
-            const data = JSON.parse(body);
-            if (!NOTION_EMAILS.includes(data.recordMap.notion_user[Object.keys(data.recordMap.notion_user)[0]].value.email)) {
-                throw new Error('False domain!')
-            }
-        }
+  if (url.pathname.startsWith('/app') && url.pathname.endsWith('js')) {
+    response = await fetch(notionUrl);
+    let body = await response.text();
+    response = new Response(body.replace(/www.notion.so/g, MY_DOMAIN).replace(/notion.so/g, MY_DOMAIN), response);
+    response.headers.set('Content-Type', 'application/x-javascript');
+    return response
+  } else if ((url.pathname.startsWith('/api'))) {
+    // Forward API
+    response = await fetch(notionUrl, {
+      body: request.body,
+      headers: {
+        'content-type': 'application/json;charset=UTF-8',
+        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36'
+      },
+      method: 'POST',
+    });
 
-        response = new Response(body, response);
-        response.headers.set('Access-Control-Allow-Origin', '*');
-        return response
-    } else if (slugs.indexOf(url.pathname.slice(1)) > -1) {
-        const pageId = SLUG_TO_PAGE[url.pathname.slice(1)];
-        return Response.redirect('https://' + MY_DOMAIN + '/' + pageId, 301);
-    } else if (url.pathname.slice(1)==='ribbon-keys-excel/feedback') {
-        return Response.redirect("http://notion-forms.com/form/5ef61ec51f5faa8747e7c822", 301)
-    } else {
-        response = await fetch(url.toString(), {
-            body: request.body,
-            headers: request.headers,
-            method: request.method,
-        });
-        response = new Response(response.body, response);
-        response.headers.delete('Content-Security-Policy');
-        response.headers.delete('X-Content-Security-Policy');
-    }
+    let body = await response.text()
 
-    return appendJavascript(response, SLUG_TO_PAGE);
+    // PREVENT OTHER USERS' URLS
+    // this no longer works because of a change to the api
+    // if (url.pathname.includes("loadPageChunk")) {
+    //     const data = JSON.parse(body);
+    //     if (!NOTION_EMAILS.includes(data.recordMap.notion_user[Object.keys(data.recordMap.notion_user)[0]].value.email)) {
+    //         throw new Error('False domain!')
+    //     }
+    // }
+
+    response = new Response(body, response);
+    response.headers.set('Access-Control-Allow-Origin', '*');
+    return response
+  } else if (slugs.indexOf(url.pathname.slice(1)) > -1) {
+    const pageId = SLUG_TO_PAGE[url.pathname.slice(1)];
+    return Response.redirect('https://' + MY_DOMAIN + '/' + pageId, 301);
+  } else if (url.pathname.slice(1) === 'ribbon-keys-excel/feedback') {
+    return Response.redirect("http://notion-forms.com/form/5ef61ec51f5faa8747e7c822", 301)
+  } else {
+    response = await fetch(notionUrl, {
+      body: request.body,
+      headers: request.headers,
+      method: request.method,
+    });
+    response = new Response(response.body, response);
+    response.headers.delete('Content-Security-Policy');
+    response.headers.delete('X-Content-Security-Policy');
+  }
+
+  return appendJavascript(response, SLUG_TO_PAGE);
 }
 
 class MetaRewriter {
-    element(element) {
-        if (PAGE_TITLE !== '') {
-            if (element.getAttribute('property') === 'og:title'
-                || element.getAttribute('name') === 'twitter:title') {
-                element.setAttribute('content', PAGE_TITLE);
-            }
-            if (element.tagName === 'title') {
-                element.setInnerContent(PAGE_TITLE);
-            }
-        }
-        if (PAGE_DESCRIPTION !== '') {
-            if (element.getAttribute('name') === 'description'
-                || element.getAttribute('property') === 'og:description'
-                || element.getAttribute('name') === 'twitter:description') {
-                element.setAttribute('content', PAGE_DESCRIPTION);
-            }
-        }
-        if (element.getAttribute('property') === 'og:url'
-            || element.getAttribute('name') === 'twitter:url') {
-            element.setAttribute('content', MY_DOMAIN);
-        }
-        if (element.getAttribute('name') === 'apple-itunes-app') {
-            element.remove();
-        }
+  element(element) {
+    if (PAGE_TITLE !== '') {
+      if (element.getAttribute('property') === 'og:title'
+        || element.getAttribute('name') === 'twitter:title') {
+        element.setAttribute('content', PAGE_TITLE);
+      }
+      if (element.tagName === 'title') {
+        element.setInnerContent(PAGE_TITLE);
+      }
     }
+    if (PAGE_DESCRIPTION !== '') {
+      if (element.getAttribute('name') === 'description'
+        || element.getAttribute('property') === 'og:description'
+        || element.getAttribute('name') === 'twitter:description') {
+        element.setAttribute('content', PAGE_DESCRIPTION);
+      }
+    }
+    if (element.getAttribute('property') === 'og:url'
+      || element.getAttribute('name') === 'twitter:url') {
+      element.setAttribute('content', MY_DOMAIN);
+    }
+    if (element.getAttribute('name') === 'apple-itunes-app') {
+      element.remove();
+    }
+  }
 }
 
 class HeadRewriter {
-    element(element) {
-        // element.append(`<!-- Global site tag (gtag.js) - Google Analytics -->
-        // <script async src="https://www.googletagmanager.com/gtag/js?id=UA-105011628-2"></script>
-        // <script>
-        // window.dataLayer = window.dataLayer || [];
-        // function gtag(){dataLayer.push(arguments);}
-        // gtag('js', new Date());
-        // gtag('config', 'UA-105011628-2');
-        // </script>`, {
-        //   html: true
-        // })
-        //manual requests to google analytics
-        element.append(`<script>
+  element(element) {
+    // element.append(`<!-- Global site tag (gtag.js) - Google Analytics -->
+    // <script async src="https://www.googletagmanager.com/gtag/js?id=UA-105011628-2"></script>
+    // <script>
+    // window.dataLayer = window.dataLayer || [];
+    // function gtag(){dataLayer.push(arguments);}
+    // gtag('js', new Date());
+    // gtag('config', 'UA-105011628-2');
+    // </script>`, {
+    //   html: true
+    // })
+    //manual requests to google analytics
+    element.append(`<script>
         function logToGA(){
             const pathname = window.location.pathname
             if (!pathname.startsWith('/app') && !pathname.endsWith('js') && !pathname.endsWith('css') && !pathname.startsWith('/api')) {
@@ -206,15 +207,15 @@ class HeadRewriter {
         };
       </script>
       `, {
-            html: true
-        })
-        if (GOOGLE_FONT !== '') {
-            element.append(`<link href="https://fonts.googleapis.com/css?family=${GOOGLE_FONT}:Regular,Bold,Italic&display=swap" rel="stylesheet">
+      html: true
+    })
+    if (GOOGLE_FONT !== '') {
+      element.append(`<link href="https://fonts.googleapis.com/css?family=${GOOGLE_FONT}:Regular,Bold,Italic&display=swap" rel="stylesheet">
         <style>* { font-family: ${GOOGLE_FONT} !important; }</style>`, {
-                html: true
-            });
-        }
-        element.append(`<style>
+        html: true
+      });
+    }
+    element.append(`<style>
       div.notion-topbar > div > div:nth-child(3) { display: none !important; }
       div.notion-topbar > div > div:nth-child(4) { display: none !important; }
       div.notion-topbar > div > div:nth-child(5) { display: none !important; }
@@ -224,17 +225,17 @@ class HeadRewriter {
       div.notion-topbar > div > div:nth-child(1n).toggle-mode { display: block !important; }
       div.notion-topbar-mobile > div:nth-child(1n).toggle-mode { display: block !important; }
       </style>`, {
-            html: true
-        })
-    }
+      html: true
+    })
+  }
 }
 
 class BodyRewriter {
-    constructor(SLUG_TO_PAGE) {
-        this.SLUG_TO_PAGE = SLUG_TO_PAGE;
-    }
-    element(element) {
-        element.append(`<div style="display:none">Powered by <a href="http://fruitionsite.com">Fruition</a></div>
+  constructor(SLUG_TO_PAGE) {
+    this.SLUG_TO_PAGE = SLUG_TO_PAGE;
+  }
+  element(element) {
+    element.append(`<div style="display:none">Powered by <a href="http://fruitionsite.com">Fruition</a></div>
       <script>
       const SLUG_TO_PAGE = ${JSON.stringify(this.SLUG_TO_PAGE)};
       const PAGE_TO_SLUG = {};
@@ -282,7 +283,16 @@ class BodyRewriter {
         el.className = 'toggle-mode';
         el.addEventListener('click', toggle);
         nav.appendChild(el);
-        onLight();
+        // enable smart dark mode based on user-preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            onDark();
+        } else {
+            onLight();
+        }
+        // try to detect if user-preference change
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            toggle();
+        });
       }
       const observer = new MutationObserver(function() {
         if (redirected) return;
@@ -330,16 +340,16 @@ class BodyRewriter {
         return open.apply(this, [].slice.call(arguments));
       };
     </script>`, {
-            html: true
-        });
-    }
+      html: true
+    });
+  }
 }
 
 async function appendJavascript(res, SLUG_TO_PAGE) {
-    return new HTMLRewriter()
-        .on('title', new MetaRewriter())
-        .on('meta', new MetaRewriter())
-        .on('head', new HeadRewriter())
-        .on('body', new BodyRewriter(SLUG_TO_PAGE))
-        .transform(res);
+  return new HTMLRewriter()
+    .on('title', new MetaRewriter())
+    .on('meta', new MetaRewriter())
+    .on('head', new HeadRewriter())
+    .on('body', new BodyRewriter(SLUG_TO_PAGE))
+    .transform(res);
 }

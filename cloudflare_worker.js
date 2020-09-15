@@ -1,7 +1,7 @@
 /* CONFIGURATION STARTS HERE */
 
 const MY_DOMAIN = 'garyshen.me';
-const NOTION_EMAILS = ['gshen7@uwo.ca'];
+const NOTION_DOMAINS = ['gshen7'];
 
 const SLUG_TO_PAGE = {
   '': '486a836e6add478f83d45ea92c7d1e2d',
@@ -77,6 +77,7 @@ async function fetchAndApply(request) {
     return handleOptions(request);
   }
   let url = new URL(request.url);
+  url.hostname = 'www.notion.so';
   if (url.pathname === "/robots.txt") {
     return new Response("Sitemap: https://" + MY_DOMAIN + "/sitemap.xml");
   }
@@ -86,18 +87,18 @@ async function fetchAndApply(request) {
     return response;
   }
 
-  const notionUrl = 'https://www.notion.so' + url.pathname;
+  // const notionUrl = 'https://www.notion.so' + url.pathname;
   let response;
 
   if (url.pathname.startsWith('/app') && url.pathname.endsWith('js')) {
-    response = await fetch(notionUrl);
+    response = await fetch(url.toString());
     let body = await response.text();
     response = new Response(body.replace(/www.notion.so/g, MY_DOMAIN).replace(/notion.so/g, MY_DOMAIN), response);
     response.headers.set('Content-Type', 'application/x-javascript');
     return response
   } else if ((url.pathname.startsWith('/api'))) {
     // Forward API
-    response = await fetch(notionUrl, {
+    response = await fetch(url.toString(), {
       body: request.body,
       headers: {
         'content-type': 'application/json;charset=UTF-8',
@@ -109,6 +110,12 @@ async function fetchAndApply(request) {
     let body = await response.text()
 
     // PREVENT OTHER USERS' URLS
+    if (url.pathname.includes("getPublicPageData")) {
+        const data = JSON.parse(body);
+        if (!NOTION_DOMAINS.includes(data.spaceDomain)) {
+            throw new Error('False domain!')
+        }
+    }
     // this no longer works because of a change to the api
     // if (url.pathname.includes("loadPageChunk")) {
     //     const data = JSON.parse(body);
@@ -126,7 +133,7 @@ async function fetchAndApply(request) {
   } else if (url.pathname.slice(1) === 'ribbon-keys-excel/feedback') {
     return Response.redirect("http://notion-forms.com/form/5ef61ec51f5faa8747e7c822", 301)
   } else {
-    response = await fetch(notionUrl, {
+    response = await fetch(url.toString(), {
       body: request.body,
       headers: request.headers,
       method: request.method,
